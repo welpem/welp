@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import './WOS.css';
 
 
-
 export default function WOSCard(props) {
 
     return (
