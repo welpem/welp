@@ -81,7 +81,7 @@ export default function EditFormModule(props) {
           </DialogContentText> */}
 
 {/* title */}
-          <TextField
+          {/* <TextField
             autoFocus
             margin="dense"
             id="title"
@@ -90,9 +90,9 @@ export default function EditFormModule(props) {
             fullWidth
             onChange = {(e) => setTitle(e.target.value)}
             defaultValue = {props.welp_reviews.reviews_title}
-          />
+          /> */}
 {/* image url */}
-        <TextField
+        {/* <TextField
             autoFocus
             margin="dense"
             id="image_url"
@@ -101,11 +101,11 @@ export default function EditFormModule(props) {
             fullWidth
             onChange = {(e) => setImage(e.target.value)}
             defaultValue = {props.welp_reviews.reviews_img}
-          />
+          /> */}
       
 
 {/* description */}
-        <TextField
+        {/* <TextField
             autoFocus
             margin="dense"
             id="description"
@@ -120,24 +120,24 @@ export default function EditFormModule(props) {
 
 
 
-        <DialogActions>
+        <DialogActions> */}
 
 {/* Cancel button */}
-          <Button
+          {/* <Button
             onClick={handleCancel} color="primary"
           >
             Cancel
-          </Button>
+          </Button> */}
 
 {/* Submit button */}
-          <Button 
+          {/* <Button 
             onClick={handleEditSave} color="primary"
           >
             Save
           </Button>
      
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
 {/*  ---------- MaterialUI Pop Up Modal ---------- */}
 
     </div>
