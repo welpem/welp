@@ -21,6 +21,8 @@ const {
     updateWOS
 } = require('./controllers/WOSController')
 
+const ac = require('./controllers/authController')
+
 app.use(express.json());
 
 app.use(
@@ -34,7 +36,7 @@ app.use(
 
 })
 )
-console.log(SESSION_SECRET)
+// console.log(SESSION_SECRET)
 
 
 //database connected//
@@ -47,6 +49,12 @@ massive(CONNECTION_STRING).then(db => {
 
 
 //Endpoints//
+
+// --authController endpoints--
+app.get('/auth/user', ac.getUser)
+app.post('/auth/register', ac.register)
+app.post('/auth/login', ac.login)
+app.get('/auth/logout', ac.logout)
 
 //Reviews//
 app.get('/api/reviews', getReviews);
