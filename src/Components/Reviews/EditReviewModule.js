@@ -51,25 +51,34 @@ export default function EditFormModule(props) {
   return (
     <div>
 
-{/* EDIT button      */}
-          <IconButton aria-label="Info"
+{/* MaterialUI   EDIT button      */}
+          {/* <IconButton aria-label="Info"
           onClick={() => props.editReviewFn(props.reviews.reviews_id)}
           onClick={handleClickOpen}
           >
             <MoreVertIcon />
-          </IconButton>
-  
-{/* Pop up EDIT modal */}
+          </IconButton> */}
 
-      <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
+{/* Regular EDIT button */}
+
+          <button aria-label="Info"
+          onClick={() => props.editReviewFn(props.reviews.reviews_id)}
+          onClick={handleClickOpen}
+          >
+            Edit Button
+          </button>
+
+  
+{/*  ---------- MaterialUI Pop Up Modal ---------- */}
+
+      {/* <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
           
         <DialogTitle id="form-dialog-title">Edit your review</DialogTitle>
 
         <DialogContent style={{ paddingLeft: "4vw", paddingRight: "4vw"}}>
           <DialogContentText>
             Please edit the areas needed about your review:
-          </DialogContentText>
-
+          </DialogContentText> */}
 
 {/* title */}
           <TextField
@@ -126,8 +135,11 @@ export default function EditFormModule(props) {
           >
             Save
           </Button>
+     
         </DialogActions>
       </Dialog>
+{/*  ---------- MaterialUI Pop Up Modal ---------- */}
+
     </div>
   );
 }
