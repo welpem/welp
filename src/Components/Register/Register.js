@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Axios from 'axios';
 import {connect} from 'react-redux';
 
-// import {setName} from '../../Redux/reducer'
+import {setName, getUser} from '../../Redux/reducer'
 
 class Register extends Component{
     constructor(){
@@ -23,6 +23,15 @@ class Register extends Component{
         this.updateUser = this.updateUser.bind(this);
     }
 
+    // componentDidMount(){
+    //     Axios.get('/api/businesses')
+    //         .then(response=>{
+    //             this.setState({businesses: response.data})
+    //         })
+    //         .catch(()=> console.log('error at componentDidMount'))
+    //     this.props.getUser()
+    // }
+
     handleChange(e){
         this.setState({[e.target.name]: e.target.value})
     }
@@ -36,7 +45,7 @@ class Register extends Component{
 
         Axios.post('/auth/register', {first_name, last_name, image, password, email})
             .then(user=>{
-                this.props.setName([user.data.first_name, user.data.last_name]);
+                // this.props.setName([user.data.first_name, user.data.last_name]);
                 this.setState({
                     first_name: '',
                     last_name: '',
@@ -91,5 +100,5 @@ const mapStateToProps = state =>{
 }
 
 export default connect(mapStateToProps, 
-    // {setName}
+    {setName, getUser}
     )(Register)

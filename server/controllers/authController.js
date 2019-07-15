@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt.js')
+const bcrypt = require('bcryptjs')
 
 async function register(req, res){
     const {first_name, last_name, image, password, email} = req.body;
@@ -13,8 +13,8 @@ async function register(req, res){
     } else {
         const registeredUser = await db.add_user([first_name, last_name, image, hash, email])
         const user = registeredUser[0];
-        req.session.customer = {email: user.email, id: user.id, admin: user.admin}
-        return res.status(201).json(req.session.customer)
+        req.session.user = {id: user.id, email: user.email, first_name: user.first_name, last_name: user.last_name, image: user.image}
+        return res.status(201).json(req.session.user)
     }
 }
 async function login(req, res){
@@ -30,21 +30,22 @@ async function login(req, res){
     if(!isAuthenticated){
         return res.status(403).json('Try again');
     }
-    req.session.customer = {
-        id: user.customer_id,
+    req.session.user = {
+        id: user.user_id,
         email: user.email,
         first_name: user.first_name,
         last_name: user.last_name,
+        image: user.image
     }
-    return res.send(req.session.customer)
+    return res.send(req.session.user)
 }
 async function logout(req, res){
     req.session.destroy();
     return res.status(200).send(req.session);
 }
 async function getUser(req, res){
-    if(req.session.customer){
-        res.json(req.session.customer)
+    if(req.session.user){
+        res.json(req.session.user)
     } else {
         res.status(401).json(console.log('no user found'))
     }
