@@ -21,6 +21,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
     "redux": "^4.0.4",
+    "redux-promise-middleware": "^6.1.1",
     "sass": "^1.22.4",
     "scss": "^0.2.4"
   },

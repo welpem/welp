@@ -1,9 +1,10 @@
 import React from 'react';
-import Register from './Components/Register'
-import Home from './Components/Home'
-import WOS from './Components/WOS'
-import Reviews from './Components/Reviews'
+import Register from './Components/Register/Register'
+import Home from './Components/Home/Home'
+import WOS from './Components/WOS/WOS'
+import Reviews from './Components/Reviews/Reviews'
 import {Route, Switch} from 'react-router-dom';
+import Landing from './Components/Landing/Landing'
 
 export default (
     <Switch>

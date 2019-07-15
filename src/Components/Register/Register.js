@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Axios from 'axios';
 import {connect} from 'react-redux';
 
-import {setName} from '../../Redux/reducer'
+// import {setName} from '../../Redux/reducer'
 
 class Register extends Component{
     constructor(){
@@ -90,4 +90,6 @@ const mapStateToProps = state =>{
     }
 }
 
-export default connect(mapStateToProps, {setName})(Register)
+export default connect(mapStateToProps, 
+    // {setName}
+    )(Register)
