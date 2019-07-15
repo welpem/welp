@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import ReviewCard from './ReviewCard'
-import AddCardButton from './AddCardButton'
+// import AddCardButton from './AddCardButton'
 import axios from 'axios'
-import './Shop.css';
+import './Reviews.css';
 import {connect} from 'react-redux';
 
 
@@ -15,7 +15,7 @@ class Reviews extends Component{
             user:[]
         }
 
-    this.getProducts = this.getProducts.bind(this)
+    this.getReviews = this.getReviews.bind(this)
     }
 
 
@@ -62,6 +62,8 @@ class Reviews extends Component{
               <div >
                 {reviews ? displayReviews : 'No products yet'}
 
+
+                reviews
 
 
                 {/* <AddCardButton getReviews={this.getReviews}/> */}
