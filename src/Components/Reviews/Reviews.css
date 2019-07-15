@@ -1,0 +1,10 @@
+.reviews-container{
+    border: 1px black solid;
+    margin: 5vh;
+}
+
+
+.reviews-image{
+    max-width: 20vw;
+    max-height: 20vw;
+}
