@@ -35,7 +35,7 @@ class WOS extends Component{
     render(){
         // console.log(this.props);
 
-        let {wos } = this.state
+        let {wos} = this.state
         console.log(wos)
         let displayWOS = wos.map(welp_wos => {
         return(
