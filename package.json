@@ -11,7 +11,6 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
-    "jest": "^24.8.0",
     "massive": "^5.11.1",
     "node": "^12.6.0",
     "node-sass": "^4.12.0",
@@ -20,7 +19,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "^3.0.1",
     "redux": "^4.0.4",
     "sass": "^1.22.4",
     "scss": "^0.2.4"

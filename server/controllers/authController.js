@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt.js')
+const bcrypt = require('bcryptjs')
 
 async function register(req, res){
     const {first_name, last_name, image, password, email} = req.body;
