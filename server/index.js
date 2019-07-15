@@ -21,15 +21,14 @@ const {
 
 //Endpoints//
 
-//Reviews//
+//Reviews
 app.get('/api/reviews', getReviews);
 app.delete('/api/reviews/:reviews_id', deleteReview);
 app.post('/api/reviews', createReview);
 app.put('/api/reviews', updateReview)
 
 
-
-
+//W.O.S
 
 
 
@@ -50,7 +49,7 @@ app.use(
 
 })
 )
-
+ 
 
 //database connected//
 massive(CONNECTION_STRING).then(db => {
