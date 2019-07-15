@@ -1,40 +1,62 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Reviews.css';
+import EditReviewModule from './EditReviewModule'
 
 
 // ------------ SAVE BELOW FOR LATER ------------
-// import EditFormModule from './EditFormModule'
-// import IconButton from '@material-ui/core/IconButton';
-// import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+
+import IconButton from '@material-ui/core/IconButton';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 // ------------ SAVE ABOVE FOR LATER ------------
 
 
 export default function ReviewCard(props) {
-
+    console.log(props)
     return (
-        <div>
+        <div className = 'reviews-container'>
   
 
-{/* delete button */}
-          {/* <Link to='/review' onClick={() => props.deleteOneFn(props.shop_id)}>
-              <IconButton  aria-label="Delete" >
-                  <DeleteOutlinedIcon />
-              </IconButton>
-          </Link> */}
+{/* OLD delete button */}
+ 
+              {/* <button 
+                onClick={() => props.deleteReviewFn(props.welp_reviews.reviews_id)}> 
+                Delete
+              </button> */}
+
+{/* NEW delete button */}    
+
+        <Link to='/reviews' onClick={() => props.deleteReviewFb(props.welp_reviews.reviews_id)}>
+            <IconButton  aria-label="Delete" >
+                <DeleteOutlinedIcon />
+            </IconButton>
+        </Link>
    
   
 {/* edit button */}
-            {/* <EditFormModule getReviews={props.getReviews} welp_reviews={props.welp_reviews}/> */}
+            <EditReviewModule 
+                getReviews={props.getReviews} 
+                welp_reviews={props.welp_reviews}
+            />
   
+    
+
+{/* review title */}
+            <h4>{props.welp_reviews.reviews_title}</h4>
 
 
-{/* see stuff */}
-            <h1>{props.reviews_title}</h1>
-            <img src={props.reviews_img} />
-            <p>{props.reviews_description}</p>
-            <p>{props.props.reviews_score}</p>
+{/* review picture */}
+           
+              <img className = 'reviews-image'
+                src={props.welp_reviews.reviews_img} />
+    
 
+{/* review description */}
+            <p>{props.welp_reviews.reviews_description}</p>
+
+{/* review score */}
+            <p>{props.welp_reviews.reviews_score} stars</p>
+          
       </div>
     );
   }

@@ -2,7 +2,7 @@
 const getWOS = async (req, res) => {
     const reply = await req.app
       .get("db")
-      .get_WOS()
+      .get_wos()
       .catch(error => {
         console.log(error);
         res.status(500).json("Server Error in getWOS on WOSController");
@@ -56,22 +56,20 @@ const updateWOS = (req,res) => {
     console.log(req.body)
     const db = req.app.get('db'),
         { 
-        reviews_id, 
-        reviews_title, 
-        reviews_img, 
-        reviews_description, 
-        reviews_score, 
+        wos_id, 
+        wos_title, 
+        wos_img, 
+        wos_description
         } = req.body;
   
-    db.update_review( 
-        reviews_id, 
-        reviews_title, 
-        reviews_img, 
-        reviews_description, 
-        reviews_score, 
+    db.update_wos( 
+        wos_id, 
+        wos_title, 
+        wos_img, 
+        wos_description
         )
         .then(response => res.status(200).json(response))
-        .catch(error => res.status(500).send(`update_review (reviewController): ${error}`))
+        .catch(error => res.status(500).send(`update_wos (WOSController): ${error}`))
   }
 
 
