@@ -7,6 +7,36 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const app = express();
 
+
+const {
+    getReviews,
+    deleteReview,
+    createReview,
+    updateReview
+} = require('./controllers/reviewController')
+
+
+
+
+
+//Endpoints//
+
+//Reviews//
+app.get('/api/reviews', getReviews);
+app.delete('/api/reviews/:reviews_id', deleteReview);
+app.post('/api/reviews', createReview);
+app.put('/api/reviews', updateReview)
+
+
+
+
+
+
+
+
+
+
+
 app.use(express.json());
 
 app.use(
@@ -20,6 +50,7 @@ app.use(
 
 })
 )
+
 
 //database connected//
 massive(CONNECTION_STRING).then(db => {
