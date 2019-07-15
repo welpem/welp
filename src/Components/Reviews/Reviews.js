@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReviewCard from './ReviewCard'
 // import AddCardButton from './AddCardButton'
+
 import axios from 'axios'
 import './Reviews.css';
 import {connect} from 'react-redux';
@@ -16,11 +17,20 @@ class Reviews extends Component{
         }
 
     this.getReviews = this.getReviews.bind(this)
+    this.deleteReview = this.deleteReview.bind(this)
     }
 
 
     componentDidMount() {
         this.getReviews()
+    }
+
+    deleteReview(reviews_id) {
+        console.log(this.state.reviews)
+        axios
+            .delete(`/api/reviews/${reviews_id}`)
+            .then(() => this.componentDidMount())
+            .catch(error => console.log(`Dashboard-axiosDelete: ${error}`))
     }
 
     getReviews() {
@@ -34,21 +44,19 @@ class Reviews extends Component{
     render(){
         // console.log(this.props);
 
-     //slow_shop is a product that of products   
+  
         let {reviews } = this.state
         console.log(reviews)
         let displayReviews = reviews.map(welp_reviews => {
         return(
 
             <div>
+                {console.log(welp_reviews)}
         <ReviewCard 
-        key={welp_reviews.reviews_id}
-        reviews_id={reviews.reviews_id}
-        reviews_title={reviews.reviews_title}
-        reviews_img={reviews.reviews_img}
-        reviews_score={reviews.reviews_score}
-        reviews_description={reviews.reviews_description}
         welp_reviews={welp_reviews}
+        deleteReviewFn={this.deleteReview}
+        editReviewFn={this.editReview}
+
         />
         
         </div>
@@ -60,10 +68,8 @@ class Reviews extends Component{
             <main>
         
               <div >
-                {reviews ? displayReviews : 'No products yet'}
+                {reviews ? displayReviews : 'No Reviews yet'}
 
-
-                reviews
 
 
                 {/* <AddCardButton getReviews={this.getReviews}/> */}
