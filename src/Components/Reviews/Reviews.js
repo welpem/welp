@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReviewCard from './ReviewCard'
+import AddReview from './AddReview'
 // import AddCardButton from './AddCardButton'
 
 import axios from 'axios'
@@ -52,6 +53,10 @@ class Reviews extends Component{
 
             <div>
                 {console.log(welp_reviews)}
+
+
+
+
         <ReviewCard 
         welp_reviews={welp_reviews}
         deleteReviewFn={this.deleteReview}
@@ -68,6 +73,11 @@ class Reviews extends Component{
             <main>
         
               <div >
+
+              <AddReview
+              getReviews={this.getReviews} 
+              />
+
                 {reviews ? displayReviews : 'No Reviews yet'}
 
 

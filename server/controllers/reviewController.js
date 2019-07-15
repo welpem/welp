@@ -31,18 +31,19 @@ const createReview = (req,res) => {
                         // console.log(req.body)
                         // console.log(req.sessions.user)
         { 
-        reviews_title, 
-        reviews_img, 
-        reviews_description, 
-        reviews_score, 
+        title, 
+        img, 
+        description, 
+        score, 
         } = req.body;
 
     db.create_review( 
-        reviews_title, 
-        reviews_img, 
-        reviews_description, 
-        reviews_score, 
-        req.sessions.user.user_id
+        title, 
+        img, 
+        description, 
+        score, 
+        // req.sessions.user.user_id
+        1
         )
         .then(response => res.status(200).send(response))
         .catch(error => res.status(500).send(`create_review (reviewController): ${error}`))
