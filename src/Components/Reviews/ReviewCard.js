@@ -19,18 +19,18 @@ export default function ReviewCard(props) {
 
 {/* OLD delete button */}
  
-              {/* <button 
+            <button 
                 onClick={() => props.deleteReviewFn(props.welp_reviews.reviews_id)}> 
                 Delete
-              </button> */}
+            </button>
 
-{/* NEW delete button */}    
+{/* MATERIAL UI delete button */}    
 
-        <Link to='/reviews' onClick={() => props.deleteReviewFb(props.welp_reviews.reviews_id)}>
+        {/* <Link to='/reviews' onClick={() => props.deleteReviewFb(props.welp_reviews.reviews_id)}>
             <IconButton  aria-label="Delete" >
                 <DeleteOutlinedIcon />
             </IconButton>
-        </Link>
+        </Link> */}
    
   
 {/* edit button */}
