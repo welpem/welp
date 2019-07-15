@@ -23,6 +23,15 @@ class Register extends Component{
         this.updateUser = this.updateUser.bind(this);
     }
 
+    componentDidMount(){
+        Axios.get('/api/businesses')
+            .then(response=>{
+                this.setState({businesses: response.data})
+            })
+            .catch(()=> console.log('error at componentDidMount'))
+        this.props.getUser()
+    }
+
     handleChange(e){
         this.setState({[e.target.name]: e.target.value})
     }

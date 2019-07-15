@@ -6,6 +6,9 @@ const initialState = {
 }
 
 const GET_USER = 'GET_USER';
+const LOGIN = 'LOGIN';
+const LOGOUT = 'LOGOUT';
+const SET_NAME = 'SET_NAME';
 
 //Gets user object from auth controller
 export function getUser(userInfo) {
