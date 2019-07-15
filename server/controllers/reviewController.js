@@ -56,21 +56,24 @@ const updateReview = (req,res) => {
     const db = req.app.get('db'),
         { 
         reviews_id, 
-        reviews_title, 
-        reviews_img, 
-        reviews_description, 
-        reviews_score, 
+        title, 
+        img, 
+        description, 
+        score, 
         } = req.body;
   
     db.update_review( 
         reviews_id, 
-        reviews_title, 
-        reviews_img, 
-        reviews_description, 
-        reviews_score, 
+        title, 
+        img, 
+        description, 
+        +score, 
         )
         .then(response => res.status(200).json(response))
-        .catch(error => res.status(500).send(`update_review (reviewController): ${error}`))
+        .catch(error => {
+          console.log(error)
+          res.status(500).send(`update_review (reviewController): ${error}`)
+        })
   }
 
 

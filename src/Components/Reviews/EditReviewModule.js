@@ -1,23 +1,23 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import IconButton from '@material-ui/core/IconButton';
+// import Button from '@material-ui/core/Button';
+// import TextField from '@material-ui/core/TextField';
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogActions from '@material-ui/core/DialogActions';
+// import DialogContent from '@material-ui/core/DialogContent';
+// import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogTitle from '@material-ui/core/DialogTitle';
+// import MoreVertIcon from '@material-ui/icons/MoreVert';
+// import IconButton from '@material-ui/core/IconButton';
 import axios from 'axios'
 
 
 export default function EditFormModule(props) {
   const [open, setOpen] = React.useState(false);
-  // const [id, setId] = React.useState();
+//   const [id, setId] = React.useState();
   const [title, setTitle] = React.useState();
-  const [image_url, setImage] = React.useState();
+  const [img, setImage] = React.useState();
   const [description, setDescription] = React.useState();
-
+  const [score, setScore] = React.useState();
 
 
   function handleClickOpen() {
@@ -32,13 +32,14 @@ export default function EditFormModule(props) {
 
     axios
         .put('/api/reviews', { reviews_id:props.welp_reviews.reviews_id,
-                               reviews_title:props.welp_reviews.reviews_title, 
-                               reviews_img:props.welp_reviews.reviews_img, 
-                               reviews_description:props.welp_reviews.reviews_description, 
+                               title: title, 
+                               img:img, 
+                               description:description, 
+                               score:score
                              })
         .then (response => {
-            // console.log(response)
-            props.getProducts()
+            console.log(response)
+            props.getReviews()
         })
         .then(response => {
             setOpen(false)
@@ -59,6 +60,8 @@ export default function EditFormModule(props) {
             <MoreVertIcon />
           </IconButton> */}
 
+
+
 {/* Regular EDIT button */}
 
           <button aria-label="Info"
@@ -67,6 +70,8 @@ export default function EditFormModule(props) {
           >
             Edit Button
           </button>
+
+
 
   
 {/*  ---------- MaterialUI Pop Up Modal ---------- */}
@@ -139,6 +144,92 @@ export default function EditFormModule(props) {
         </DialogActions>
       </Dialog> */}
 {/*  ---------- MaterialUI Pop Up Modal ---------- */}
+
+
+
+
+
+
+
+{/* ---------- Regular Pop Up Modal ---------- */}
+    <dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
+
+
+        <h2>
+          Edit your review
+        </h2>
+
+      <form className = 'reviews-edit-form'>
+
+        <label>Title: </label>
+        <textarea rows="3" cols="27"
+                    onChange = {(e) => setTitle(e.target.value)}
+                    defaultValue = {props.welp_reviews.reviews_title}
+        />
+
+        <br/>
+        <label>Image: </label>
+        <textarea rows="3" cols="27"
+                    onChange = {(e) => setImage(e.target.value)}
+                    defaultValue = {props.welp_reviews.reviews_img}
+        />
+
+        <br/>
+        <label>Description: </label>
+        <textarea rows="10" cols="27"
+                    onChange = {(e) => setDescription(e.target.value)}
+                    defaultValue = {props.welp_reviews.reviews_description}
+        />
+        <label>Stars: (1-5) </label>
+        <select id = 'stars'
+                    onChange = {(e) => setScore(e.target.value)}
+                    defaultValue = {props.welp_reviews.reviews_score}
+        >
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+        </select>
+
+
+      </form>
+
+
+
+{/* Cancel button */}
+          <button
+            onClick={handleCancel} color="primary"
+          >
+            Cancel
+          </button>
+
+{/* Submit button */}
+          <button 
+            onClick={handleEditSave} color="primary"
+          >
+            Save
+          </button>
+
+
+
+    </dialog>
+{/* ---------- Regular Pop Up Modal ---------- */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
   );
