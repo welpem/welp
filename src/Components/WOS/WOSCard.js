@@ -1,20 +1,19 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import './WOS.css';
 
 
 export default function WOSCard(props) {
-
     return (
-        <div>
+        <div className = 'wos-container'>
   
 
 {/* delete button */}
-          <Link to='/wos' onClick={() => props.deleteWOS(props.wos_id)}>
-              <button  aria-label="Delete" >
+         
+              <button
+                onClick={() => props.deleteWOSFunction(props.welp_wos.wos_id)}>
                 Delete
               </button>
-          </Link>
+ 
    
   
 {/* edit button */}
@@ -22,9 +21,14 @@ export default function WOSCard(props) {
   
 
 
-{/* see stuff */}
+{/* wos title*/}
             <h1>{props.wos_title}</h1>
-            <img src={props.wos_img} alt="Offender's mugshot" />
+
+{/* wos picture */}
+            <img className = 'wos-image'
+                src={props.wos_img} alt="Offender's mugshot" />
+
+{/* wos description */}
             <p>{props.wos_description}</p>
 
       </div>
