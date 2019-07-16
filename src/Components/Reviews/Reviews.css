@@ -32,3 +32,9 @@
     border: 1px gray dotted;
     margin: 5vh;
 }
+
+.add-comment-container{
+    display: flex;
+    justify-content: center;
+    
+}

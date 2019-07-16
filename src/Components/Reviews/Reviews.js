@@ -67,6 +67,7 @@ class Reviews extends Component{
 
               <AddReview
               getReviews={this.getReviews} 
+        
               />
 
 

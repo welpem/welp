@@ -31,7 +31,7 @@ export default function CommentCard(props) {
 
 {/* review description */}
             { 
-                props.welp_reviews.reviews_id == props.welp_comments.reviews_id
+                +props.welp_reviews.reviews_id === +props.welp_comments.reviews_id
             ?   
             <p>{props.welp_comments.comment_description}</p>
             :

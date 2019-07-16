@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import CommentsCard from './CommentsCard'
-// import AddComment from './AddComment'
+import AddComment from './AddComment'
 import axios from 'axios'
 import {connect} from 'react-redux';
 
@@ -43,9 +43,10 @@ class Comments extends Component{
     render(){
 
         let {comments } = this.state
-        console.log(comments)
-        console.log(this.state.reviews)
-        console.log(this.props.welp_reviews)
+        // console.log(comments)
+        console.log(this.state)
+        console.log(this.props)
+        // console.log(this.props.welp_reviews)
         let displayComments = comments.map(welp_comments => {
             // console.log(welp_comments)
           return(
@@ -69,19 +70,26 @@ class Comments extends Component{
             <main>
               <div>
 
-            {/* <AddComment
-              getComments={this.getComments} 
-              /> */}
+ 
 
             {
             displayComments.length 
             ? 
             displayComments 
             : 
-            'no comments yet'
+            <div className = 'comments-big-container'>
+              <div className = 'comments-sub-container'>
+                <p>'no comments yet'</p>
+              </div>
+            </div>
             }
-              {/* {this.state.comments} */}
-
+            
+            <AddComment
+              getComments={this.getComments} 
+              welp_reviews={this.props.welp_reviews}
+              comments={this.state.comments}
+              user={this.props.user}
+              />
 
               </div>
             </main>
