@@ -65,8 +65,11 @@ export default function EditFormModule(props) {
 {/* Regular EDIT button */}
 
           <button aria-label="Info"
-          onClick={() => props.editReviewFn(props.reviews.reviews_id)}
-          onClick={handleClickOpen}
+          onClick={() => {
+            props.editReviewFn(props.reviews.reviews_id)(handleClickOpen)
+          }
+          }
+      
           >
             Edit Button
           </button>

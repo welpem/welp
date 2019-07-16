@@ -1,56 +1,77 @@
 import React, {Component} from 'react';
-import ReviewCard from './ReviewCard'
-import AddCardButton from './AddCardButton'
+import CommentsCard from './CommentsCard'
+// import AddComment from './AddComment'
 import axios from 'axios'
-import './Shop.css';
 import {connect} from 'react-redux';
 
 
 
-class Reviews extends Component{
+class Comments extends Component{
     constructor(props){
         super(props)
         this.state = {
             reviews:[],
+            comments: [],
             user:[]
         }
+        this.getComments = this.getComments.bind(this)
+        // this.deleteComments = this.deleteComments.bind(this)
     }
 
 
-    render(){
-        // console.log(this.props);
+    componentDidMount() {
+        this.getComments()
+    }
 
-     //slow_shop is a product that of products   
-        let {reviews } = this.state
-        console.log(reviews)
-        let displayReviews = reviews.map(welp_reviews => {
-        return(
-            <div>
-        <ReviewCard 
-        key={welp_reviews.reviews_id}
-        reviews_id={reviews.reviews_id}
-        reviews_title={reviews.reviews_title}
-        reviews_img={reviews.reviews_img}
-        reviews_score={reviews.reviews_score}
-        description={reviews.reviews_description}
-        />
-        
-        </div>
-        )
-        
+    // deleteComments(comments_id) {
+    //     axios
+    //         .delete(`/api/comments/${comments_id}`)
+    //         .then(() => this.componentDidMount())
+    //         .catch(error => console.log(`DELETE Comments (comment comp) error:: ${error}`))
+    // }
+
+    getComments() {
+        axios
+        .get('/api/comments')
+        .then(response => this.setState({ comments: response.data }))
+        .catch(error => console.log(`get Comments (comment comp) error: ${error}`))
+
+    }
+
+
+
+    render(){
+
+        let {comments } = this.state
+        console.log(comments)
+        let displayComments = comments.map(welp_comments => {
+            // console.log(welp_comments)
+          return(
+          <div>
+            <CommentsCard 
+            welp_comments={welp_comments}
+            deleteCommentFn={this.deleteComment}
+            editCommentFn={this.editComment}
+            getComments={this.getComments} 
+            welp_reviews={this.props.welp_reviews}
+            />
+          </div>
+          )
         })
     
         return(
             <main>
-            
+              <div>
+
+            {/* <AddComment
+              getComments={this.getComments} 
+              /> */}
+
+            {comments ? displayComments : ''}
+              {/* {this.state.comments} */}
 
 
-
-            <div className='dashboard'>
-                {reviews ? displayReviews : 'No products yet'}
-                <AddCardButton getProducts={this.getProducts}/>
-            </div>
-                
+              </div>
             </main>
         )
     }
@@ -62,4 +83,4 @@ export default connect(
     mapStateToProps
     // ,
     // {getUser}
-) (Reviews);
+) (Comments);

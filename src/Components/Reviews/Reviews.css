@@ -1,8 +1,8 @@
-.reviews-container{
-    border: 1px black solid;
+
+.rewiews-sub-container{
+    border: 1px gray dotted;
     margin: 5vh;
 }
-
 
 .reviews-image{
     max-width: 20vw;
@@ -12,5 +12,23 @@
 .reviews-edit-form{
     display: flex;
     flex-direction: column;
+    margin: 5vh;
+}
+
+
+
+
+
+.comments-container{
+    border: 1px solid black;
+    margin-left: 20vw;
+    margin-right: 5vh;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+
+}
+
+.comments-sub-container{
+    border: 1px gray dotted;
     margin: 5vh;
 }
