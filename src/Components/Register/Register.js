@@ -41,9 +41,10 @@ class Register extends Component{
         })
     }
     register(){
-        let {first_name, last_name, image, password, email} = this.state;
+        console.log(this.state)
+        let {first_name, last_name, image, password, business, email} = this.state;
 
-        Axios.post('/auth/register', {first_name, last_name, image, password, email})
+        Axios.post('/auth/register', {first_name, last_name, image, password, business, email})
             .then(user=>{
                 // this.props.setName([user.data.first_name, user.data.last_name]);
                 this.setState({
@@ -64,7 +65,8 @@ class Register extends Component{
                     email: '',
                     image: '',
                     business: ''
-                })
+                });
+                console.log('register failed')
             })
     }
 
@@ -81,13 +83,13 @@ class Register extends Component{
                     <input name='email' placeholder='Email' value={email} onChange={this.handleChange} />
                     <input name='image' placeholder='Profile Pic' value={image} onChange={this.handleChange} />
                     {/* business dropdown */}
-                    <select name='business' >
+                    <select name='business' onChange={this.handleChange}>
                         {/* pulling businesses and mapping thru would allow options to be filled via the DB */}
                         <option value='WcDonalds'>WcDonalds</option>
                         <option value='Fries King'>Fries King</option>
                     </select>
                 </section>
-                <Link to='/home'><button>Register</button></Link>
+                <Link to='/home'><button onClick={this.register}>Register</button></Link>
             </main>
         )
     }
