@@ -1,0 +1,15 @@
+.wos-container{
+    border: 1px black solid;
+    margin: 5vh;
+}
+
+.wos-edit-form{
+    display: flex;
+    flex-direction: column;
+    margin: 5vh;
+}
+
+.wos-image{
+    max-width: 20vw;
+    max-height: 20vw;
+}

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import WOSCard from './WOSCard'
-// import AddCardButton from './AddCardButton'
 import axios from 'axios'
 import './WOS.css';
 import {connect} from 'react-redux';
@@ -16,6 +15,7 @@ class WOS extends Component{
         }
 
     this.getWOS = this.getWOS.bind(this)
+    this.deleteWOS = this.deleteWOS.bind(this)
     }
 
 
@@ -24,19 +24,24 @@ class WOS extends Component{
     }
 
     getWOS() {
-        axios
-        .get('/api/wos')
-        .then(response => this.setState({ wos: response.data }))
-        .catch(error => console.log(`WOS-axiosGet: ${error}`))
+      axios
+      .get('/api/wos')
+      .then(response => this.setState({ wos: response.data }))
+      .catch(error => console.log(`WOS-axiosGet: ${error}`))
+      
+    }
 
+    deleteWOS(wos_id) {
+      console.log(this.state.wos)
+      axios
+          .delete(`/api/wos/${wos_id}`)
+          .then(() => this.componentDidMount())
+          .catch(error => console.log(`WOS-axiosDelete: ${error}`))
     }
     
 
     render(){
-        // console.log(this.props);
-
         let {wos} = this.state
-        console.log(wos)
         let displayWOS = wos.map(welp_wos => {
         return(
 
@@ -48,6 +53,10 @@ class WOS extends Component{
         wos_img={welp_wos.wos_img}
         wos_description={welp_wos.wos_description}
         welp_wos={welp_wos}
+        deleteWOSFunction={this.deleteWOS}
+        editWOSFunction={this.editWOS}
+        getWOS={this.getWOS}
+
         />
         
         </div>
@@ -63,10 +72,6 @@ class WOS extends Component{
 
                 Wall of Shame
                 {wos ? displayWOS : 'No offenders yet'}
-
-
-                
-
 
                 {/* <AddCardButton getWOS={this.getWOS}/> */}
               </div>
