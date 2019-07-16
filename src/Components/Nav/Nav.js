@@ -27,13 +27,6 @@ class Nav extends Component {
     let {email, password} = this.state;
     console.log(this.state.user)
     this.props.login(email, password)
-    // Axios.get('/auth/user')
-    // .then(response=>{
-    //   this.setState({user: response.data})
-    // })
-    // .catch(()=>{
-    //   this.setState({email: '', password: ''})
-    // })
   }
   logout(){
     this.props.logout();
