@@ -23,14 +23,15 @@ class Nav extends Component {
   }
   login(){
     let {email, password} = this.state;
-    console.log(this.props)
+    console.log(this.state.user)
     this.props.login(email, password)
-      // .then(user=>{
-      //     this.setState({user: user.value.data});
-      // })
-      // .catch(()=>{
-      //     this.setState({email: '', password: ''});
-      // })
+    // .then(user=>{
+    //   this.setState({user: user.value.data});
+    // })
+    // .catch(()=>{
+    //   this.setState({email: '', password: ''});
+    // })
+    this.props.getUser()
 }
 handleChange(e){
   this.setState({[e.target.name]: e.target.value})

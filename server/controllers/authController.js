@@ -24,10 +24,12 @@ async function register(req, res){
 }
 async function login(req, res){
     const {email, password} = req.body;
+    // console.log(req.body)
     const db = req.app.get('db');
     const foundUser = await db.get_user([email]);
     const user = foundUser[0];
-    const isAuthenticated = bcrypt.compareSync(password, user.password);
+    // console.log(user)
+    const isAuthenticated = bcrypt.compareSync(password, user.users_password);
 
     if(!user){
         return res.status(401).json('I do not know you');
@@ -51,7 +53,7 @@ async function logout(req, res){
 }
 async function getUser(req, res){
     if(req.session.user){
-        console.log('AC54: ', req.session.user)
+        console.log('AC56: ', req.session.user)
         res.json(req.session.user)
     } else {
         res.status(401).json(console.log('no user found'))
