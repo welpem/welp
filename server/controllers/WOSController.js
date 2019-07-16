@@ -31,19 +31,19 @@ const createWOS = (req,res) => {
                         // console.log(req.body)
                         // console.log(req.sessions.user)
         { 
-        wos_title, 
-        wos_img, 
-        wos_description, 
-        users_id,
-        businesses_id 
+        title, 
+        img, 
+        description
         } = req.body;
 
     db.create_wos( 
-        wos_title, 
-        wos_img, 
-        wos_description, 
-        users_id,
-        businesses_id, 
+        title, 
+        img, 
+        description, 
+        //User ID
+        1,
+        //Business ID
+        1
         )
         .then(response => res.status(200).send(response))
         .catch(error => res.status(500).send(`create_wos (WOSController): ${error}`))

@@ -11,7 +11,7 @@ import React from 'react';
 import axios from 'axios'
 
 
-export default function EditWOSModule(props) {
+export default function EditFormModule(props) {
   const [open, setOpen] = React.useState(false);
   const [title, setTitle] = React.useState();
   const [img, setImage] = React.useState();
@@ -26,22 +26,20 @@ export default function EditWOSModule(props) {
     setOpen(false);
   }
 
-  function handleEditSave(){
+  function handleAddSubmit(){
 
     axios
-        .put('/api/wos', { wos_id: props.welp_wos.wos_id,
-                               title: title, 
-                               img:img, 
-                               description:description
+        .post('/api/wos', { title:title, 
+                              img:img, 
+                              description:description
                              })
         .then (response => {
-            console.log(response)
             props.getWOS()
         })
         .then(response => {
             setOpen(false)
         })
-        .catch(error => console.log(`edit on editWOSmodule axios handleeditsave: ${error}`))
+        .catch(error => console.log(`handleAddSubmit error in AddWOS.js : ${error}`))
 
   }
 
@@ -65,7 +63,7 @@ export default function EditWOSModule(props) {
           onClick={() => props.editWOSFunction(props.wos.wos_id)}
           onClick={handleClickOpen}
           >
-            Edit Button
+            Add Offender
           </button>
 
 
@@ -76,6 +74,7 @@ export default function EditWOSModule(props) {
       {/* <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
           
         <DialogTitle id="form-dialog-title">Edit your review</DialogTitle>
+
         <DialogContent style={{ paddingLeft: "4vw", paddingRight: "4vw"}}>
           <DialogContentText>
             Please edit the areas needed about your review:
@@ -116,7 +115,11 @@ export default function EditWOSModule(props) {
             onChange = {(e) => setDescription(e.target.value)}
             defaultValue = {props.welp_reviews.reviews_description}
           />
+
         </DialogContent>
+
+
+
         <DialogActions> */}
 
 {/* Cancel button */}
@@ -148,7 +151,7 @@ export default function EditWOSModule(props) {
 
 
         <h2>
-          Edit your submission
+          Submit an offender
         </h2>
 
       <form className = 'wos-edit-form'>
@@ -156,23 +159,22 @@ export default function EditWOSModule(props) {
         <label>Title: </label>
         <textarea rows="3" cols="27"
                     onChange = {(e) => setTitle(e.target.value)}
-                    defaultValue = {props.welp_wos.wos_title}
+                    defaultValue = 'Add Title here.'
         />
 
         <br/>
         <label>Image: </label>
         <textarea rows="3" cols="27"
                     onChange = {(e) => setImage(e.target.value)}
-                    defaultValue = {props.welp_wos.wos_img}
+                    defaultValue = 'Add image URL here'
         />
 
         <br/>
         <label>Description: </label>
         <textarea rows="10" cols="27"
                     onChange = {(e) => setDescription(e.target.value)}
-                    defaultValue = {props.welp_wos.wos_description}
+                    defaultValue = 'Add description here'
         />
-
 
       </form>
 
@@ -187,7 +189,7 @@ export default function EditWOSModule(props) {
 
 {/* Submit button */}
           <button 
-            onClick={handleEditSave} color="primary"
+            onClick={handleAddSubmit} color="primary"
           >
             Save
           </button>

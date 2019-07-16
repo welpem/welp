@@ -1,5 +1,6 @@
 import React from 'react';
 import './WOS.css';
+import EditWOSModule from './EditWOSModule'
 
 
 export default function WOSCard(props) {
@@ -17,9 +18,10 @@ export default function WOSCard(props) {
    
   
 {/* edit button */}
-            {/* <EditFormModule getWOS={props.getWOS} welp_wos={props.welp_wos}/> */}
-  
-
+            <EditWOSModule 
+                getWOS={props.getWOS} 
+                welp_wos={props.welp_wos}
+            />
 
 {/* wos title*/}
             <h1>{props.wos_title}</h1>
