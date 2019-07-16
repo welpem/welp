@@ -31,7 +31,7 @@ class Nav extends Component {
     // .catch(()=>{
     //   this.setState({email: '', password: ''});
     // })
-    this.props.getUser()
+    console.log(this.props.getUser())
 }
 handleChange(e){
   this.setState({[e.target.name]: e.target.value})
