@@ -57,16 +57,16 @@ const updateWOS = (req,res) => {
     const db = req.app.get('db'),
         { 
         wos_id, 
-        wos_title, 
-        wos_img, 
-        wos_description
+        title, 
+        img, 
+        description
         } = req.body;
   
     db.update_wos( 
         wos_id, 
-        wos_title, 
-        wos_img, 
-        wos_description
+        title, 
+        img, 
+        description
         )
         .then(response => res.status(200).json(response))
         .catch(error => res.status(500).send(`update_wos (WOSController): ${error}`))

@@ -1,3 +1,4 @@
+
 import React from 'react';
 // import Button from '@material-ui/core/Button';
 // import TextField from '@material-ui/core/TextField';
@@ -11,13 +12,11 @@ import React from 'react';
 import axios from 'axios'
 
 
-export default function EditFormModule(props) {
+export default function EditWOSModule(props) {
   const [open, setOpen] = React.useState(false);
-//   const [id, setId] = React.useState();
   const [title, setTitle] = React.useState();
   const [img, setImage] = React.useState();
   const [description, setDescription] = React.useState();
-  const [score, setScore] = React.useState();
 
 
   function handleClickOpen() {
@@ -31,20 +30,19 @@ export default function EditFormModule(props) {
   function handleEditSave(){
 
     axios
-        .put('/api/reviews', { reviews_id:props.welp_reviews.reviews_id,
+        .put('/api/reviews', { reviews_id:props.welp_wos.wos_id,
                                title: title, 
                                img:img, 
-                               description:description, 
-                               score:score
+                               description:description
                              })
         .then (response => {
             console.log(response)
-            props.getReviews()
+            props.getWOS()
         })
         .then(response => {
             setOpen(false)
         })
-        .catch(error => console.log(`edit on editreviewmodule axios handleeditsave: ${error}`))
+        .catch(error => console.log(`edit on editmosmodule axios handleeditsave: ${error}`))
 
   }
 
@@ -65,7 +63,7 @@ export default function EditFormModule(props) {
 {/* Regular EDIT button */}
 
           <button aria-label="Info"
-          onClick={() => props.editReviewFn(props.reviews.reviews_id)}
+          onClick={() => props.editWOSFunction(props.wos.wos_id)}
           onClick={handleClickOpen}
           >
             Edit Button
@@ -79,7 +77,6 @@ export default function EditFormModule(props) {
       {/* <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
           
         <DialogTitle id="form-dialog-title">Edit your review</DialogTitle>
-
         <DialogContent style={{ paddingLeft: "4vw", paddingRight: "4vw"}}>
           <DialogContentText>
             Please edit the areas needed about your review:
@@ -120,11 +117,7 @@ export default function EditFormModule(props) {
             onChange = {(e) => setDescription(e.target.value)}
             defaultValue = {props.welp_reviews.reviews_description}
           />
-
         </DialogContent>
-
-
-
         <DialogActions> */}
 
 {/* Cancel button */}
@@ -156,7 +149,7 @@ export default function EditFormModule(props) {
 
 
         <h2>
-          Edit your review
+          Edit your submission
         </h2>
 
       <form className = 'reviews-edit-form'>
@@ -164,14 +157,14 @@ export default function EditFormModule(props) {
         <label>Title: </label>
         <textarea rows="3" cols="27"
                     onChange = {(e) => setTitle(e.target.value)}
-                    defaultValue = {props.welp_reviews.reviews_title}
+                    defaultValue = {props.welp_wos.wos_title}
         />
 
         <br/>
         <label>Image: </label>
         <textarea rows="3" cols="27"
                     onChange = {(e) => setImage(e.target.value)}
-                    defaultValue = {props.welp_reviews.reviews_img}
+                    defaultValue = {props.welp_wos.wos_img}
         />
 
         <br/>
@@ -180,17 +173,6 @@ export default function EditFormModule(props) {
                     onChange = {(e) => setDescription(e.target.value)}
                     defaultValue = {props.welp_reviews.reviews_description}
         />
-        <label>Stars: (1-5) </label>
-        <select id = 'stars'
-                    onChange = {(e) => setScore(e.target.value)}
-                    defaultValue = {props.welp_reviews.reviews_score}
-        >
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-        </select>
 
 
       </form>
