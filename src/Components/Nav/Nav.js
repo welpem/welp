@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import {getUser, logout, login} from '../../Redux/reducer';
 import './Nav.css';
+import Axios from 'axios';
 
 class Nav extends Component {
   constructor(){
@@ -15,36 +16,43 @@ class Nav extends Component {
     }
     this.login = this.login.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   componentDidMount(){
+    console.log('mounted')
     this.props.getUser()
-    console.log(this.user)
   }
   login(){
     let {email, password} = this.state;
     console.log(this.state.user)
     this.props.login(email, password)
-    // .then(user=>{
-    //   this.setState({user: user.value.data});
+    // Axios.get('/auth/user')
+    // .then(response=>{
+    //   this.setState({user: response.data})
     // })
     // .catch(()=>{
-    //   this.setState({email: '', password: ''});
+    //   this.setState({email: '', password: ''})
     // })
-    this.props.getUser()
-}
-handleChange(e){
-  this.setState({[e.target.name]: e.target.value})
-}
-
+  }
+  logout(){
+    this.props.logout();
+    this.setState({user: {}, email: '', password: ''})
+  }
+  handleChange(e){
+    this.setState({[e.target.name]: e.target.value})
+  }
+  
   render(){
+    console.log(this.props.state.user)
     let {email, password} = this.state;
+
     return (
       <main className="nav">
           <h1>Nav Component</h1>
-          {this.state.user.email ? (
+          {this.props.state.user.email ? (
             <section className='logged-in'>
-              <Link to='/'><button>Log Out</button></Link>
+              <Link to='/'><button onClick={this.logout}>Log Out</button></Link>
             </section>
           ) : (
             <section className='logged-out'>
