@@ -49,42 +49,31 @@ class Reviews extends Component{
         let {reviews } = this.state
         console.log(reviews)
         let displayReviews = reviews.map(welp_reviews => {
-        return(
-
-            <div>
-                {console.log(welp_reviews)}
-
-
-
-
-        <ReviewCard 
-        welp_reviews={welp_reviews}
-        deleteReviewFn={this.deleteReview}
-        editReviewFn={this.editReview}
-        getReviews={this.getReviews} 
-        />
-        
-        </div>
-        )
-        
+          return(
+          <div>
+            <ReviewCard 
+            welp_reviews={welp_reviews}
+            deleteReviewFn={this.deleteReview}
+            editReviewFn={this.editReview}
+            getReviews={this.getReviews} 
+            />
+          </div>
+          )
         })
     
         return(
             <main>
-        
               <div >
 
               <AddReview
               getReviews={this.getReviews} 
               />
 
-                {reviews ? displayReviews : 'No Reviews yet'}
+
+            {reviews ? displayReviews : 'No Reviews yet'}
 
 
-
-                {/* <AddCardButton getReviews={this.getReviews}/> */}
               </div>
-                
             </main>
         )
     }

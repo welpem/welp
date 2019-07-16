@@ -30,18 +30,9 @@ const createReview = (req,res) => {
     const db = req.app.get('db'),
                         // console.log(req.body)
                         // console.log(req.sessions.user)
-        { 
-        title, 
-        img, 
-        description, 
-        score, 
-        } = req.body;
-
+        { title, img, description, score, } = req.body;
     db.create_review( 
-        title, 
-        img, 
-        description, 
-        score, 
+         title, img, description, score, 
         // req.sessions.user.user_id
         1
         )

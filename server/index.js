@@ -4,22 +4,10 @@ const massive= require('massive');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const app = express();
-let {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env;
-
-
-const {
-    getReviews,
-    deleteReview,
-    createReview,
-    updateReview
-} = require('./controllers/reviewController')
-
-const {
-    getWOS,
-    deleteWOS,
-    createWOS,
-    updateWOS
-} = require('./controllers/WOSController')
+let { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
+const { getReviews, deleteReview, createReview, updateReview } = require('./controllers/reviewController')
+const { getComments, deleteComment, createComment, updateComment } = require('./controllers/commentController')
+const { getWOS, deleteWOS, createWOS, updateWOS } = require('./controllers/WOSController')
 
 const ac = require('./controllers/authController')
 
@@ -62,14 +50,17 @@ app.delete('/api/reviews/:reviews_id', deleteReview);
 app.post('/api/reviews', createReview);
 app.put('/api/reviews', updateReview)
 
+//Comments//
+app.get('/api/comments/:review_id', getComments);
+app.delete('/api/comments/:comments_id', deleteComment);
+app.post('/api/comments', createComment);
+app.put('/api/comments', updateComment)
+
 //Wall of Shame//
 app.get('/api/wos', getWOS);
 app.delete('/api/wos/:wos_id', deleteWOS);
 app.post('/api/wos', createWOS);
 app.put('/api/wos', updateWOS)
-
-//W.O.S
-
 
 
 
