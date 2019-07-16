@@ -1,1 +1,1 @@
-SELECT * FROM welp_review_comments;
+SELECT * FROM welp_review_comments WHERE reviews_id = $1;

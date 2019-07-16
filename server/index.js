@@ -51,7 +51,7 @@ app.post('/api/reviews', createReview);
 app.put('/api/reviews', updateReview)
 
 //Comments//
-app.get('/api/comments', getComments);
+app.get('/api/comments/:review_id', getComments);
 app.delete('/api/comments/:comments_id', deleteComment);
 app.post('/api/comments', createComment);
 app.put('/api/comments', updateComment)

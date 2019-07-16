@@ -2,7 +2,7 @@
 const getComments = async (req, res) => {
     const reply = await req.app
       .get("db")
-      .get_comments()
+      .get_comments(+req.params.review_id)
       .catch(error => {
         console.log(error);
         res.status(500).json("Server Error in getComments on commentController");

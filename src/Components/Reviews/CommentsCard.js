@@ -1,12 +1,14 @@
 import React from 'react';
 // import {Link} from 'react-router-dom';
 import './Reviews.css';
-import EditCommentModule from './EditCommentModule'
+// import EditCommentModule from './EditCommentModule'
 
 
 
 export default function CommentCard(props) {
     console.log(props)
+    
+
     return (
         <div className = 'comments-big-container'>
         
@@ -28,7 +30,8 @@ export default function CommentCard(props) {
 
 
 {/* review description */}
-            { props.welp_reviews.reviews_id == props.welp_comments.reviews_id
+            { 
+                props.welp_reviews.reviews_id == props.welp_comments.reviews_id
             ?   
             <p>{props.welp_comments.comment_description}</p>
             :

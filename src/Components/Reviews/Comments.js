@@ -32,7 +32,7 @@ class Comments extends Component{
 
     getComments() {
         axios
-        .get('/api/comments')
+        .get(`/api/comments/${this.props.welp_reviews.reviews_id}`)
         .then(response => this.setState({ comments: response.data }))
         .catch(error => console.log(`get Comments (comment comp) error: ${error}`))
 
@@ -44,9 +44,13 @@ class Comments extends Component{
 
         let {comments } = this.state
         console.log(comments)
+        console.log(this.state.reviews)
+        console.log(this.props.welp_reviews)
         let displayComments = comments.map(welp_comments => {
             // console.log(welp_comments)
           return(
+
+
           <div>
             <CommentsCard 
             welp_comments={welp_comments}
@@ -56,6 +60,8 @@ class Comments extends Component{
             welp_reviews={this.props.welp_reviews}
             />
           </div>
+
+
           )
         })
     
@@ -67,7 +73,13 @@ class Comments extends Component{
               getComments={this.getComments} 
               /> */}
 
-            {comments ? displayComments : ''}
+            {
+            displayComments.length 
+            ? 
+            displayComments 
+            : 
+            'no comments yet'
+            }
               {/* {this.state.comments} */}
 
 
