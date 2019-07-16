@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Axios from 'axios';
 import {connect} from 'react-redux';
 
-import {setName, getUser} from '../../Redux/reducer'
+import {setName, getUser, login} from '../../Redux/reducer'
 
 class Register extends Component{
     constructor(){
@@ -23,14 +23,14 @@ class Register extends Component{
         this.updateUser = this.updateUser.bind(this);
     }
 
-    // componentDidMount(){
-    //     Axios.get('/api/businesses')
-    //         .then(response=>{
-    //             this.setState({businesses: response.data})
-    //         })
-    //         .catch(()=> console.log('error at componentDidMount'))
-    //     this.props.getUser()
-    // }
+    componentDidMount(){
+        // Axios.get('/api/businesses')
+        //     .then(response=>{
+        //         this.setState({businesses: response.data})
+        //     })
+        //     .catch(()=> console.log('error at componentDidMount'))
+        this.props.getUser()
+    }
 
     handleChange(e){
         this.setState({[e.target.name]: e.target.value})
@@ -41,12 +41,12 @@ class Register extends Component{
         })
     }
     register(){
-        console.log(this.state)
+        // console.log(this.state)
         let {first_name, last_name, image, password, business, email} = this.state;
 
         Axios.post('/auth/register', {first_name, last_name, image, password, business, email})
             .then(user=>{
-                // this.props.setName([user.data.first_name, user.data.last_name]);
+                this.props.login(email, password)
                 this.setState({
                     first_name: '',
                     last_name: '',
@@ -64,7 +64,7 @@ class Register extends Component{
                     password: '',
                     email: '',
                     image: '',
-                    business: ''
+                    business: '',
                 });
                 console.log('register failed')
             })
@@ -82,10 +82,14 @@ class Register extends Component{
                     <input name='password' placeholder='Password' value={password} onChange={this.handleChange} />
                     <input name='email' placeholder='Email' value={email} onChange={this.handleChange} />
                     <input name='image' placeholder='Profile Pic' value={image} onChange={this.handleChange} />
+
                     {/* business dropdown */}
                     <select name='business' onChange={this.handleChange}>
-                        {/* pulling businesses and mapping thru would allow options to be filled via the DB */}
                         <option>Select your Business</option>
+                        {/* pulling businesses and mapping thru would allow options to be filled via the DB */}
+                        {/* {this.state.businesses.map((business, index)=>(
+                            <option value={business.businessess_name}>{business.businessess_name}</option>
+                        ))} */}
                         <option value='WcDonalds'>WcDonalds</option>
                         <option value='Fries King'>Fries King</option>
                     </select>
@@ -103,5 +107,5 @@ const mapStateToProps = state =>{
 }
 
 export default connect(mapStateToProps, 
-    {setName, getUser}
+    {setName, getUser, login}
     )(Register)

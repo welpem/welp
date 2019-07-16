@@ -41,8 +41,6 @@ export const logout = ()=>{
 }
 
 export default function reducer(state = initialState, action) {
-    
-    console.log(action)
     switch(action.type) {
         case `${GET_USER}_PENDING`:
             return {
@@ -53,10 +51,6 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state, user: action.payload.data, loading: false
             }
-        // case GET_USER:
-        // return {
-        //     ...state, user: action.payload, loading: false
-        // }
         case `${SET_NAME}_FULFILLED`:
             return {...state, name: action.payload};
         case `${LOGIN}_PENDING`:
