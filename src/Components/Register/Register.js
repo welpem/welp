@@ -85,6 +85,7 @@ class Register extends Component{
                     {/* business dropdown */}
                     <select name='business' onChange={this.handleChange}>
                         {/* pulling businesses and mapping thru would allow options to be filled via the DB */}
+                        <option>Select your Business</option>
                         <option value='WcDonalds'>WcDonalds</option>
                         <option value='Fries King'>Fries King</option>
                     </select>
