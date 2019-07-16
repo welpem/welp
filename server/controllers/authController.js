@@ -3,15 +3,15 @@ const bcrypt = require('bcryptjs')
 async function register(req, res){
     // console.log('hit')
     const {first_name, last_name, image, password, business, email} = req.body;
-    console.log('AC6: ', req.body)
+    // console.log('AC6: ', req.body)
     const db = req.app.get('db');
     const result = await db.get_user([email])
-    console.log('AC9: ', result)
+    // console.log('AC9: ', result)
     const business_id = await db.get_businesses_id([business])
     let businesses_id = business_id[0].businesses_id
     // console.log('AC10: ', businesses_id)
     const existingUser = result.length;
-    console.log('AC14: ', existingUser)
+    // console.log('AC14: ', existingUser)
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
     
@@ -26,7 +26,7 @@ async function register(req, res){
 }
 async function login(req, res){
     const {email, password} = req.body;
-    console.log('AC29: ', req.body)
+    // console.log('AC29: ', req.body)
     const db = req.app.get('db');
     const foundUser = await db.get_user([email]);
     const user = foundUser[0];
@@ -56,7 +56,7 @@ async function logout(req, res){
 }
 async function getUser(req, res){
     if(req.session.user){
-        console.log('AC56: ', req.session.user)
+        // console.log('AC56: ', req.session.user)
         res.json(req.session.user)
     } else {
         res.status(401).json(console.log('no user found'))
