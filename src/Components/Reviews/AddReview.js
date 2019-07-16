@@ -1,40 +1,23 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+// import Button from '@material-ui/core/Button';
+// import TextField from '@material-ui/core/TextField';
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogActions from '@material-ui/core/DialogActions';
+// import DialogContent from '@material-ui/core/DialogContent';
+// import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogTitle from '@material-ui/core/DialogTitle';
+// import MoreVertIcon from '@material-ui/icons/MoreVert';
+// import IconButton from '@material-ui/core/IconButton';
 import axios from 'axios'
-import clsx from 'clsx';
-import { loadCSS } from 'fg-loadcss';
-import { makeStyles } from '@material-ui/core/styles';
-import {green} from '@material-ui/core/colors';
-import Icon from '@material-ui/core/Icon';
 
 
-
-const useStyles = makeStyles(theme => ({
-    icon: {
-        margin: theme.spacing(2),
-      },
-      iconHover: {
-        margin: theme.spacing(2),
-        '&:hover': {
-          color: green[800],
-        },
-      },
-    }));
-
-export default function AddFormModule(props) {
-  const [welp, setOpen] = React.useState(false);
+export default function EditFormModule(props) {
+  const [open, setOpen] = React.useState(false);
+//   const [id, setId] = React.useState();
   const [title, setTitle] = React.useState();
-  const [image_url, setImage] = React.useState();
-  const [category, setCategory] = React.useState();
-  const [price, setPrice] = React.useState();
+  const [img, setImage] = React.useState();
   const [description, setDescription] = React.useState();
-  const [features, setFeatures] = React.useState();
+  const [score, setScore] = React.useState();
 
 
   function handleClickOpen() {
@@ -45,66 +28,62 @@ export default function AddFormModule(props) {
     setOpen(false);
   }
 
-  function handleSubmit(){
-  
+  function handleAddSubmit(){
+
     axios
         .post('/api/reviews', { title:title, 
-                                image_url:image_url, 
-                                category:category, 
-                                price:price, 
-                                description:description, 
-                                features:features })
+                              img:img, 
+                              description:description, 
+                              score:score })
         .then (response => {
-            props.getProducts()
+            props.getReviews()
         })
         .then(response => {
             setOpen(false)
         })
-        .catch(error => console.log(`Form-axiosPost: ${error}`))
+        .catch(error => console.log(`handleAddSubmit error in AddReview.js : ${error}`))
 
   }
-
-  const classes = useStyles();
-  React.useEffect(() => {
-    loadCSS(
-      'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
-      document.querySelector('#font-awesome-css'),
-    );
-  }, []);
-
-//   handleSubmit() {
-//     let { title, image, category, price, description, features, } = useState;
-//     axios
-//         .post('/api/shop', { title:title, image:image, category:category, price:price, description:description, features:features })
-//         .then(this.setState({ redirect:true }))
-//         .catch(error => console.log(`Form-axiosPost: ${error}`))
-// }
-
-
 
 
   return (
     <div>
 
-{/* plus button */}
-      <Icon className={clsx(classes.iconHover, 'fa fa-plus-circle')} 
-        color="disabled" 
-        style={{ fontSize: 75}}
-        onClick={handleClickOpen}
-        />
+{/* MaterialUI   EDIT button      */}
+          {/* <IconButton aria-label="Info"
+          onClick={() => props.editReviewFn(props.reviews.reviews_id)}
+          onClick={handleClickOpen}
+          >
+            <MoreVertIcon />
+          </IconButton> */}
 
 
-      <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
+
+{/* Regular EDIT button */}
+
+          <button aria-label="Info"
+          onClick={() => props.editReviewFn(props.reviews.reviews_id)}
+          onClick={handleClickOpen}
+          >
+            Add Review
+          </button>
+
+
+
+  
+{/*  ---------- MaterialUI Pop Up Modal ---------- */}
+
+      {/* <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
           
-        <DialogTitle id="form-dialog-title">Add sale item</DialogTitle>
+        <DialogTitle id="form-dialog-title">Edit your review</DialogTitle>
 
         <DialogContent style={{ paddingLeft: "4vw", paddingRight: "4vw"}}>
           <DialogContentText>
-            Please enter the following information about your item for sale:
-          </DialogContentText>
+            Please edit the areas needed about your review:
+          </DialogContentText> */}
 
 {/* title */}
-          <TextField
+          {/* <TextField
             autoFocus
             margin="dense"
             id="title"
@@ -112,9 +91,10 @@ export default function AddFormModule(props) {
             type="title"
             fullWidth
             onChange = {(e) => setTitle(e.target.value)}
-          />
+            defaultValue = {props.welp_reviews.reviews_title}
+          /> */}
 {/* image url */}
-        <TextField
+        {/* <TextField
             autoFocus
             margin="dense"
             id="image_url"
@@ -122,30 +102,12 @@ export default function AddFormModule(props) {
             type="image_url"
             fullWidth
             onChange = {(e) => setImage(e.target.value)}
-          />
-{/* category */}
-        <TextField
-            autoFocus
-            margin="dense"
-            id="category"
-            label="Category"
-            type="category"
-            fullWidth
-            onChange = {(e) => setCategory(e.target.value)}
-          />
-{/* price */}
-        <TextField
-            autoFocus
-            margin="dense"
-            id="price"
-            label="Price - (number with 2 decimal places)"
-            type="price"
-            fullWidth
-            onChange = {(e) => setPrice(e.target.value)}
-          />         
+            defaultValue = {props.welp_reviews.reviews_img}
+          /> */}
+      
 
 {/* description */}
-        <TextField
+        {/* <TextField
             autoFocus
             margin="dense"
             id="description"
@@ -153,36 +115,119 @@ export default function AddFormModule(props) {
             type="description"
             fullWidth
             onChange = {(e) => setDescription(e.target.value)}
+            defaultValue = {props.welp_reviews.reviews_description}
           />
 
-{/* features */}
-        <TextField
-            autoFocus
-            margin="dense"
-            id="features"
-            label="Longer Description featured in expanded view"
-            type="features"
-            fullWidth
-            onChange = {(e) => setFeatures(e.target.value)}
-          />
         </DialogContent>
 
 
-        <DialogContent>
-          {/* <DialogContentText>
-            Title on for sale item.
-          </DialogContentText> */}
-        </DialogContent>
 
-        <DialogActions>
-          <Button onClick={handleCancel} color="primary">
+        <DialogActions> */}
+
+{/* Cancel button */}
+          {/* <Button
+            onClick={handleCancel} color="primary"
+          >
             Cancel
+          </Button> */}
+
+{/* Submit button */}
+          {/* <Button 
+            onClick={handleEditSave} color="primary"
+          >
+            Save
           </Button>
-          <Button onClick={handleSubmit} color="primary">
-            Submit
-          </Button>
+     
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
+{/*  ---------- MaterialUI Pop Up Modal ---------- */}
+
+
+
+
+
+
+
+{/* ---------- Regular Pop Up Modal ---------- */}
+    <dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
+
+
+        <h2>
+          Edit your review
+        </h2>
+
+      <form className = 'reviews-edit-form'>
+
+        <label>Title: </label>
+        <textarea rows="3" cols="27"
+                    onChange = {(e) => setTitle(e.target.value)}
+                    defaultValue = 'Add Title here.'
+        />
+
+        <br/>
+        <label>Image: </label>
+        <textarea rows="3" cols="27"
+                    onChange = {(e) => setImage(e.target.value)}
+                    defaultValue = 'Add image URL here'
+        />
+
+        <br/>
+        <label>Description: </label>
+        <textarea rows="10" cols="27"
+                    onChange = {(e) => setDescription(e.target.value)}
+                    defaultValue = 'Add description here'
+        />
+        <label>Stars: (1-5) </label>
+        <select id = 'stars'
+                    onChange = {(e) => setScore(e.target.value)}
+                  
+        >
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+        </select>
+
+
+      </form>
+
+
+
+{/* Cancel button */}
+          <button
+            onClick={handleCancel} color="primary"
+          >
+            Cancel
+          </button>
+
+{/* Submit button */}
+          <button 
+            onClick={handleAddSubmit} color="primary"
+          >
+            Save
+          </button>
+
+
+
+    </dialog>
+{/* ---------- Regular Pop Up Modal ---------- */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
   );
 }
