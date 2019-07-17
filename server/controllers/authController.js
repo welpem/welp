@@ -7,7 +7,8 @@ async function register(req, res){
     const db = req.app.get('db');
 
     if(business === ''){
-
+        db.add_business([businesses_name, businesses_image, businesses_notes, businesses_address_line1, businesses_address_line2, businesses_city, businesses_state, businesses_zip, businesses_country])
+        return res.status(201).json(businesses_name)
     } else {
         const result = await db.get_user([email])
         // console.log('David: AC9: ', result)

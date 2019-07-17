@@ -12,8 +12,8 @@ class Register extends Component{
             user: {},
             first_name: '',
             last_name: '',
-            password: '',
-            email: '',
+            new_password: '',
+            new_email: '',
             image: '',
             business: '',
             businesses_name: '',
@@ -53,16 +53,25 @@ class Register extends Component{
     }
     register(){
         // console.log(this.state)
-        let {first_name, last_name, image, password, business, email} = this.state;
+        let {first_name, last_name, image, new_password, business, new_email, businesses_name, businesses_image, businesses_notes, businesses_address_line1, businesses_address_line2, businesses_city, businesses_state, businesses_zip, businesses_country} = this.state;
 
-        Axios.post('/auth/register', {first_name, last_name, image, password, business, email})
+        Axios.post('/auth/register', {first_name, last_name, image, new_password, business, new_email, businesses_name, businesses_image, businesses_notes, businesses_address_line1, businesses_address_line2, businesses_city, businesses_state, businesses_zip, businesses_country})
             .then(user=>{
-                this.props.login(email, password)
+                // console.log('David: ', user.data === businesses_name)
+                if(user.data === businesses_name){
+                    // console.log('David: business hit')
+                    this.setState({businesses: [...this.state.businesses, {businesses_name: user.data}]})
+                    // console.log('David: ', this.state)
+                }
+                if(user.data !== businesses_name){
+                    // console.log('David: user hit')
+                    this.props.login(new_email, new_password)
+                }
                 this.setState({
                     first_name: '',
                     last_name: '',
-                    password: '',
-                    email: '',
+                    new_password: '',
+                    new_email: '',
                     image: '',
                     business: '',
                     businesses_name: '',
@@ -81,8 +90,8 @@ class Register extends Component{
                 this.setState({
                     first_name: '',
                     last_name: '',
-                    password: '',
-                    email: '',
+                    new_password: '',
+                    new_email: '',
                     image: '',
                     business: '',
                     businesses_name: '',
@@ -95,12 +104,12 @@ class Register extends Component{
                     businesses_zip: '',
                     businesses_country: ''
                 });
-                console.log('register failed')
+                console.log('David: register failed')
             })
     }
 
     render(){
-        let {first_name, last_name, password, email, image, businesses_name, businesses_image, businesses_notes, businesses_address_line1, businesses_address_line2, businesses_city, businesses_state, businesses_zip, businesses_country} = this.state;
+        let {first_name, last_name, new_password, new_email, image, businesses_name, businesses_image, businesses_notes, businesses_address_line1, businesses_address_line2, businesses_city, businesses_state, businesses_zip, businesses_country} = this.state;
         // console.log(this.state.businesses)
 
         return(
@@ -110,8 +119,8 @@ class Register extends Component{
                     <section className='registration-inputs'>
                         <input name='first_name' placeholder='First Name' value={first_name} onChange={this.handleChange} />
                         <input name='last_name' placeholder='Last Name' value={last_name} onChange={this.handleChange} />
-                        <input name='password' placeholder='Password' value={password} onChange={this.handleChange} />
-                        <input name='email' placeholder='Email' value={email} onChange={this.handleChange} />
+                        <input name='new_password' placeholder='Password' value={new_password} onChange={this.handleChange} />
+                        <input name='new_email' placeholder='Email' value={new_email} onChange={this.handleChange} />
                         <input name='image' placeholder='Profile Pic' value={image} onChange={this.handleChange} />
 
                         {/* business dropdown */}
@@ -123,7 +132,7 @@ class Register extends Component{
                             ))}
                         </select>
                     </section>
-                    <Link to='/home'><button onClick={this.register}>Register User</button></Link>
+                    <Link to='/home'><button name='register_user' onClick={this.register}>Register User</button></Link>
                 </section>
                 <section className='register-business'>
                     <h1>Register Business</h1>
@@ -132,11 +141,11 @@ class Register extends Component{
                     <input name='businesses_notes' placeholder='Business Notes' value={businesses_notes} onChange={this.handleChange} />
                     <input name='businesses_address_line1' placeholder='Business Address Line 1' value={businesses_address_line1} onChange={this.handleChange} />
                     <input name='businesses_address_line2' placeholder='Business Address Line 2' value={businesses_address_line2} onChange={this.handleChange} />
-                    {/* <input name='businesses_' placeholder='Business ' value={businesses_} onChange={this.handleChange} />
-                    <input name='businesses_' placeholder='Business ' value={businesses_} onChange={this.handleChange} />
-                    <input name='businesses_' placeholder='Business ' value={businesses_} onChange={this.handleChange} />
-                    <input name='businesses_' placeholder='Business ' value={businesses_} onChange={this.handleChange} /> */}
-                    <button >Register Business</button>
+                    <input name='businesses_city' placeholder='Business City' value={businesses_city} onChange={this.handleChange} />
+                    <input name='businesses_state' placeholder='Business State' value={businesses_state} onChange={this.handleChange} />
+                    <input name='businesses_zip' placeholder='Business Zip' value={businesses_zip} onChange={this.handleChange} />
+                    <input name='businesses_country' placeholder='Business Country' value={businesses_country} onChange={this.handleChange} />
+                    <button name='register_business' onClick={this.register}>Register Business</button>
                 </section>
             </main>
         )
