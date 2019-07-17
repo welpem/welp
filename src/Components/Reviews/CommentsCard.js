@@ -6,7 +6,7 @@ import './Reviews.css';
 
 
 export default function CommentCard(props) {
-    console.log(props)
+    // console.log(props)
     
 
     return (
