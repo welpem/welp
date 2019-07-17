@@ -22,6 +22,7 @@ export default function WOSCard(props) {
             <EditWOSModule 
                 getWOS={props.getWOS} 
                 welp_wos={props.welp_wos}
+                user={props.user}
             />
           ) : null}
 
