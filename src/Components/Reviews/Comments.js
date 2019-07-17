@@ -19,6 +19,7 @@ class Comments extends Component{
     }
 
 
+
     componentDidMount() {
         this.getComments()
     }
@@ -59,6 +60,7 @@ class Comments extends Component{
             editCommentFn={this.editComment}
             getComments={this.getComments} 
             welp_reviews={this.props.welp_reviews}
+            user={this.props.user}
             />
           </div>
 
