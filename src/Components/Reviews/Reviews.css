@@ -25,13 +25,17 @@
     margin-right: 5vh;
     margin-bottom: 5vh;
     margin-top: 5vh;
-
 }
+
+ .comments-card-container{
+     display: flex;
+     justify-content: space-between;
+ }
 
 .comments-sub-container{
     border: 1px gray dotted;
-    margin-left: 5vh;
-    margin-right: 5vh;
+    /* margin-left: 5vh; */
+    /* margin-right: 5vh; */
 }
 
 .add-comment-container{
