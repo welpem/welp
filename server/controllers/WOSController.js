@@ -28,24 +28,28 @@ const getWOS = async (req, res) => {
 //create WOS
 const createWOS = (req,res) => {
     const db = req.app.get('db'),
-                        // console.log(req.body)
-                        // console.log(req.sessions.user)
-        { 
-        title, 
-        img, 
-        description
-        } = req.body;
-
+    { 
+      title, 
+      img, 
+      description,
+      uid,
+      bid,
+    } = req.body;
+    
     db.create_wos( 
-        title, 
-        img, 
-        description, 
-        //User ID
-        1,
-        //Business ID
-        1
-        )
-        .then(response => res.status(200).send(response))
+      title, 
+      img, 
+      description, 
+      //User ID
+      // req.sessions.user.users_id
+      uid,
+      //Business ID
+      // req.sessions.user.businesses_id
+      bid
+      )
+      .then(response => res.status(200).send(response))
+      // console.log(req.body)
+      // console.log(req.sessions.user)
         .catch(error => res.status(500).send(`create_wos (WOSController): ${error}`))
   }
 

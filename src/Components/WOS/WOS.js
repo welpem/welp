@@ -60,8 +60,8 @@ class WOS extends Component {
     return (
       <main>
         <div>
-          Wall of Shame
-          {this.props.user.email ? (<AddWOS getWOS={this.getWOS} />)  : null }
+          <h1>Wall of Shame</h1>
+          {this.props.user.email ? (<AddWOS getWOS={this.getWOS} user={this.props.user} />)  : null }
           
           {wos ? displayWOS : "No offenders yet"}
         </div>

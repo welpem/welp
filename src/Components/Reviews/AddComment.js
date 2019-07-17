@@ -2,26 +2,20 @@ import React from 'react';
 import axios from 'axios'
 
 
-export default function EditFormModule(props) {
-  const [open, setOpen] = React.useState(false);
-  const [title, setTitle] = React.useState();
-  const [img, setImage] = React.useState();
-  const [description, setDescription] = React.useState();
-  const [score, setScore] = React.useState();
+export default function AddComment(props) {
+  const [description, setDescription] = React.useState('');
 
 
-
+  
   function handleAddSubmit(){
-
+    console.log(description)
+    console.log(props)
     axios
         .post('/api/comments', {
-                              description:description, 
-                              score:score })
+          description:description})
+        .then (() => setDescription(''))
         .then (response => {
             props.getComments()
-        })
-        .then(response => {
-            setOpen(false)
         })
         .catch(error => console.log(`handleAddComment error in AddComments.js : ${error}`))
 
@@ -40,13 +34,16 @@ export default function EditFormModule(props) {
         <input
                     onChange = {(e) => setDescription(e.target.value)}
                     placeholder = 'Add comment here'
+                    value = {description}
         />
       </form>
 
 
 
-      <button onClick={handleAddSubmit} color="primary">
-        Save
+      <button onClick={(handleAddSubmit)} 
+              color="primary"
+      >
+        Submit
       </button>
 
 
