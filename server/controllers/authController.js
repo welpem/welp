@@ -24,6 +24,16 @@ async function register(req, res){
         return res.status(201).json(req.session.user)
     }
 }
+async function getBusinesses(req, res){
+    const db = req.app.get('db');
+    db.get_businesses()
+        .then(response =>{ res.status(200).json(response);
+            // console.log(response)
+        })
+        .catch(()=>{
+            res.sendStatus(500)
+        })
+}
 async function login(req, res){
     const {email, password} = req.body;
     // console.log('AC29: ', req.body)
@@ -64,5 +74,5 @@ async function getUser(req, res){
 }
 
 module.exports={
-    register, login, logout, getUser
+    register, login, logout, getUser, getBusinesses
 }

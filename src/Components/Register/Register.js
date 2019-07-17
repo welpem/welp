@@ -16,6 +16,15 @@ class Register extends Component{
             email: '',
             image: '',
             business: '',
+            businesses_name: '',
+            businesses_image: '',
+            businesses_notes: '',
+            businesses_address_line1: '',
+            businesses_address_line2: '',
+            businesses_city: '',
+            businesses_state: '',
+            businesses_zip: '',
+            businesses_country: '',
             businesses: []
         }
         this.handleChange = this.handleChange.bind(this);
@@ -24,11 +33,13 @@ class Register extends Component{
     }
 
     componentDidMount(){
-        // Axios.get('/api/businesses')
-        //     .then(response=>{
-        //         this.setState({businesses: response.data})
-        //     })
-        //     .catch(()=> console.log('error at componentDidMount'))
+        // console.log('Register')
+        Axios.get('/auth/businesses')
+            .then(response=>{
+                // console.log(response)
+                this.setState({businesses: response.data})
+            })
+            .catch(()=> console.log('error at componentDidMount'))
         this.props.getUser()
     }
 
@@ -53,7 +64,16 @@ class Register extends Component{
                     password: '',
                     email: '',
                     image: '',
-                    business: ''
+                    business: '',
+                    businesses_name: '',
+                    businesses_image: '',
+                    businesses_notes: '',
+                    businesses_address_line1: '',
+                    businesses_address_line2: '',
+                    businesses_city: '',
+                    businesses_state: '',
+                    businesses_zip: '',
+                    businesses_country: ''
                 });
                 this.updateUser(user.data)
             })
@@ -65,36 +85,59 @@ class Register extends Component{
                     email: '',
                     image: '',
                     business: '',
+                    businesses_name: '',
+                    businesses_image: '',
+                    businesses_notes: '',
+                    businesses_address_line1: '',
+                    businesses_address_line2: '',
+                    businesses_city: '',
+                    businesses_state: '',
+                    businesses_zip: '',
+                    businesses_country: ''
                 });
                 console.log('register failed')
             })
     }
 
     render(){
-        let {first_name, last_name, password, email, image} = this.state;
+        let {first_name, last_name, password, email, image, businesses_name, businesses_image, businesses_notes, businesses_address_line1, businesses_address_line2, businesses_city, businesses_state, businesses_zip, businesses_country} = this.state;
+        // console.log(this.state.businesses)
 
         return(
             <main className='Register'>
-                <h1>Register</h1>
-                <section className='registration-inputs'>
-                    <input name='first_name' placeholder='First Name' value={first_name} onChange={this.handleChange} />
-                    <input name='last_name' placeholder='Last Name' value={last_name} onChange={this.handleChange} />
-                    <input name='password' placeholder='Password' value={password} onChange={this.handleChange} />
-                    <input name='email' placeholder='Email' value={email} onChange={this.handleChange} />
-                    <input name='image' placeholder='Profile Pic' value={image} onChange={this.handleChange} />
+                <section className='register-users'>
+                    <h1>Register User</h1>
+                    <section className='registration-inputs'>
+                        <input name='first_name' placeholder='First Name' value={first_name} onChange={this.handleChange} />
+                        <input name='last_name' placeholder='Last Name' value={last_name} onChange={this.handleChange} />
+                        <input name='password' placeholder='Password' value={password} onChange={this.handleChange} />
+                        <input name='email' placeholder='Email' value={email} onChange={this.handleChange} />
+                        <input name='image' placeholder='Profile Pic' value={image} onChange={this.handleChange} />
 
-                    {/* business dropdown */}
-                    <select name='business' onChange={this.handleChange}>
-                        <option>Select your Business</option>
-                        {/* pulling businesses and mapping thru would allow options to be filled via the DB */}
-                        {/* {this.state.businesses.map((business, index)=>(
-                            <option value={business.businessess_name}>{business.businessess_name}</option>
-                        ))} */}
-                        <option value='WcDonalds'>WcDonalds</option>
-                        <option value='Fries King'>Fries King</option>
-                    </select>
+                        {/* business dropdown */}
+                        <select name='business' onChange={this.handleChange}>
+                            <option>Select your Business</option>
+                            {/* pulling businesses and mapping thru would allow options to be filled via the DB */}
+                            {this.state.businesses.map((business, index)=>(
+                                <option key={index} value={business.businesses_name}>{business.businesses_name}</option>
+                            ))}
+                        </select>
+                    </section>
+                    <Link to='/home'><button onClick={this.register}>Register User</button></Link>
                 </section>
-                <Link to='/home'><button onClick={this.register}>Register</button></Link>
+                <section className='register-business'>
+                    <h1>Register Business</h1>
+                    <input name='businesses_name' placeholder='Business Name' value={businesses_name} onChange={this.handleChange} />
+                    <input name='businesses_image' placeholder='Business Logo' value={businesses_image} onChange={this.handleChange} />
+                    <input name='businesses_notes' placeholder='Business Notes' value={businesses_notes} onChange={this.handleChange} />
+                    <input name='businesses_address_line1' placeholder='Business Address Line 1' value={businesses_address_line1} onChange={this.handleChange} />
+                    <input name='businesses_address_line2' placeholder='Business Address Line 2' value={businesses_address_line2} onChange={this.handleChange} />
+                    {/* <input name='businesses_' placeholder='Business ' value={businesses_} onChange={this.handleChange} />
+                    <input name='businesses_' placeholder='Business ' value={businesses_} onChange={this.handleChange} />
+                    <input name='businesses_' placeholder='Business ' value={businesses_} onChange={this.handleChange} />
+                    <input name='businesses_' placeholder='Business ' value={businesses_} onChange={this.handleChange} /> */}
+                    <button >Register Business</button>
+                </section>
             </main>
         )
     }
