@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 
 
 
+
 class Comments extends Component{
     constructor(props){
         super(props)
@@ -15,20 +16,21 @@ class Comments extends Component{
             user:[]
         }
         this.getComments = this.getComments.bind(this)
-        // this.deleteComments = this.deleteComments.bind(this)
+        this.deleteComment = this.deleteComment.bind(this)
     }
+
 
 
     componentDidMount() {
         this.getComments()
     }
 
-    // deleteComments(comments_id) {
-    //     axios
-    //         .delete(`/api/comments/${comments_id}`)
-    //         .then(() => this.componentDidMount())
-    //         .catch(error => console.log(`DELETE Comments (comment comp) error:: ${error}`))
-    // }
+    deleteComment(comments_id) {
+        axios
+            .delete(`/api/comments/${comments_id}`)
+            .then(() => this.componentDidMount())
+            .catch(error => console.log(`DELETE Comments (comment comp) error:: ${error}`))
+    }
 
     getComments() {
         axios
@@ -59,6 +61,7 @@ class Comments extends Component{
             editCommentFn={this.editComment}
             getComments={this.getComments} 
             welp_reviews={this.props.welp_reviews}
+            user={this.props.user}
             />
           </div>
 

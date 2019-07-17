@@ -28,18 +28,16 @@ const getComments = async (req, res) => {
 //create Comment
 const createComment = (req,res) => {
     const db = req.app.get('db'),
-    { description } = req.body;
+    { description, id, reviews_id, } = req.body;
     // console.log(req.body),
     // console.log(req.sessions),
     // console.log(req),
     // console.log(req.params),
-    // console.log(req.body)
+    console.log(req.body.welp_reviews)
     db.create_comment( 
-         description,
-        // req.sessions.user.user_id,
-        2,
-        //reveiw id
-        13
+        description,
+        id,
+        reviews_id
         )
         .then(response => res.status(200).send(response))
         .catch(error => res.status(500).send(`create_comment (commentController): ${error}`))

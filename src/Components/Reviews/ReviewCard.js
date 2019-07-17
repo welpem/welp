@@ -36,6 +36,7 @@ export default function ReviewCard(props) {
             <EditReviewModule 
                 getReviews={props.getReviews} 
                 welp_reviews={props.welp_reviews}
+                user={props.user}
             />
 
 
@@ -63,6 +64,7 @@ export default function ReviewCard(props) {
         <div className = 'comments-container'>
             <Comments
             welp_reviews={props.welp_reviews}
+            user={props.user}
             />
         </div>
 
