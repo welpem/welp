@@ -51,6 +51,7 @@ class WOS extends Component {
             deleteWOSFunction={this.deleteWOS}
             editWOSFunction={this.editWOS}
             getWOS={this.getWOS}
+            user={this.props.user}
           />
         </div>
       );
@@ -60,7 +61,8 @@ class WOS extends Component {
       <main>
         <div>
           Wall of Shame
-          <AddWOS getWOS={this.getWOS} />
+          {this.props.user.email ? (<AddWOS getWOS={this.getWOS} />)  : null }
+          
           {wos ? displayWOS : "No offenders yet"}
         </div>
       </main>
