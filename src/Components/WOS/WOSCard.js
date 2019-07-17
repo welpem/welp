@@ -9,19 +9,21 @@ export default function WOSCard(props) {
   
 
 {/* delete button */}
-         
+         {props.user.email ? (
               <button
                 onClick={() => props.deleteWOSFunction(props.welp_wos.wos_id)}>
                 Delete
               </button>
+              ) : null}
  
-   
   
 {/* edit button */}
+          {props.user.email ? (
             <EditWOSModule 
                 getWOS={props.getWOS} 
                 welp_wos={props.welp_wos}
             />
+          ) : null}
 
 {/* wos title*/}
             <h1>{props.wos_title}</h1>
