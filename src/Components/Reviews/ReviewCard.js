@@ -13,7 +13,7 @@ import Comments from './Comments'
 
 
 export default function ReviewCard(props) {
-    console.log(props)
+    // console.log(props)
     return (
         <div className = 'reviews-big-container'>
         
