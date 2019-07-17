@@ -20,7 +20,7 @@
 
 
 .comments-container{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-left: 20vw;
     margin-right: 5vh;
     margin-bottom: 5vh;
@@ -30,7 +30,8 @@
 
 .comments-sub-container{
     border: 1px gray dotted;
-    margin: 5vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
 }
 
 .add-comment-container{
