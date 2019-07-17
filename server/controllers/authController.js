@@ -1,34 +1,40 @@
 const bcrypt = require('bcryptjs')
 
 async function register(req, res){
-    // console.log('hit')
-    const {first_name, last_name, image, password, business, email} = req.body;
-    // console.log('AC6: ', req.body)
+    // console.log('David: hit')
+    const {first_name, last_name, image, password, business, email, businesses_name, businesses_image, businesses_notes, businesses_address_line1, businesses_address_line2, businesses_city, businesses_state, businesses_zip, businesses_country} = req.body;
+    // console.log('David: AC6: ', req.body)
     const db = req.app.get('db');
-    const result = await db.get_user([email])
-    // console.log('AC9: ', result)
-    const business_id = await db.get_businesses_id([business])
-    let businesses_id = business_id[0].businesses_id
-    // console.log('AC10: ', businesses_id)
-    const existingUser = result.length;
-    // console.log('AC14: ', existingUser)
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-    
-    if(existingUser > 0){
-        console.log('AC19: Email already has account');
+
+    if(business === ''){
+        db.add_business([businesses_name, businesses_image, businesses_notes, businesses_address_line1, businesses_address_line2, businesses_city, businesses_state, businesses_zip, businesses_country])
+        return res.status(201).json(businesses_name)
     } else {
-        const registeredUser = await db.add_user([first_name, last_name, image, hash, businesses_id, email])
-        const user = registeredUser[0];
-        req.session.user = {id: user.id, email: user.email, first_name: user.first_name, last_name: user.last_name, image: user.image, businesses_id: user.businesses_id}
-        return res.status(201).json(req.session.user)
+        const result = await db.get_user([email])
+        // console.log('David: AC9: ', result)
+        const business_id = await db.get_businesses_id([business])
+        let businesses_id = business_id[0].businesses_id
+        // console.log('David: AC10: ', businesses_id)
+        const existingUser = result.length;
+        // console.log('David: AC14: ', existingUser)
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(password, salt);
+        
+        if(existingUser > 0){
+            console.log('David: AC19: Email already has account');
+        } else {
+            const registeredUser = await db.add_user([first_name, last_name, image, hash, businesses_id, email])
+            const user = registeredUser[0];
+            req.session.user = {id: user.id, email: user.email, first_name: user.first_name, last_name: user.last_name, image: user.image, businesses_id: user.businesses_id}
+            return res.status(201).json(req.session.user)
+        }
     }
 }
 async function getBusinesses(req, res){
     const db = req.app.get('db');
     db.get_businesses()
         .then(response =>{ res.status(200).json(response);
-            // console.log(response)
+            // console.log('David: ', response)
         })
         .catch(()=>{
             res.sendStatus(500)
@@ -36,11 +42,11 @@ async function getBusinesses(req, res){
 }
 async function login(req, res){
     const {email, password} = req.body;
-    // console.log('AC29: ', req.body)
+    // console.log('David: AC29: ', req.body)
     const db = req.app.get('db');
     const foundUser = await db.get_user([email]);
     const user = foundUser[0];
-    // console.log('AC31: ', user)
+    // console.log('David: AC31: ', user)
     const isAuthenticated = bcrypt.compareSync(password, user.users_password);
 
     if(!user){
@@ -57,7 +63,7 @@ async function login(req, res){
         image: user.users_img,
         businesses_id: user.businesses_id
     }
-    // console.log('AC48-SESSION: ', req.session.user)
+    console.log('David: AC60-SESSION: ', req.session.user)
     return res.send(req.session.user)
 }
 async function logout(req, res){
@@ -66,10 +72,10 @@ async function logout(req, res){
 }
 async function getUser(req, res){
     if(req.session.user){
-        // console.log('AC56: ', req.session.user)
+        // console.log('David: AC56: ', req.session.user)
         res.json(req.session.user)
     } else {
-        res.status(401).json(console.log('no user found'))
+        res.status(401).json(console.log('David: no user found'))
     }
 }
 
