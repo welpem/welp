@@ -43,6 +43,7 @@ app.get('/auth/user', ac.getUser)
 app.post('/auth/register', ac.register)
 app.post('/auth/login', ac.login)
 app.get('/auth/logout', ac.logout)
+app.get('/auth/businesses', ac.getBusinesses)
 
 //Reviews//
 app.get('/api/reviews', getReviews);
