@@ -2,8 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import './Home.css';
-import Reviews from '../Reviews/Reviews';
-import WOS from '../WOS/WOS';
+// import PreviewReviews from '../Reviews/PreviewReviews';
+import PreviewWOS from '../WOS/PreviewWOS';
 
 function Home() {
   return (
@@ -14,12 +14,11 @@ function Home() {
         </section>
         <section className='home-reviews'>
           <h2>Welp Em</h2>
-          <Reviews />
+          {/* <PreviewReviews /> */}
           <Link to='/reviews'><button> > </button></Link>
         </section>
         <section className='home-wos'>
-          <h2>Wall of Shame</h2>
-          <WOS />
+          <PreviewWOS />
           <Link to='/wos'><button> > </button></Link>
         </section>
     </main>

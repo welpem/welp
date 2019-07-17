@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./Landing.css";
-import WOS from "../WOS/WOS";
+import PreviewWOS from "../WOS/PreviewWOS";
+// import PreviewReviews form "../Reviews/PreviewReviews";
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {getUser, logout, login} from '../../Redux/reducer';
@@ -61,8 +62,8 @@ class Landing extends Component {
               <Link to='/home'> continue as a guest</Link>
             </section>
           )}
-        
-        <WOS />
+        {/* <PreviewReviews /> */}
+        <PreviewWOS />
       </div>
     );
   }
