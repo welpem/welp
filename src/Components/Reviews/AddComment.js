@@ -28,7 +28,7 @@ export default function AddComment(props) {
 
 
   return (
-    <div>
+    <div className = 'comments-sub-container'>
 
 {/* ---------- Regular Add Button ---------- */}
  

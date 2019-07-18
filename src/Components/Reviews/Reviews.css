@@ -27,6 +27,11 @@
     margin-bottom: 5vh;
     margin-top: 5vh;
 }
+.comment-button-container{
+    display: flex;
+    flex-direction: column;
+}
+
 
  .comments-card-container{
      display: flex;
