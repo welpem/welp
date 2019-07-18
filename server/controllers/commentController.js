@@ -50,12 +50,12 @@ const updateComment = (req,res) => {
     console.log(req.body)
     const db = req.app.get('db'),
         { 
-        description
+        comments_id, userEdit
         } = req.body;
   
     db.update_comment( 
-        description,
-        reviews_id, 
+        +comments_id, 
+        userEdit,
         )
         .then(response => res.status(200).json(response))
         .catch(error => {

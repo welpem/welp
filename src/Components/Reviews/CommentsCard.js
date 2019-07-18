@@ -1,13 +1,14 @@
 import React from 'react';
 // import {Link} from 'react-router-dom';
 import './Reviews.css';
-import EditCommentModule from './EditCommentModule'
+import axios from 'axios'
+// import EditCommentModule from './EditCommentModule'
 
 
 
 export default function CommentCard(props) {
 const [open, setOpen] = React.useState(false);
-const [edit, setEdit] = React.useState()
+const [userEdit, setUserEdit] = React.useState()
 
   function handleEditOpen() {
     setOpen(true);
@@ -15,12 +16,26 @@ const [edit, setEdit] = React.useState()
   function handleEditClose() {
     setOpen(false);
     }
+  function handleEditSave(){
+    axios
+        .put('/api/comments', { comments_id:props.welp_comments.comments_id,
+                                userEdit:userEdit, 
+                                })
+        .then (response => {
+            console.log(response)
+            props.getComments()
+        })
+        .then(response => {
+            setOpen(false)
+        })
+        .catch(error => console.log(`Mark - handleEditSave err on CommentsCard: ${error}`))
 
+    }
 
     // console.log(props)
-    console.log(props.welp_comments)
+    console.log(props.welp_comments.comments_id)
     console.log({open})
-    console.log(edit)
+    console.log(userEdit)
 
     return (
         <div className = 'comments-big-container'>
@@ -47,8 +62,7 @@ const [edit, setEdit] = React.useState()
 {/* edit button */}
                <button 
                onClick={handleEditOpen} 
-                // getComments={props.getComments} 
-                // welp_review_comments={props.welp_review_comments}
+  
                 >
                 Edit 
                 </button>
@@ -73,7 +87,7 @@ const [edit, setEdit] = React.useState()
 
                     <textarea 
                     // rows='2' cols='75'
-                    onChange = {(e) => setEdit(e.target.value)}
+                    onChange = {(e) => setUserEdit(e.target.value)}
                     defaultValue = {props.welp_comments.comment_description}
 
                     />
@@ -92,7 +106,7 @@ const [edit, setEdit] = React.useState()
                     </button>
 {/* save edit button */}
                     <button
-                     onClick={handleEditClose}
+                     onClick={handleEditSave}
                     >
                         Save
                     </button>
