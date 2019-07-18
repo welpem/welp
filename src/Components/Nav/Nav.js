@@ -45,7 +45,7 @@ class Nav extends Component {
           <h1>Nav Component</h1>
           {this.props.state.user.email ? (
             <section className='logged-in'>
-              <Link to='/'><button onClick={this.logout}>Log Out</button></Link>
+              <Link to='/'><button name='logout' onClick={this.logout}>Log Out</button></Link>
             </section>
           ) : (
             <section className='logged-out'>
