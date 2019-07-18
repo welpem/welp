@@ -26,6 +26,15 @@ export default function WOSCard(props) {
             />
           ) : null}
 
+{/* wos username*/}
+
+            <p>{props.users_first_name}</p>
+
+{/* wos businessname*/}
+
+            <p>{props.businesses_name}</p>
+            
+
 {/* wos title*/}
             <h1>{props.wos_title}</h1>
 
