@@ -42,7 +42,7 @@ class Nav extends Component {
 
     return (
       <main className="nav">
-          <h1>Nav Component</h1>
+          <h1>Welp</h1>
           {this.props.state.user.email ? (
             <section className='logged-in'>
               <Link to='/'><button name='logout' onClick={this.logout}>Log Out</button></Link>
@@ -51,7 +51,7 @@ class Nav extends Component {
             <section className='logged-out'>
               <input name='email' placeholder='email' value={email} onChange={this.handleChange}/>
               <input name='password' placeholder='password' value={password} onChange={this.handleChange}/>
-              <Link to='/home'><button onClick={this.login}>Log In</button></Link>
+              <button onClick={this.login}>Log In</button>
             </section>
           )}
       </main>
