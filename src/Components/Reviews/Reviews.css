@@ -1,7 +1,9 @@
 
 .rewiews-sub-container{
     border: 1px gray dotted;
-    margin: 5vh;
+    margin-top: 10vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
 }
 
 .reviews-image{
@@ -18,7 +20,6 @@
 
 
 
-
 .comments-container{
     /* border: 1px solid black; */
     margin-left: 20vw;
@@ -30,14 +31,20 @@
  .comments-card-container{
      display: flex;
      justify-content: space-between;
+     align-items: center;
  }
 
 .comments-sub-container{
-    border: 1px gray dotted;
+    border-bottom: 1px gray dotted;
     /* margin-left: 5vh; */
     /* margin-right: 5vh; */
 }
 
+.comments-see-and-edit-container{
+    min-height: 8vh;
+    display: flex;
+    align-items: center;
+}
 .add-comment-container{
     display: flex;
     justify-content: center;

@@ -32,25 +32,27 @@ export default function AddComment(props) {
 
 {/* ---------- Regular Add Button ---------- */}
  
-      <div className = 'add-comment-container'> 
+      <div className = 'comments-card-container'>
+      <div className = 'comments-see-and-edit-container'>
 
       <form className = 'add-comment-form'>
         <br/>
-        <input
+        <textarea 
+        // rows='2' cols='75'
                     onChange = {(e) => setDescription(e.target.value)}
                     placeholder = 'Add comment here'
                     value = {description}
         />
       </form>
+      </div>
 
-
-
+      <div className = 'comment-button-container'>
       <button onClick={(handleAddSubmit)} 
               color="primary"
       >
         Submit
       </button>
-
+      </div>
 
       </div>
 

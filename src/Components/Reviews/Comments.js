@@ -71,7 +71,7 @@ class Comments extends Component{
     
         return(
             <main>
-              <div>
+              <div >
 
  
 

@@ -7,6 +7,7 @@ import EditCommentModule from './EditCommentModule'
 
 export default function CommentCard(props) {
 const [open, setOpen] = React.useState(false);
+const [edit, setEdit] = React.useState()
 
   function handleEditOpen() {
     setOpen(true);
@@ -18,6 +19,8 @@ const [open, setOpen] = React.useState(false);
 
     // console.log(props)
     console.log(props.welp_comments)
+    console.log({open})
+    console.log(edit)
 
     return (
         <div className = 'comments-big-container'>
@@ -29,23 +32,18 @@ const [open, setOpen] = React.useState(false);
             { 
                 +props.welp_reviews.reviews_id === +props.welp_comments.reviews_id
             ?   
-            <div className = 'comments-card-container'>
-              <div className = 'comment-container'>
+            <div className = 'no-reason-for-this'>
 
 
-                {/* { open = false
-                ? */}
-                <p>{props.welp_comments.comment_description}</p>
-                {/* :
-                <div>
-                    edit edit me 
-                </div>
-                } */}
+                { open === false
+                ?
+                <div className = 'comments-card-container'>
+                <div className = 'comments-see-and-edit-container'>
+{/* see comments                     */}
+                  <p>{props.welp_comments.comment_description}</p>
 
-              </div>
-
-
-              <div className = 'button-container'>
+                  </div>
+                  <div className = 'comment-button-container'>
 {/* edit button */}
                <button 
                onClick={handleEditOpen} 
@@ -61,10 +59,56 @@ const [open, setOpen] = React.useState(false);
                  > 
                    Delete
                 </button>
-            
-
-
+                </div>
               </div>
+
+
+
+                :
+
+// edit functionality                
+                <div className = 'comments-card-container'>
+                <div className = 'comments-see-and-edit-container'>
+
+
+                    <textarea 
+                    // rows='2' cols='75'
+                    onChange = {(e) => setEdit(e.target.value)}
+                    defaultValue = {props.welp_comments.comment_description}
+
+                    />
+                
+                </div>
+                
+                <div className = 'comment-button-container'>
+
+{/* cancel edit button */}
+
+
+                    <button
+                     onClick={handleEditClose}
+                      >
+                          Cancel
+                    </button>
+{/* save edit button */}
+                    <button
+                     onClick={handleEditClose}
+                    >
+                        Save
+                    </button>
+
+
+
+                </div>
+                </div>
+                } 
+
+
+
+
+
+
+
             </div>
 
             :
