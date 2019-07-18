@@ -47,6 +47,8 @@ class WOS extends Component {
             wos_title={welp_wos.wos_title}
             wos_img={welp_wos.wos_img}
             wos_description={welp_wos.wos_description}
+            users_first_name={welp_wos.users_first_name}
+            businesses_name={welp_wos.businesses_name}
             welp_wos={welp_wos}
             deleteWOSFunction={this.deleteWOS}
             editWOSFunction={this.editWOS}
