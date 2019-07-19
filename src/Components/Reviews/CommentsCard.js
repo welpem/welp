@@ -52,20 +52,23 @@ const [userEdit, setUserEdit] = React.useState()
 
                 { open === false
                 ?
+
                 <div className = 'comments-card-container'>
                 <div className = 'comments-see-and-edit-container'>
+                  
 {/* ability to see comments                     */}
                   <p>{props.welp_comments.comment_description}</p>
 
                   </div>
                   <div className = 'comment-button-container'>
+
 {/* edit button */}
                <button 
                onClick={handleEditOpen} 
-  
                 >
                 Edit 
                 </button>
+
 {/* delete button */}
                 <button 
                    className = 'delete-button'
