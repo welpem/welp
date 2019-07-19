@@ -10,6 +10,7 @@ const GET_USER = 'GET_USER';
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 const SET_NAME = 'SET_NAME';
+const UPDATE = 'UPDATE';
 
 //Gets user object from auth controller
 export const getUser = ()=>{
@@ -39,6 +40,12 @@ export const logout = ()=>{
         payload: data
     }
 }
+export const updateUser = (user, new_password, new_email, image, business)=>{
+    return{
+        type:UPDATE,
+        payload: axios.post('/auth/update', {user, new_password, new_email, image, business})
+    }
+}
 
 export default function reducer(state = initialState, action) {
     switch(action.type) {
@@ -62,6 +69,8 @@ export default function reducer(state = initialState, action) {
                 loading: false,
                 name: ''
             }
+        case `${UPDATE}_FULFILLED`:
+            return {...state, user: action.payload.data, loading: false}
         default: return state;
     }
 }

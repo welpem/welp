@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import Axios from 'axios';
 import {connect} from 'react-redux';
 
-import {getUser} from '../../Redux/reducer'
+import {getUser, updateUser} from '../../Redux/reducer'
 
 class Profile extends Component {
     constructor(){
@@ -11,10 +11,14 @@ class Profile extends Component {
         this.state ={
             user: {},
             businesses: [],
+            first_name: '',
+            last_name: '',
             new_password: '',
             new_email: '',
             image: '',
             business: '',
+            first_name_open: false,
+            last_name_open: false,
             email_open: false,
             password_open: false,
             image_open: false,
@@ -34,7 +38,7 @@ class Profile extends Component {
             .catch(()=> console.log('error at componentDidMount'))
         this.props.getUser()
             .then(response=>{
-                console.log('David: ', response.value.data)
+                // console.log('David: ', response.value.data)
                 this.setState({user: response.value.data})
             })
     }
@@ -48,43 +52,29 @@ class Profile extends Component {
         this.setState({[e.target.name]: false})
     }
     makeChange(){
-        let {new_password, new_email, image, business} = this.state;
-        let {id} = this.props.state.user
+        let {first_name, last_name, new_password, new_email, image, business} = this.state;
+        let {user} = this.props.state
 
-        Axios.post('/auth/update', {id, new_password, new_email, image, business})
-            // .then(()=>{
-                this.setState({
-                    new_password: '',
-                    new_email: '',
-                    image: '',
-                    business: '',
-                    email_open: false,
-                    password_open: false,
-                    image_open: false,
-                    business_open: false
-                });
-                this.props.getUser()
-                    .then(response=>{
-                        this.setState({user: response.value.data})
-                    })
-            // })
-            // .catch(()=>{
-            //     this.setState({
-            //         new_password: '',
-            //         new_email: '',
-            //         image: '',
-            //         business: '',
-            //         email_open: false,
-            //         password_open: false,
-            //         image_open: false,
-            //         business_open: false
-            //     });
-            //     console.log('David: register failed')
-            // })
+        this.props.updateUser(user, first_name, last_name, new_password, new_email, image, business)
+
+        this.setState({
+            first_name: '',
+            last_name: '',
+            new_password: '',
+            new_email: '',
+            image: '',
+            business: '',
+            first_name_open: false,
+            last_name_open: false,
+            email_open: false,
+            password_open: false,
+            image_open: false,
+            business_open: false
+        })
     }
 
     render(){
-        let {new_password, new_email, image, email_open, password_open, image_open, business_open} = this.state;
+        let {first_name, last_name, new_password, new_email, image, first_name_open, last_name_open, email_open, password_open, image_open, business_open} = this.state;
         let {user} = this.props.state
 
         {if(user.email === null || user.email === undefined || user.email === ''){
@@ -92,22 +82,33 @@ class Profile extends Component {
         }}
         return(
             <main>
-                {/* <h1>User Profile</h1> */}
                 <h2>Welcome {user.first_name}</h2>
                 <img src={(user.image)} alt='profile image' />
                 <section className='user-settings'>
                     <h4>User settings</h4>
+                    {/* {first_name_open ===true  ? <section><input name='first_name' placeholder={user.first_name} value={first_name} onChange={this.handleChange} />
+                            <button onClick={this.switchFalse} name='first_name_open'>Cancel</button>
+                            <button onClick={this.makeChange} name='first_name_open'>Update</button></section>
+                            : <section><h4>First Name: {user.first_name}</h4>
+                            <button onClick={this.switchTrue} name='first_name_open'>Update First Name</button></section>
+                    }
+                    {last_name_open ===true  ? <section><input name='last_name' placeholder={user.last_name} value={last_name} onChange={this.handleChange} />
+                            <button onClick={this.switchFalse} name='last_name_open'>Cancel</button>
+                            <button onClick={this.makeChange} name='last_name_open'>Update</button></section>
+                            : <section><h4>{user.last_name}</h4>
+                            <button onClick={this.switchTrue} name='last_name_open'>Update Last Name</button></section>
+                    } */}
                     {email_open ===true  ? <section><input name='new_email' placeholder={user.email} value={new_email} onChange={this.handleChange} />
                             <button onClick={this.switchFalse} name='email_open'>Cancel</button>
                             <button onClick={this.makeChange} name='email_open'>Update</button></section>
                             : <section><h4>{user.email}</h4>
                             <button onClick={this.switchTrue} name='email_open'>Update Email</button></section>
                     }
-                    {password_open ===true ? <section><input name='new_password' placeholder='New Password' value={new_password} onChange={this.handleChange} />
+                    {/* {password_open ===true ? <section><input name='new_password' placeholder='New Password' value={new_password} onChange={this.handleChange} />
                             <button onClick={this.switchFalse} name='password_open'>Cancel</button>
                             <button onClick={this.makeChange} name='password_open'>Update</button></section>
                             : <button onClick={this.switchTrue} name='password_open'>Update Password</button>
-                    }
+                    } */}
                     {image_open ===true  ? <section><input name='image' placeholder={user.image} value={image} onChange={this.handleChange} />
                             <button onClick={this.switchFalse} name='image_open'>Cancel</button>
                             <button onClick={this.makeChange} name='image_open'>Update</button></section>
@@ -124,11 +125,11 @@ class Profile extends Component {
                             <button onClick={this.makeChange} name='business_open'>Update</button></section>
                             : <button onClick={this.switchTrue} name='business_open'>Update Business</button>}
                 </section>
-                <section className='user-preferences'>
+                {/* <section className='user-preferences'>
                     <h4>User Preferences</h4>
                     <p>idk what y'all wanted here...</p>
                     <button>Update Preferences</button>
-                </section>
+                </section> */}
             </main>
         )
     }
@@ -140,4 +141,4 @@ const mapStateToProps = state =>{
     }
 }
 
-export default connect(mapStateToProps, {getUser})(Profile)
+export default connect(mapStateToProps, {getUser, updateUser})(Profile)
