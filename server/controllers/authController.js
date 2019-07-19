@@ -78,7 +78,38 @@ async function getUser(req, res){
         res.status(401).json(console.log('David: no user found'))
     }
 }
+async function updateUser(req, res){
+    const {id, new_password, new_email, image, business} = req.body;
+    console.log('David: AC83: ', req.body)
+    const db = req.app.get('db');
+
+    if(new_password !== ''){
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(new_password, salt);
+        
+        db.update_password([id, hash])
+    }
+    if(new_email !== ''){
+        const result = await db.get_user([new_email])
+        const existingUser = result.length;
+        
+        if(existingUser > 0){
+            console.log('David: AC95: Email already has account');
+        } else {
+            db.update_email([id, new_email])
+        }
+    }
+    if(image !== ''){
+        db.update_image([id, image])
+    }
+    if(business !== ''){
+        const business_id = await db.get_businesses_id([business])
+        let businesses_id = business_id[0].businesses_id
+        
+        db.update_business([id, businesses_id])
+    }
+}
 
 module.exports={
-    register, login, logout, getUser, getBusinesses
+    register, login, logout, getUser, getBusinesses, updateUser
 }
