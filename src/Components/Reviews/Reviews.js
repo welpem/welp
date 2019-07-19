@@ -27,7 +27,6 @@ class Reviews extends Component{
     }
 
     deleteReview(reviews_id) {
-
         axios
             .delete(`/api/reviews/${reviews_id}`)
             .then(() => this.componentDidMount())
@@ -43,7 +42,7 @@ class Reviews extends Component{
     }
 
     render(){
-        // console.log(this.props);
+        console.log(this.props);
 
   
         let {reviews } = this.state
@@ -52,10 +51,12 @@ class Reviews extends Component{
           return(
           <div>
             <ReviewCard 
+            key = {welp_reviews.reviews_id}
             welp_reviews={welp_reviews}
             deleteReviewFn={this.deleteReview}
             editReviewFn={this.editReview}
             getReviews={this.getReviews} 
+            user={this.props.user}
             />
           </div>
           )
@@ -67,6 +68,7 @@ class Reviews extends Component{
 
               <AddReview
               getReviews={this.getReviews} 
+              user={this.props.user}
         
               />
 

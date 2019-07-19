@@ -13,12 +13,24 @@ import Comments from './Comments'
 
 
 export default function ReviewCard(props) {
-    // console.log(props)
+    console.log(props)
     return (
         <div className = 'reviews-big-container'>
-        
+    
         <div className = 'rewiews-sub-container'>
 
+        <div className = 'reviews-user-and-button-area'>
+        <div className = 'reviews-user'>
+            <div className = 'reviews-user-info'>{props.welp_reviews.users_first_name} from </div>  
+            <div className = 'reviews-user-info'>{props.welp_reviews.businesses_name}</div>
+
+
+
+
+        </div>
+
+
+        <div className='reviews-buttons'>
 {/* REGULAR delete button */}
             <button 
                 onClick={() => props.deleteReviewFn(props.welp_reviews.reviews_id)}> 
@@ -36,11 +48,13 @@ export default function ReviewCard(props) {
             <EditReviewModule 
                 getReviews={props.getReviews} 
                 welp_reviews={props.welp_reviews}
+                user={props.user}
             />
-
+        </div>
+        </div>
 
 {/* review id */}
-            <h4>{props.welp_reviews.reviews_id}</h4>
+            {/* <h4>{props.welp_reviews.reviews_id}</h4> */}
 
 {/* review title */}
             <h4>{props.welp_reviews.reviews_title}</h4>
@@ -62,7 +76,9 @@ export default function ReviewCard(props) {
 
         <div className = 'comments-container'>
             <Comments
+            key={props.welp_reviews.reviews_id}
             welp_reviews={props.welp_reviews}
+            user={props.user}
             />
         </div>
 

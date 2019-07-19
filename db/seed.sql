@@ -280,6 +280,15 @@
 -- reviews_id INTEGER REFERENCES welp_reviews(reviews_id)
 -- )
 
+ALTER TABLE welp_review_comments
+DROP CONSTRAINT welp_review_comments_reviews_id_fkey;
+
+ALTER TABLE welp_review_comments
+ADD CONSTRAINT welp_review_comments_reviews_id_fkey
+FOREIGN KEY (reviews_id)
+REFERENCES welp_reviews(reviews_id) ON DELETE CASCADE;
+
+
 
 -- INSERT INTO welp_review_comments(
 -- users_id, 

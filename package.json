@@ -33,6 +33,7 @@
     "styled-theming": "^2.2.0"
   },
   "scripts": {
+    "cypress:open": "cypress open",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

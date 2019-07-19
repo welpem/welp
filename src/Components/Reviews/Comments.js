@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 
 
 
+
 class Comments extends Component{
     constructor(props){
         super(props)
@@ -15,20 +16,21 @@ class Comments extends Component{
             user:[]
         }
         this.getComments = this.getComments.bind(this)
-        // this.deleteComments = this.deleteComments.bind(this)
+        this.deleteComment = this.deleteComment.bind(this)
     }
+
 
 
     componentDidMount() {
         this.getComments()
     }
 
-    // deleteComments(comments_id) {
-    //     axios
-    //         .delete(`/api/comments/${comments_id}`)
-    //         .then(() => this.componentDidMount())
-    //         .catch(error => console.log(`DELETE Comments (comment comp) error:: ${error}`))
-    // }
+    deleteComment(comments_id) {
+        axios
+            .delete(`/api/comments/${comments_id}`)
+            .then(() => this.componentDidMount())
+            .catch(error => console.log(`DELETE Comments (comment comp) error:: ${error}`))
+    }
 
     getComments() {
         axios
@@ -44,8 +46,8 @@ class Comments extends Component{
 
         let {comments } = this.state
         // console.log(comments)
-        console.log(this.state)
-        console.log(this.props)
+        // console.log(this.state)
+        // console.log(this.props)
         // console.log(this.props.welp_reviews)
         let displayComments = comments.map(welp_comments => {
             // console.log(welp_comments)
@@ -54,11 +56,13 @@ class Comments extends Component{
 
           <div>
             <CommentsCard 
+            key={welp_comments.comments_id}
             welp_comments={welp_comments}
             deleteCommentFn={this.deleteComment}
             editCommentFn={this.editComment}
             getComments={this.getComments} 
             welp_reviews={this.props.welp_reviews}
+            user={this.props.user}
             />
           </div>
 
@@ -68,7 +72,7 @@ class Comments extends Component{
     
         return(
             <main>
-              <div>
+              <div >
 
  
 
@@ -85,6 +89,7 @@ class Comments extends Component{
             }
             
             <AddComment
+              key={this.state.comments.comments_id}
               getComments={this.getComments} 
               welp_reviews={this.props.welp_reviews}
               comments={this.state.comments}
