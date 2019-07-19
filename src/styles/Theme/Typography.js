@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { white, black, grey, aqua, purple } from './Colors';
 
 
-const textSize = {
+export const textSize = {
     h1: '36px',
     h2: '24px',
     h3: '18px',
@@ -12,12 +12,12 @@ const textSize = {
 }
 
 export const Title = styled.h1`
-    font-size: ${textSize.h1};
-    color:${white[500]};
+    font-size: ${props => props.fontSize};
+    color: ${props => props.fontColor};
+    margin: 0;
+    font-weight: bold;
+    margin-bottom: ${props => props.marginBottom};
+    padding: 20px;
+    letter-spacing: ${props => props.LetterSpacing};
 `;
 
-Title.defaultProps = {
-    theme: {
-        dark: white[500]
-    }
-}

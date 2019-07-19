@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import "./Landing.css";
 import PreviewWOS from "../WOS/PreviewWOS";
 // import PreviewReviews form "../Reviews/PreviewReviews";
 import {connect} from 'react-redux';
@@ -7,10 +6,12 @@ import {Link} from 'react-router-dom';
 import {getUser, logout, login} from '../../Redux/reducer';
 
 //Styled-Components//
-
+import {grey, black, white, aqua, purple} from '../../styles/Theme/Colors'
 import {Page, LoginBox} from '../../styles/Styled-Components/Layout/Box'
+import {Wrapper, LoginWrapper} from '../../styles/Styled-Components/Layout/Container'
 import {Title} from '../../styles/Theme/Typography'
 import {Input} from '../../styles/Styled-Components/Inputs/Text-Fields'
+import { SubmitButton } from "../../styles/Styled-Components/Inputs/Buttons";
 
 
 
@@ -52,7 +53,7 @@ class Landing extends Component {
 
     let {email, password} = this.state;
     return (
-    
+    <Wrapper>
       <div className="landing">
         Landing Component
         <h1 className="title"> Welp </h1>
@@ -67,11 +68,17 @@ class Landing extends Component {
             </section>
           ) : (
             <LoginBox>
-              <Title>Login</Title>
+              <Title fontSize ='36px' fontColor={white[500]} marginBottom='20px' LetterSpacing='-2px'>Login</Title>
             <section className='logged-out'>
-              <Input name='email' placeholder='email' value={email} onChange={this.handleChange}/>
-              <Input name='password' placeholder='password' value={password} onChange={this.handleChange}/>
-              <Link to='/home'><button onClick={this.login}>Log In</button></Link>
+              <LoginWrapper PaddingLeft = '20px'>
+              <Input name='email' placeholder='email' value={email} onChange={this.handleChange} />
+              <Input name='password' placeholder='password' value={password} onChange={this.handleChange} InputMarginTop='40px'/>
+              <Link to='/home'>
+                
+                <SubmitButton onClick={this.login} marginLeft=''>SUBMIT</SubmitButton>
+              
+              </Link>
+              </LoginWrapper>
               <br></br>
               <Link to='/register'> register now</Link><a> or</a>
               <Link to='/home'> continue as a guest</Link>
@@ -81,6 +88,7 @@ class Landing extends Component {
         {/* <PreviewReviews /> */}
         <PreviewWOS />
       </div>
+      </Wrapper>
     
     );
   }
