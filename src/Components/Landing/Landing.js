@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import "./Landing.css";
 import PreviewWOS from "../WOS/PreviewWOS";
 // import PreviewReviews form "../Reviews/PreviewReviews";
 import {connect} from 'react-redux';
@@ -79,7 +78,7 @@ class Landing extends Component {
             </LoginBox>
           )}
         {/* <PreviewReviews /> */}
-        <PreviewWOS />
+        {/* <PreviewWOS /> */}
       </div>
     
     );
