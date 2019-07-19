@@ -1,9 +1,20 @@
 import React, {Component} from "react";
-import "./Landing.css";
 import WOS from "../WOS/WOS";
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {getUser, logout, login} from '../../Redux/reducer';
+
+//Styled-Components//
+
+import {Page, LoginBox} from '../../styles/Styled-Components/Layout/Box'
+import {Title} from '../../styles/Theme/Typography'
+import {Input} from '../../styles/Styled-Components/Inputs/Text-Fields'
+
+
+
+
+
+
 class Landing extends Component {
   constructor() {
     super();
@@ -39,10 +50,11 @@ class Landing extends Component {
 
     let {email, password} = this.state;
     return (
+    
       <div className="landing">
         Landing Component
         <h1 className="title"> Welp </h1>
-        <p className="intro">
+        <p className="intro" >
           Welp is a platform for hard-working people to review the customers
           that they love and hate. The worst of the worst can be placed on the
           Wall of Shame to warn others.
@@ -52,18 +64,22 @@ class Landing extends Component {
               <Link to='/'><button onClick={this.logout}>Log Out</button></Link>
             </section>
           ) : (
+            <LoginBox>
+              <Title>Login</Title>
             <section className='logged-out'>
-              <input name='email' placeholder='email' value={email} onChange={this.handleChange}/>
-              <input name='password' placeholder='password' value={password} onChange={this.handleChange}/>
+              <Input name='email' placeholder='email' value={email} onChange={this.handleChange}/>
+              <Input name='password' placeholder='password' value={password} onChange={this.handleChange}/>
               <Link to='/home'><button onClick={this.login}>Log In</button></Link>
               <br></br>
               <Link to='/register'> register now</Link><a> or</a>
               <Link to='/home'> continue as a guest</Link>
             </section>
+            </LoginBox>
           )}
         
-        <WOS />
+        {/* <WOS /> */}
       </div>
+    
     );
   }
 }
