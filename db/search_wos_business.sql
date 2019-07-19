@@ -7,3 +7,4 @@ welp_businesses.businesses_name
 FROM welp_wos
     JOIN welp_users ON welp_wos.users_id=welp_users.users_id
     JOIN welp_businesses ON welp_wos.businesses_id=welp_businesses.businesses_id
+WHERE welp_businesses.businesses_name ILIKE '%'||$1||'%'

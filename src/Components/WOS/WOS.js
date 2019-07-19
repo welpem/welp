@@ -10,7 +10,9 @@ class WOS extends Component {
     super(props);
     this.state = {
       wos: [],
-      user: []
+      user: [],
+      searchBusiness: '',
+      searchUser: ''
     };
 
     this.getWOS = this.getWOS.bind(this);
@@ -19,6 +21,7 @@ class WOS extends Component {
 
   componentDidMount() {
     this.getWOS();
+    this.searchBusinessClick();
   }
 
   getWOS() {
@@ -29,15 +32,43 @@ class WOS extends Component {
   }
 
   deleteWOS(wos_id) {
-    console.log(this.state.wos);
+    // console.log(this.state.wos);
     axios
       .delete(`/api/wos/${wos_id}`)
       .then(() => this.componentDidMount())
       .catch(error => console.log(`WOS-axiosDelete: ${error}`));
   }
 
+// Input change handler
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+      //e accesses info about the event.
+      // Target targets the element that triggered the event(the same input field or button).
+      // Placeholder accesses the placeholder name from the element.
+      // toLowerCase() invoked matches the placeholder to the lowercase variables.
+    });
+    // console.log(e.target.value)
+  };
+
+  // Search by business
+  searchBusinessClick = e => {
+    // console.log(this.state.searchBusiness)
+    axios.get(`/api/wos?business=${this.state.searchBusiness}`)
+    // .then(res => console.log(res))
+        .then(res => this.setState({wos: res.data }))
+  }
+
+  // Search by user
+  searchUserClick = e => {
+    axios.get(`/api/wos?user=${this.state.searchUser}`)
+        .then(res => this.setState({wos: res.data }))
+  }
+
   render() {
     let { wos } = this.state;
+
+    //Map function
     let displayWOS = wos.map(welp_wos => {
       return (
         <div>
@@ -63,6 +94,13 @@ class WOS extends Component {
       <main>
         <div>
           <h1>Wall of Shame</h1>
+          <input style={{margin: '.25em'}} required placeholder="Search by business name" name="searchBusiness" onChange={this.handleChange} />
+          <button classname="button" onClick={this.searchBusinessClick}> Search </button>
+          <br></br>
+          <input style={{margin: '.25em'}} required placeholder="Search by user first name" name="searchUser"  onChange={this.handleChange} />
+          <button classname="button" onClick={
+            this.searchUserClick
+          }> Search </button>
           {this.props.user.email ? (<AddWOS getWOS={this.getWOS} user={this.props.user} />)  : null }
           
           {wos ? displayWOS : "No offenders yet"}
