@@ -30,11 +30,9 @@ const createReview = (req,res) => {
     const db = req.app.get('db'),
                         // console.log(req.body)
                         // console.log(req.sessions.user)
-        { title, img, description, score, } = req.body;
+        { title, img, description, score, id } = req.body;
     db.create_review( 
-         title, img, description, score, 
-        // req.sessions.user.user_id
-        1
+         title, img, description, score, id   
         )
         .then(response => res.status(200).send(response))
         .catch(error => res.status(500).send(`create_review (reviewController): ${error}`))

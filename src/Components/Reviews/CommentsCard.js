@@ -55,13 +55,28 @@ const [userEdit, setUserEdit] = React.useState()
 
                 <div className = 'comments-card-container'>
                 <div className = 'comments-see-and-edit-container'>
-                  
+                <div className = 'reviews-user'>
+{/* see user who made the comment    */}
+                    <div className = 'comments-user-info'> 
+                      {props.welp_comments.users_first_name}
+                    </div>
+
+
+                 </div>  
+
+
 {/* ability to see comments                     */}
+                  <div className = 'comments-user-info'></div> 
                   <p>{props.welp_comments.comment_description}</p>
 
                   </div>
-                  <div className = 'comment-button-container'>
+                  
 
+{/* if user logged in is same who made comment                    */}
+                  { props.user.id == props.welp_comments.users_id
+                  ?
+
+                  <div className = 'comment-button-container'>
 {/* edit button */}
                <button 
                onClick={handleEditOpen} 
@@ -77,6 +92,14 @@ const [userEdit, setUserEdit] = React.useState()
                    Delete
                 </button>
                 </div>
+                  :
+                  <div className = 'comment-button-container'>
+                  </div>
+
+                  } 
+
+
+                {/* </div> */}
               </div>
 
 
@@ -87,9 +110,9 @@ const [userEdit, setUserEdit] = React.useState()
                 <div className = 'comments-card-container'>
                 <div className = 'comments-see-and-edit-container'>
 
-
+                <div className = 'comments-user-info'></div> 
                     <textarea 
-                    // rows='2' cols='75'
+                    rows='2' cols='28'
                     onChange = {(e) => setUserEdit(e.target.value)}
                     defaultValue = {props.welp_comments.comment_description}
 

@@ -86,7 +86,7 @@ class Landing extends Component {
             </LoginBox>
           )}
         {/* <PreviewReviews /> */}
-        <PreviewWOS />
+        {/* <PreviewWOS /> */}
       </div>
       </Wrapper>
     
