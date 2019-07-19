@@ -80,7 +80,7 @@ async function getUser(req, res){
 }
 async function updateUser(req, res){
     const {id, new_password, new_email, image, business} = req.body;
-    console.log('David: AC83: ', req.body)
+    console.log('David: AC83: ', req.sessions.user)
     const db = req.app.get('db');
 
     if(new_password !== ''){
