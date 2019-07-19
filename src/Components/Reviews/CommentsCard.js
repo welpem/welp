@@ -22,7 +22,7 @@ const [userEdit, setUserEdit] = React.useState()
                                 userEdit:userEdit, 
                                 })
         .then (response => {
-            console.log(response)
+            // console.log(response)
             props.getComments()
         })
         .then(response => {
@@ -33,9 +33,9 @@ const [userEdit, setUserEdit] = React.useState()
     }
 
     // console.log(props)
-    console.log(props.welp_comments.comments_id)
-    console.log({open})
-    console.log(userEdit)
+    // console.log(props.welp_comments.comments_id)
+    // console.log({open})
+    // console.log(userEdit)
 
     return (
         <div className = 'comments-big-container'>
@@ -43,7 +43,7 @@ const [userEdit, setUserEdit] = React.useState()
         <div className = 'comments-sub-container'>
 
 
-{/* review description */}
+{/* if there is a comment THEN */}
             { 
                 +props.welp_reviews.reviews_id === +props.welp_comments.reviews_id
             ?   
@@ -52,20 +52,23 @@ const [userEdit, setUserEdit] = React.useState()
 
                 { open === false
                 ?
+
                 <div className = 'comments-card-container'>
                 <div className = 'comments-see-and-edit-container'>
-{/* see comments                     */}
+                  
+{/* ability to see comments                     */}
                   <p>{props.welp_comments.comment_description}</p>
 
                   </div>
                   <div className = 'comment-button-container'>
+
 {/* edit button */}
                <button 
                onClick={handleEditOpen} 
-  
                 >
                 Edit 
                 </button>
+
 {/* delete button */}
                 <button 
                    className = 'delete-button'

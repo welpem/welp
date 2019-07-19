@@ -69,7 +69,7 @@ export default function EditFormModule(props) {
           onClick={handleClickOpen}
       
           >
-            Edit Button
+            Edit
           </button>
 
 
