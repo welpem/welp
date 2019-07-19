@@ -7,8 +7,8 @@
 }
 
 .reviews-image{
-    max-width: 20vw;
-    max-height: 20vw;
+    max-width: 50vw;
+    max-height: 50vw;
 }
 
 .reviews-user-and-button-area{
@@ -30,22 +30,28 @@
 .reviews-user-info{
     display: flex;
     justify-content: flex-start;
+    color: purple;
 }
-
+.reviews-company-info{
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(71, 21, 209); 
+}
 
 /* ---------------------------------------------------- */
 
 
 .comments-container{
     /* border: 1px solid black; */
-    margin-left: 20vw;
+    margin-left: 5vh;
     margin-right: 5vh;
     margin-bottom: 5vh;
-    margin-top: 5vh;
+    margin-top: 1vh;
 }
 .comment-button-container{
     display: flex;
     flex-direction: column;
+    width: 15vw;
 }
 
 
@@ -53,12 +59,15 @@
      display: flex;
      justify-content: space-between;
      align-items: center;
+     min-height: 8vh;
  }
 
 .comments-sub-container{
-    border-bottom: 1px gray dotted;
+    border-bottom: 1px rgb(149, 149, 149) dotted;
     /* margin-left: 5vh; */
     /* margin-right: 5vh; */
+    /* margin-bottom: 5vh; */
+
 }
 
 .comments-see-and-edit-container{
@@ -66,8 +75,23 @@
     display: flex;
     align-items: center;
 }
+
+.comments-user-info{
+    display: flex;
+    justify-content: flex-start;
+    width: 7.5vw;
+    color: purple;
+    border: none;
+
+}
 .add-comment-container{
     display: flex;
     justify-content: center;
     
+}
+
+
+
+.textarea{
+    overflow-y: scroll; 
 }

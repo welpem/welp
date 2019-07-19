@@ -29,12 +29,13 @@ export default function EditFormModule(props) {
   }
 
   function handleAddSubmit(){
-
+    let {id}=props.user
     axios
         .post('/api/reviews', { title:title, 
                               img:img, 
                               description:description, 
-                              score:score })
+                              score:score, 
+                            id })
         .then (response => {
             props.getReviews()
         })
@@ -153,7 +154,7 @@ export default function EditFormModule(props) {
 
 
         <h2>
-          Edit your review
+          Add your review
         </h2>
 
       <form className = 'reviews-edit-form'>
