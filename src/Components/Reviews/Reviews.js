@@ -46,6 +46,7 @@ class Reviews extends Component{
 
   
         let {reviews } = this.state
+      
         console.log(reviews)
         let displayReviews = reviews.map(welp_reviews => {
           return(
