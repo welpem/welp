@@ -8,12 +8,12 @@ const textSize = {
     h3: '18px',
     h4: '16px',
     h5: '13px',
-    h6: '10px'     
+    h6: '10px'    
 }
 
 export const Title = styled.h1`
     font-size: ${textSize.h1};
-    color: ${props => props.theme};
+    color:${white[500]};
 `;
 
 Title.defaultProps = {

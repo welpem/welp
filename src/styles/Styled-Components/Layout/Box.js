@@ -5,8 +5,9 @@ import {grey, black} from '../../Theme/Colors'
 
 export const Page = styled.div`
     background-color: ${black[500]};
+    flex-direction: column;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     height: 100vh;
     margin: auto;
     font-family: 'Inter';
@@ -17,13 +18,13 @@ export const Page = styled.div`
     }
 `;
 
-export const Box = styled.div`
+export const LoginBox = styled.div`
     background-color: ${grey[300]};
     box-shadow: 0 3 31;
     border-radius: 10px;
     height: 420px;
     width: 306px;
-    margin-top: 250px;
+    margin-left: 30px;
 `    
 
 

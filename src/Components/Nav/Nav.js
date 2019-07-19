@@ -48,11 +48,7 @@ class Nav extends Component {
               <Link to='/'><button name='logout' onClick={this.logout}>Log Out</button></Link>
             </section>
           ) : (
-            <section className='logged-out'>
-              <input name='email' placeholder='email' value={email} onChange={this.handleChange}/>
-              <input name='password' placeholder='password' value={password} onChange={this.handleChange}/>
-              <button onClick={this.login}>Log In</button>
-            </section>
+            null
           )}
       </main>
     );
