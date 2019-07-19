@@ -11,13 +11,29 @@
     max-height: 20vw;
 }
 
-.reviews-edit-form{
+.reviews-user-and-button-area{
     display: flex;
-    flex-direction: column;
-    margin: 5vh;
+    justify-content: space-between;
 }
 
 
+.reviews-edit-form{
+    display: flex;
+    flex-direction: column;
+    margin: 3vh;
+}
+
+.reviews-user{
+    display: flex;
+    flex-direction: column;
+}
+.reviews-user-info{
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+/* ---------------------------------------------------- */
 
 
 .comments-container{

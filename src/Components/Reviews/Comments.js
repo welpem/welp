@@ -46,8 +46,8 @@ class Comments extends Component{
 
         let {comments } = this.state
         // console.log(comments)
-        console.log(this.state)
-        console.log(this.props)
+        // console.log(this.state)
+        // console.log(this.props)
         // console.log(this.props.welp_reviews)
         let displayComments = comments.map(welp_comments => {
             // console.log(welp_comments)
@@ -56,6 +56,7 @@ class Comments extends Component{
 
           <div>
             <CommentsCard 
+            key={welp_comments.comments_id}
             welp_comments={welp_comments}
             deleteCommentFn={this.deleteComment}
             editCommentFn={this.editComment}
@@ -88,6 +89,7 @@ class Comments extends Component{
             }
             
             <AddComment
+              key={this.state.comments.comments_id}
               getComments={this.getComments} 
               welp_reviews={this.props.welp_reviews}
               comments={this.state.comments}
