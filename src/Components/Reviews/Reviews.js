@@ -42,7 +42,7 @@ class Reviews extends Component{
     }
 
     render(){
-        // console.log(this.props);
+        console.log(this.props);
 
   
         let {reviews } = this.state
@@ -51,6 +51,7 @@ class Reviews extends Component{
           return(
           <div>
             <ReviewCard 
+            key = {welp_reviews.reviews_id}
             welp_reviews={welp_reviews}
             deleteReviewFn={this.deleteReview}
             editReviewFn={this.editReview}
