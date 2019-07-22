@@ -5,6 +5,12 @@ import axios from "axios";
 import "./WOS.css";
 import { connect } from "react-redux";
 
+
+import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
+import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
+import {Input} from '../../styles/Styled-Components/Inputs/Text-Fields'
+import {SubmitButton} from '../../styles/Styled-Components/Inputs/Buttons'
+import {WOSWrapper} from '../../styles/Styled-Components/Layout/Container'
 class WOS extends Component {
   constructor(props) {
     super(props);
@@ -71,7 +77,7 @@ class WOS extends Component {
     //Map function
     let displayWOS = wos.map(welp_wos => {
       return (
-        <div>
+        <WOSWrapper>
           <WOSCard
             key={welp_wos.wos_id}
             wos_id={welp_wos.wos_id}
@@ -86,21 +92,21 @@ class WOS extends Component {
             getWOS={this.getWOS}
             user={this.props.user}
           />
-        </div>
+        </WOSWrapper>
       );
     });
 
     return (
       <main>
-        <div>
-          <h1>Wall of Shame</h1>
-          <input style={{margin: '.25em'}} required placeholder="Search by business name" name="searchBusiness" onChange={this.handleChange} />
-          <button classname="button" onClick={this.searchBusinessClick}> Search </button>
+        <div className='wos-component'>
+          <W2 fontColor={grey[50]} LetterSpacing='-2px'>WALL OF SHAME.</W2>
+          <Input style={{margin: '.25em'}} required placeholder="Search by business name" name="searchBusiness" onChange={this.handleChange} />
+          <SubmitButton classname="button" onClick={this.searchBusinessClick}> Search </SubmitButton> 
           <br></br>
-          <input style={{margin: '.25em'}} required placeholder="Search by user first name" name="searchUser"  onChange={this.handleChange} />
-          <button classname="button" onClick={
+          <Input style={{margin: '.25em'}} required placeholder="Search by user first name" name="searchUser"  onChange={this.handleChange} />
+          <SubmitButton classname="button" onClick={
             this.searchUserClick
-          }> Search </button>
+          }> Search </SubmitButton>
           {this.props.user.email ? (<AddWOS getWOS={this.getWOS} user={this.props.user} />)  : null }
           
           {wos ? displayWOS : "No offenders yet"}

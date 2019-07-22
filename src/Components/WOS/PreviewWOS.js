@@ -46,12 +46,12 @@ class PreviewWOS extends Component {
       let { wos } = this.state;
       let displayWOS = wos.slice(0,4).map(welp_wos => {
         return (
-          <Wrapper>
+          <WOSWrapper marginTop='30px'>
             <WOSCard  
               key={welp_wos.wos_id}
               wos_id={welp_wos.wos_id}
-              wos_title={welp_wos.wos_title}
               wos_img={welp_wos.wos_img}
+              wos_title={welp_wos.wos_title}
               wos_description={welp_wos.wos_description}
               welp_wos={welp_wos}
               deleteWOSFunction={this.deleteWOS}
@@ -59,14 +59,14 @@ class PreviewWOS extends Component {
               getWOS={this.getWOS}
               user={this.props.user}
             />
-          </Wrapper>
+          </WOSWrapper>
         );
       });
   
       return (
         
-          <div>
-            <h1>Wall of Shame</h1>
+          <div >
+            <W2 fontColor={grey[50]} LetterSpacing='-2px' fontStyle='black' fontWeight='900' marginTop='90px;'>WALL OF SHAME</W2>
             {this.props.user.email ? (<AddWOS getWOS={this.getWOS} user={this.props.user} />)  : null }
             
             {wos ? displayWOS : "No offenders yet"}

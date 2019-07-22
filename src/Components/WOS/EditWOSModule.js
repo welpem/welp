@@ -1,6 +1,10 @@
 import React from "react";
 import axios from "axios";
 
+import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
+import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
+
+
 export default function EditWOSModule(props) {
   const [open, setOpen] = React.useState(false);
   const [title, setTitle] = React.useState();

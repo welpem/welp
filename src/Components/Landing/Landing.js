@@ -130,7 +130,7 @@ submitFocus(e) {
   <path id="Path_293" data-name="Path 293" d="M0-66.05H250S266.5-69,266.5-34,250,0,250,0H0S-16.55,3.495-16.55,27.5,0,56,0,56H250s16.5-1.092,16.5-17.55-16.5-17-16.5-17H166s-17.5,1.05-17,17S163.45,56,163.45,56H254" transform="translate(18.05 67.677)" fill="none" stroke={aqua[500]} stroke-linecap="round" stroke-width="4"/>
 </svg>
 
-              <W1 fontSize ='36px' fontColor={white[500]} marginBottom='20px' LetterSpacing='-1px'>Login</W1>
+              <W1 fontSize ='36px' fontColor={white[500]} marginBottom='20px' LetterSpacing='-1px' Padding="20px">Login</W1>
             <section className='logged-out'>
               <LoginWrapper className='LoginWrapper' PaddingLeft = '25px' JustifyContent='center'>
               <Label for='email'>Email</Label>
