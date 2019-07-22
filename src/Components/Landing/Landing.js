@@ -136,7 +136,7 @@ submitFocus(e) {
               <Label for='email'>Email</Label>
               <Input id='email' name='email' value={email} onChange={this.handleChange} onFocus={this.emailFocus} InputMarginTop='5px' marginBottom='10px'/>
               <Label for='password' >Password</Label>
-              <Input name='password' value={password} onChange={this.handleChange} onFocus={this.passwordFocus}InputMarginTop='5px' id='password'/>
+              <Input name='password' value={password} type= 'password'onChange={this.handleChange} onFocus={this.passwordFocus}InputMarginTop='5px' id='password'/>
               <ATag className='ATag'to='/home' A="flex-end" MarginRight="0px" MarginLeft='51%' MarginTop="20px">
                 
                 <SubmitButton onClick={this.login} onFocus={this.submitFocus}Padding=''>SUBMIT</SubmitButton>
