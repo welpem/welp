@@ -7,6 +7,8 @@ import axios from 'axios'
 import './Reviews.css';
 import {connect} from 'react-redux';
 
+import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
+import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
 // import {Card} from '../../styles/Styled-Components/Surfaces'
 import {Wrapper} from '../../styles/Styled-Components/Layout/Container'
 class Reviews extends Component{

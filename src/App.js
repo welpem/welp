@@ -38,13 +38,13 @@ function App() {
     {/* <GlobalStyle/> */}
     {/* <ThemeProvider theme={theme}> */}
       
-      {/* <Page> */}
+      <Page>
         
         {/* <Nav/> */}
           {routes}
         
         {/* <Footer/> */}
-      {/* </Page> */}
+      </Page>
       
     
     {/* </ThemeProvider> */}

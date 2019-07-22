@@ -2,10 +2,12 @@ import React from 'react';
 import './WOS.css';
 import EditWOSModule from './EditWOSModule'
 
-
+import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
+import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
+import {WCard, WOSImg} from '../../styles/Styled-Components/Surfaces/Cards'
 export default function WOSCard(props) {
     return (
-        <div className = 'wos-container'>
+        <WCard backgroundColor={grey[300]}>
   
 
 {/* delete button */}
@@ -27,24 +29,34 @@ export default function WOSCard(props) {
           ) : null}
 
 {/* wos username*/}
-
+    <div className='flip-card'>
+      <div className='flip-card-inner'>
+        <div className='flip-card-front'>
             <p>{props.users_first_name}</p>
+            <p>{props.businesses_name}</p>
+            <WOSImg 
+                src={props.wos_img} alt="Offender's mugshot" />
+            <W2 fontColor={red[500]} LetterSpacing='-2px;' fontStyle='black' fontWeight='800'>{props.wos_title}</W2>
+        </div>
+        <div className='flip-card-back'>
+            <W3 fontColor={red[500]} letterSpacing='-2px;' marginTop='40%'>{props.wos_description}</W3>
+
+        </div>
+
+
+      </div>
+    </div>
 
 {/* wos businessname*/}
 
-            <p>{props.businesses_name}</p>
             
 
 {/* wos title*/}
-            <h1>{props.wos_title}</h1>
 
 {/* wos picture */}
-            <img className = 'wos-image'
-                src={props.wos_img} alt="Offender's mugshot" />
 
 {/* wos description */}
-            <p>{props.wos_description}</p>
 
-      </div>
+      </WCard>
     );
-  }
+}

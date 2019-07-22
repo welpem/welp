@@ -17,15 +17,18 @@ export const W1 = styled.h1`
     margin: 0;
     font-weight: bold;
     margin-bottom: ${props => props.marginBottom};
-    padding: 20px;
+    margin-top: ${props => props.marginTop};
+    padding: ${props => props.Padding};
     letter-spacing: ${props => props.LetterSpacing};
 `;
 export const W2 = styled.h2`
     font-size: ${textSize.h2};
     color: ${props => props.fontColor};
     margin: 0;
-    font-weight: black;
+    font-weight: ${props => props.fontWeight};
+    font-style: ${props => props.fontStyle};
     margin-bottom: ${props => props.marginBottom};
+    margin-top: ${props => props.marginTop};
     letter-spacing: ${props => props.LetterSpacing};
 `;
 export const W3 = styled.h3`
@@ -33,6 +36,7 @@ export const W3 = styled.h3`
     color: ${props => props.fontColor};
     margin: 0;
     font-weight: normal;
+    margin-top: ${props => props.marginTop};
     margin-bottom: ${props => props.marginBottom};
     letter-spacing: ${props => props.LetterSpacing};
 `;
