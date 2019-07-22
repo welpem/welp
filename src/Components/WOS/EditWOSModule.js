@@ -1,9 +1,11 @@
 import React from "react";
 import axios from "axios";
 
+import {IMG} from '../../styles/Styled-Components/Inputs/Buttons'
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
-
+import Edit from '../../styles/Display/Images/Edit.svg'
+import {Modal} from '../../styles/Utils/Modal'
 
 export default function EditWOSModule(props) {
   const [open, setOpen] = React.useState(false);
@@ -43,21 +45,20 @@ export default function EditWOSModule(props) {
     <div>
       {/* Regular EDIT button */}
 
-      <button
+      <IMG src={Edit} position='absolute' zindex='4' left='6px' bottom='44px'
         aria-label="Info"
         onClick={() => props.editWOSFunction(props.wos.wos_id)}
         onClick={handleClickOpen}
-      >
-        Edit Button
-      </button>
+      />
+        
 
       {/* ---------- Regular Pop Up Modal ---------- */}
-      <dialog
+      <Modal background={grey[50]} 
         open={open}
         onClose={handleCancel}
         aria-labelledby="form-dialog-title"
       >
-        <h2>Edit your submission</h2>
+        <W3>Edit your submission</W3>
 
         <form className="wos-edit-form">
           <label>Title: </label>
@@ -96,7 +97,7 @@ export default function EditWOSModule(props) {
         <button onClick={handleEditSave} color="primary">
           Save
         </button>
-      </dialog>
+      </Modal>
       {/* ---------- Regular Pop Up Modal ---------- */}
     </div>
   );

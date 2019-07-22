@@ -25,3 +25,13 @@ margin-top: ${props => props.MarginTop};
 width: 100px;
 
 `
+
+export const IMG = styled.img`
+    position: ${props => props.position};
+    z-index: ${props => props.zindex};
+    top: ${props => props.top};
+    bottom: ${props => props.bottom};
+    left: ${props => props.left};
+    right: ${props => props.right};
+    margin-top: ${props => props.marginTop};
+`

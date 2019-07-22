@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios'
 
+import {IMG, SubmitButton} from '../../styles/Styled-Components/Inputs/Buttons'
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
-
+import Add from '../../styles/Display/Images/Add.svg'
 
 export default function EditFormModule(props) {
   const [open, setOpen] = React.useState(false);
@@ -48,12 +49,10 @@ export default function EditFormModule(props) {
 
 {/* Regular ADD button */}
 
-          <button aria-label="Info"
+          <IMG aria-label="Info" src={Add}
           onClick={() => props.editWOSFunction(props.wos.wos_id)}
           onClick={handleClickOpen}
-          >
-            Add Offender
-          </button>
+          />
 
 
 
