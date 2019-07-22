@@ -33,23 +33,23 @@ function App() {
 
 
   return (
-    <React.Fragment>
-    <Page>
-    <GlobalStyle/>
+   
     <main className="App">
+    {/* <GlobalStyle/> */}
     {/* <ThemeProvider theme={theme}> */}
       
+      {/* <Page> */}
         
-        <Nav/>
+        {/* <Nav/> */}
           {routes}
         
-        <Footer/>
+        {/* <Footer/> */}
+      {/* </Page> */}
       
     
     {/* </ThemeProvider> */}
     </main>
-  </Page>
- </React.Fragment>
+
   );
 }
 

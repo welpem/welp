@@ -1,15 +1,19 @@
 import React, {Component} from "react";
 import PreviewWOS from "../WOS/PreviewWOS";
-// import PreviewReviews form "../Reviews/PreviewReviews";
+import anime from 'animejs'
+// import PreviewReviews from "../Reviews/PreviewReviews";
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {getUser, logout, login} from '../../Redux/reducer';
 
 //Styled-Components//
-
-import {Page, LoginBox} from '../../styles/Styled-Components/Layout/Box'
-import {Title} from '../../styles/Theme/Typography'
-import {Input} from '../../styles/Styled-Components/Inputs/Text-Fields'
+import {grey, black, white, aqua, purple} from '../../styles/Theme/Colors'
+import {LandingPage, LoginBox} from '../../styles/Styled-Components/Layout/Box'
+import {Wrapper, LoginWrapper} from '../../styles/Styled-Components/Layout/Container'
+import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
+import {Input, Label} from '../../styles/Styled-Components/Inputs/Text-Fields'
+import { SubmitButton, ATag } from "../../styles/Styled-Components/Inputs/Buttons";
+import {Path} from '../../styles/Animations/Animations'
 
 
 
@@ -27,6 +31,9 @@ class Landing extends Component {
     this.login = this.login.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.logout = this.logout.bind(this);
+    this.emailFocus = this.emailFocus.bind(this);
+    this.passwordFocus = this.passwordFocus.bind(this);
+    this.submitFocus = this.submitFocus.bind(this);
   }
 
   componentDidMount(){
@@ -46,40 +53,117 @@ class Landing extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+emailFocus(e) {
+
+    var current = null;
+    if (current) current.pause();
+    current = anime({
+        targets: 'path',
+        strokeDashoffset: {
+            value: 0,
+            duration: 700,
+            easing: 'easeOutQuart'
+        },
+        strokeDasharray: {
+            value: '250 1053',
+            duration: 700,
+            easing: 'easeOutQuart'
+        }
+    })
+}
+passwordFocus(e) {
+    var current = null;
+    if (current) current.pause();
+    current = anime({
+        targets: 'path',
+        strokeDashoffset: {
+            value: -331,
+            duration: 700,
+            easing: 'easeOutQuart'
+        },
+        strokeDasharray: {
+            value: '250 1053',
+            duration: 700,
+            easing: 'easeOutQuart'
+        }
+    })
+}
+submitFocus(e) {
+    var current = null;
+    if (current) current.pause();
+    current = anime({
+        targets: 'path',
+        strokeDashoffset: {
+            value: -815,
+            duration: 700,
+            easing: 'easeOutQuart'
+        },
+        strokeDasharray: {
+            value: '582 1053',
+            duration: 700,
+            easing: 'easeOutQuart'
+        }
+    })
+}
 
   render() {
 
     let {email, password} = this.state;
     return (
-    
-      <div className="landing">
-        Landing Component
+    <Wrapper className='Wrapper'>
+
+      <LandingPage className='LandingPage'>
+        
         <h1 className="title"> Welp </h1>
-        <p className="intro" >
+        <W5 className="intro" fontColor={grey[50]} width='306px' marginBottom='20px'>
           Welp is a platform for hard-working people to review the customers
           that they love and hate. The worst of the worst can be placed on the
           Wall of Shame to warn others.
-        </p>
+        </W5>
         {this.props.state.user.email ? (
             <section className='logged-in'>
               <Link to='/'><button onClick={this.logout}>Log Out</button></Link>
             </section>
           ) : (
-            <LoginBox>
-              <Title>Login</Title>
+            <LoginBox className='LoginBox' height='350px'>
+              <svg width="286.05" height="125.177" viewBox="0 0 286.05 125.177">
+  <path id="Path_293" data-name="Path 293" d="M0-66.05H250S266.5-69,266.5-34,250,0,250,0H0S-16.55,3.495-16.55,27.5,0,56,0,56H250s16.5-1.092,16.5-17.55-16.5-17-16.5-17H166s-17.5,1.05-17,17S163.45,56,163.45,56H254" transform="translate(18.05 67.677)" fill="none" stroke={aqua[500]} stroke-linecap="round" stroke-width="4"/>
+</svg>
+
+              <W1 fontSize ='36px' fontColor={white[500]} marginBottom='20px' LetterSpacing='-1px'>Login</W1>
             <section className='logged-out'>
-              <Input name='email' placeholder='email' value={email} onChange={this.handleChange}/>
-              <Input name='password' placeholder='password' value={password} onChange={this.handleChange}/>
-              <Link to='/home'><button onClick={this.login}>Log In</button></Link>
+              <LoginWrapper className='LoginWrapper' PaddingLeft = '25px' JustifyContent='center'>
+              <Label for='email'>Email</Label>
+              <Input id='email' name='email' value={email} onChange={this.handleChange} onFocus={this.emailFocus} InputMarginTop='5px' marginBottom='10px'/>
+              <Label for='password' >Password</Label>
+              <Input name='password' value={password} onChange={this.handleChange} onFocus={this.passwordFocus}InputMarginTop='5px' id='password'/>
+              <ATag className='ATag'to='/home' A="flex-end" MarginRight="0px" MarginLeft='51%' MarginTop="20px">
+                
+                <SubmitButton onClick={this.login} onFocus={this.submitFocus}Padding=''>SUBMIT</SubmitButton>
+              
+              </ATag>
+              </LoginWrapper>
               <br></br>
-              <Link to='/register'> register now</Link><a> or</a>
-              <Link to='/home'> continue as a guest</Link>
+              
+              <Link id='RegisterLink' to='/register'> 
+              
+              <W5 fontColor={white[500]}>don't have an account? -</W5> 
+              <W5 fontColor={purple[500]} textDecor='underline'>SIGN UP</W5>
+              
+              </Link>
+              <Link id='GuestLink' to='/home'>
+              <W4 fontStyle='italic' fontColor={aqua[500]} LetterSpacing='0.2em'>
+                CONTINUE AS A GUEST
+                </W4>
+
+              </Link>
             </section>
             </LoginBox>
           )}
         {/* <PreviewReviews /> */}
-        {/* <PreviewWOS /> */}
-      </div>
+      </LandingPage>
+        <PreviewWOS />
+      </Wrapper>
     
     );
   }
