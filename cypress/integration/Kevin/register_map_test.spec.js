@@ -4,8 +4,8 @@ describe('Mapping Test', function (){
             cy.visit('localhost:3000/#/wos')
         })
 
-        it('displays business names as options', function(){
-            cy.get('p[name=').should('have.value', 'Wcdonalds')
+        it('displays wos entries', function(){
+            cy.get('').should('have.value', 'Wcdonalds')
             cy.get('select').select('Fries King').should('have.value', 'Fries King')
         })
     })

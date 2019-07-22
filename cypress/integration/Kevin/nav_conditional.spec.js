@@ -9,7 +9,6 @@ describe('Conditional rendering of add button on WOS', function () {
           })
   
           it('displays add', function () {
-          // incorrect email on purpose
               cy.get('button').contains('Add offender')
   
           // we should have visible errors now
