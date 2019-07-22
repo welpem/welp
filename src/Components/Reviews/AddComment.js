@@ -39,7 +39,8 @@ export default function AddComment(props) {
       <form className = 'add-comment-form'>
         <br/>
         <textarea 
-        rows='2' cols='28'
+                    name = {props.welp_reviews.reviews_id}
+                    rows='2' cols='28'
                     onChange = {(e) => setDescription(e.target.value)}
                     placeholder = 'Add comment here'
                     value = {description}
@@ -48,7 +49,8 @@ export default function AddComment(props) {
       </div>
 
       <div className = 'comment-button-container'>
-      <button onClick={(handleAddSubmit)} 
+      <button name ={props.welp_reviews.reviews_id}
+              onClick={(handleAddSubmit)} 
               color="primary"
       >
         Submit

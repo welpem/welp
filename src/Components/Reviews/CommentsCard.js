@@ -67,7 +67,7 @@ const [userEdit, setUserEdit] = React.useState()
 
 {/* ability to see comments                     */}
                   <div className = 'comments-user-info'></div> 
-                  <p>{props.welp_comments.comment_description}</p>
+                  <p className = 'review-description'>{props.welp_comments.comment_description}</p>
 
                   </div>
                   

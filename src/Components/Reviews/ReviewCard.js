@@ -13,9 +13,9 @@ import Comments from './Comments'
 
 
 export default function ReviewCard(props) {
-    console.log(props)
-    console.log(props.welp_reviews.users_id)
-    console.log(props.user.id)
+    // console.log(props)
+    // console.log(props.welp_reviews.users_id)
+    // console.log(props.user.id)
     return (
         <div className = 'reviews-big-container'>
     
@@ -83,7 +83,7 @@ export default function ReviewCard(props) {
             <p>{props.welp_reviews.reviews_description}</p>
 
 {/* review score */}
-            <p>{props.welp_reviews.reviews_score} stars</p>
+            <p className = 'review-stars'>{props.welp_reviews.reviews_score} stars</p>
           
 
             </div>
