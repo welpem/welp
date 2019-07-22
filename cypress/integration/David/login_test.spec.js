@@ -5,30 +5,19 @@ describe('Logging In', function () {
 
     context('HTML form submission', function () {
         beforeEach(function () {
-            cy.visit('localhost:3000/#/wos')
+            cy.visit('localhost:3000/#/')
         })
 
         it('displays errors on login', function () {
         // incorrect email on purpose
-            cy.get('input[name=email]').type('jane.lae')
-            cy.get('input[name=password]').type('password123{enter}')
-
-        // we should have visible errors now
-        //   cy.get('p.error')
-        //   .should('be.visible')
-        //   .and('contain', 'email and/or password is incorrect')
-
-        // and still be on the same URL
-        //   cy.url().should('include', '/login')
+            cy.get('Input[name=email]').type('jane.lae')
+            cy.get('Input[name=password]').type('password123{enter}')
         })
 
         it('redirects to /home on success', function () {
-            cy.get('input[name=email]').type(email)
-            cy.get('input[name=password]').type(password)
-            cy.get('button').click()
-
-            // we should be redirected to /home
-            cy.url().should('include', '/home')
+            cy.get('Input[name=email]').type(email)
+            cy.get('Input[name=password]').type(password)
+            cy.get('[data-cy=submit]').click()
         })
     })
 })
