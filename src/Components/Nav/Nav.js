@@ -41,8 +41,7 @@ class Nav extends Component {
     let {email, password} = this.state;
 
     return (
-      <main className="nav">
-          <h1>Welp</h1>
+      <div className="nav">
           {this.props.state.user.email ? (
             <section className='logged-in'>
               <Link to='/'><button name='logout' onClick={this.logout}>Log Out</button></Link>
@@ -50,7 +49,7 @@ class Nav extends Component {
           ) : (
             null
           )}
-      </main>
+      </div>
     );
   }
 }

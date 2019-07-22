@@ -24,6 +24,9 @@
     export const purple = {
                 500: '#A287F4'
         }
+    export const red = {
+                500: '##FF7878'
+    }
     
     
             
