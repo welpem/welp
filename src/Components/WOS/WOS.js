@@ -100,11 +100,11 @@ class WOS extends Component {
       <main>
         <div className='wos-component'>
           <W2 fontColor={grey[50]} LetterSpacing='-2px' paddingBottom='30px'  >WALL OF SHAME.</W2>
-          <Input style={{margin: '.25em'}} required placeholder="Search by business name" name="searchBusiness" onChange={this.handleChange} />
-          <SubmitButton classname="button" onClick={this.searchBusinessClick}> Search </SubmitButton> 
+          <Input style={{margin: '.25em'}} required placeholder="Search by business name" name="searchBusiness" id="searchBusInput" onChange={this.handleChange} />
+          <SubmitButton id="searchBusButton" classname="button" onClick={this.searchBusinessClick}> Search </SubmitButton> 
           <br></br>
-          <Input style={{margin: '.25em'}} required placeholder="Search by user first name" name="searchUser"  onChange={this.handleChange} />
-          <SubmitButton classname="button" onClick={
+          <Input style={{margin: '.25em'}} required placeholder="Search by user first name" name="searchUser" id="searchUserInput" onChange={this.handleChange} />
+          <SubmitButton id="searchUserButton" classname="button" onClick={
             this.searchUserClick
           }> Search </SubmitButton>
           {this.props.user.email ? (<AddWOS getWOS={this.getWOS} user={this.props.user} />)  : null }
@@ -115,6 +115,14 @@ class WOS extends Component {
     );
   }
 }
+
+module.exports = {
+  handleChange: this.handleChange,
+  searchBusinessClick: this.searchBusinessClick,
+
+
+}
+
 
 const mapStateToProps = state => state;
 

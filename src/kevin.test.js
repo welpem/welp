@@ -1,8 +1,8 @@
-const { handleCompany, handleJobTitle, handleAddress, handleCity, handleState } = require('./redux/jobReducer')
+// const { handleChange, searchBusinessClick, searchUserClick } = require('.\Components\WOS\WOS.js')
 
-describe('handleCompany', () => {
+describe('handleChange', () => {
    test('Facebook should be Facebook', () => {
-       expect(handleCompany('Facebook')).toEqual({"payload": "Facebook", "type": "HANDLE_COMPANY"})
+       expect(handleChange('Facebook')).toEqual({"[e.target.name]": "Facebook"})
    });
 })
 
