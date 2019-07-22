@@ -5,28 +5,19 @@ describe('Conditional rendering on login', function () {
   
       context('HTML form submission', function () {
           beforeEach(function () {
-              cy.visit('localhost:3000/#/wos')
+              cy.visit('localhost:3000/#/')
           })
   
           it('displays login', function () {
-          // incorrect email on purpose
-              cy.get('button').contains('Log In')
-  
-          // we should have visible errors now
-          //   cy.get('p.error')
-          //   .should('be.visible')
-          //   .and('contain', 'email and/or password is incorrect')
-  
-          // and still be on the same URL
-          //   cy.url().should('include', '/login')
+            cy.get('[data-cy="submit"]').contains('SUBMIT')
           })
   
           it('displays logout', function () {
-            cy.get('input[name=email]').type(email)
-            cy.get('input[name=password]').type(password)
-            cy.get('button').click()
+            cy.get('[data-cy="emailInput"]').type(email)
+            cy.get('[data-cy="passwordInput"]').type(password)
+            cy.get('[data-cy="submit"]').click()
 
-            cy.get('button[name=logout]').contains('Log Out')
+            cy.get('[data-cy="logout"]').contains('Log Out')
           })
       })
   })

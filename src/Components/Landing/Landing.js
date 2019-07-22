@@ -122,7 +122,7 @@ submitFocus(e) {
         </W5>
         {this.props.state.user.email ? (
             <section className='logged-in'>
-              <Link to='/'><button onClick={this.logout}>Log Out</button></Link>
+              <Link to='/'><button data-cy="logout" onClick={this.logout}>Log Out</button></Link>
             </section>
           ) : (
             <LoginBox className='LoginBox' height='350px'>
@@ -134,12 +134,12 @@ submitFocus(e) {
             <section className='logged-out'>
               <LoginWrapper className='LoginWrapper' PaddingLeft = '25px' JustifyContent='center'>
               <Label for='email'>Email</Label>
-              <Input id='email' name='email' value={email} onChange={this.handleChange} onFocus={this.emailFocus} InputMarginTop='5px' marginBottom='10px'/>
+              <Input data-cy="emailInput" id='email' name='email' value={email} onChange={this.handleChange} onFocus={this.emailFocus} InputMarginTop='5px' marginBottom='10px'/>
               <Label for='password' >Password</Label>
-              <Input name='password' value={password} onChange={this.handleChange} onFocus={this.passwordFocus}InputMarginTop='5px' id='password'/>
+              <Input data-cy="passwordInput" name='password' value={password} onChange={this.handleChange} onFocus={this.passwordFocus}InputMarginTop='5px' id='password'/>
               <ATag className='ATag'to='/home' A="flex-end" MarginRight="0px" MarginLeft='51%' MarginTop="20px">
                 
-                <SubmitButton onClick={this.login} onFocus={this.submitFocus}Padding=''>SUBMIT</SubmitButton>
+                <SubmitButton data-cy="submit" onClick={this.login} onFocus={this.submitFocus}Padding=''>SUBMIT</SubmitButton>
               
               </ATag>
               </LoginWrapper>
