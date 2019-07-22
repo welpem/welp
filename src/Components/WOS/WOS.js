@@ -5,7 +5,7 @@ import axios from "axios";
 import "./WOS.css";
 import { connect } from "react-redux";
 
-
+//styled-components//
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
 import {Input} from '../../styles/Styled-Components/Inputs/Text-Fields'
@@ -99,7 +99,7 @@ class WOS extends Component {
     return (
       <main>
         <div className='wos-component'>
-          <W2 fontColor={grey[50]} LetterSpacing='-2px'>WALL OF SHAME.</W2>
+          <W2 fontColor={grey[50]} LetterSpacing='-2px' paddingBottom='30px'  >WALL OF SHAME.</W2>
           <Input style={{margin: '.25em'}} required placeholder="Search by business name" name="searchBusiness" onChange={this.handleChange} />
           <SubmitButton classname="button" onClick={this.searchBusinessClick}> Search </SubmitButton> 
           <br></br>

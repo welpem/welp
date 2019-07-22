@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const WCard = styled.div`
+    position: relative;
     background-color: transparent;
     color: ${props => props.color};
     font-size: ${props => props.size};
