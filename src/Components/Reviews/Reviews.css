@@ -1,6 +1,6 @@
 
 .rewiews-sub-container{
-    border: 1px gray dotted;
+    /* border: 1px gray dotted; */
     margin-top: 10vh;
     margin-left: 5vh;
     margin-right: 5vh;
@@ -11,84 +11,14 @@
     max-height: 50vw;
 }
 
-.reviews-user-and-button-area{
-    display: flex;
-    justify-content: space-between;
-}
-
-
-.reviews-edit-form{
-    display: flex;
-    flex-direction: column;
-    margin: 3vh;
-}
-
-.reviews-user{
-    display: flex;
-    flex-direction: column;
-}
-.reviews-user-info{
-    display: flex;
-    justify-content: flex-start;
-    color: purple;
-}
-.reviews-company-info{
-    display: flex;
-    justify-content: flex-start;
-    color: rgb(71, 21, 209); 
-}
 
 /* ---------------------------------------------------- */
 
 
-.comments-container{
-    /* border: 1px solid black; */
-    margin-left: 5vh;
-    margin-right: 5vh;
-    margin-bottom: 5vh;
-    margin-top: 1vh;
-}
-.comment-button-container{
-    display: flex;
-    flex-direction: column;
-    width: 15vw;
-}
 
 
- .comments-card-container{
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     min-height: 8vh;
- }
 
-.comments-sub-container{
-    border-bottom: 1px rgb(149, 149, 149) dotted;
-    /* margin-left: 5vh; */
-    /* margin-right: 5vh; */
-    /* margin-bottom: 5vh; */
 
-}
-
-.comments-see-and-edit-container{
-    min-height: 8vh;
-    display: flex;
-    align-items: center;
-}
-
-.comments-user-info{
-    display: flex;
-    justify-content: flex-start;
-    width: 7.5vw;
-    color: purple;
-    border: none;
-
-}
-.add-comment-container{
-    display: flex;
-    justify-content: center;
-    
-}
 
 
 

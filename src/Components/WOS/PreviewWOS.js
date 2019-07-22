@@ -5,6 +5,12 @@ import axios from "axios";
 import "./WOS.css";
 import { connect } from "react-redux";
 
+
+import {Wrapper, WOSWrapper} from '../../styles/Styled-Components/Layout/Container'
+// import {WOSCard} from '../../styles/Styled-Components/Surfaces/Cards'
+import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
+import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
+
 class PreviewWOS extends Component {
     constructor(props) {
       super(props);
@@ -40,8 +46,8 @@ class PreviewWOS extends Component {
       let { wos } = this.state;
       let displayWOS = wos.slice(0,4).map(welp_wos => {
         return (
-          <div>
-            <WOSCard
+          <Wrapper>
+            <WOSCard  
               key={welp_wos.wos_id}
               wos_id={welp_wos.wos_id}
               wos_title={welp_wos.wos_title}
@@ -53,19 +59,19 @@ class PreviewWOS extends Component {
               getWOS={this.getWOS}
               user={this.props.user}
             />
-          </div>
+          </Wrapper>
         );
       });
   
       return (
-        <main>
+        
           <div>
             <h1>Wall of Shame</h1>
             {this.props.user.email ? (<AddWOS getWOS={this.getWOS} user={this.props.user} />)  : null }
             
             {wos ? displayWOS : "No offenders yet"}
           </div>
-        </main>
+        
       );
     }
   }

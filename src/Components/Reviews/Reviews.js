@@ -7,8 +7,8 @@ import axios from 'axios'
 import './Reviews.css';
 import {connect} from 'react-redux';
 
-
-
+// import {Card} from '../../styles/Styled-Components/Surfaces'
+import {Wrapper} from '../../styles/Styled-Components/Layout/Container'
 class Reviews extends Component{
     constructor(props){
         super(props)
@@ -50,7 +50,7 @@ class Reviews extends Component{
         console.log(reviews)
         let displayReviews = reviews.map(welp_reviews => {
           return(
-          <div>
+          <Wrapper>
             <ReviewCard 
             key = {welp_reviews.reviews_id}
             welp_reviews={welp_reviews}
@@ -59,13 +59,13 @@ class Reviews extends Component{
             getReviews={this.getReviews} 
             user={this.props.user}
             />
-          </div>
+          </Wrapper>
           )
         })
     
         return(
             <main>
-              <div >
+              <Wrapper >
 
               <AddReview
               getReviews={this.getReviews} 
@@ -77,7 +77,7 @@ class Reviews extends Component{
             {reviews ? displayReviews : 'No Reviews yet'}
 
 
-              </div>
+              </Wrapper>
             </main>
         )
     }

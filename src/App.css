@@ -1,4 +1,32 @@
-a {
-    width: 75px;
-    margin: 0;
+svg {
+    position: absolute;
+    left: 40px;
+    margin-top: 159px;
+}
+path {
+    stroke-dasharray: 250 1053;
+}
+
+body {
+    background: black;
+    height: 100%;
+}
+
+
+a#RegisterLink{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-top: 50%;
+    text-decoration: none;
+    right: 85px;
+    width: 210px;
+}
+
+a#GuestLink {
+    display: flex;
+    position: absolute;
+    margin-top: 67%;
+    right: 64px;
+    text-decoration: none;
 }

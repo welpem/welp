@@ -5,6 +5,14 @@ import {connect} from 'react-redux';
 
 import {setName, getUser, login} from '../../Redux/reducer'
 
+//styled components//
+import {LoginBox, LandingPage} from '../../styles/Styled-Components/Layout/Box'
+import {LoginWrapper} from '../../styles/Styled-Components/Layout/Container'
+import {W1} from '../../styles/Theme/Typography'
+import {Input, Label, Select} from '../../styles/Styled-Components/Inputs/Text-Fields'
+import {SubmitButton, ATag} from '../../styles/Styled-Components/Inputs/Buttons'
+import {white, grey, black, aqua, purple} from '../../styles/Theme/Colors'
+
 class Register extends Component{
     constructor(){
         super()
@@ -113,41 +121,48 @@ class Register extends Component{
         // console.log(this.state.businesses)
 
         return(
-            <main className='Register'>
-                <section className='register-users'>
-                    <h1>Register User</h1>
-                    <section className='registration-inputs'>
-                        <input name='first_name' placeholder='First Name' value={first_name} onChange={this.handleChange} />
-                        <input name='last_name' placeholder='Last Name' value={last_name} onChange={this.handleChange} />
-                        <input name='new_password' placeholder='Password' value={new_password} onChange={this.handleChange} />
-                        <input name='new_email' placeholder='Email' value={new_email} onChange={this.handleChange} />
-                        <input name='image' placeholder='Profile Pic' value={image} onChange={this.handleChange} />
-
+            <LandingPage className='Register'>
+                <LoginBox className='register-users' height='525px' marginTop='20px;'>
+                    <W1 fontColor={white[500]} LetterSpacing='-1px'>Register</W1>
+                    <LoginWrapper PaddingLeft='25px' JustifyContent='center'className='registration-inputs'>
+                        <Label>First Name</Label>
+                        <Input name='first_name'  value={first_name} onChange={this.handleChange} />
+                        <Label>Last Name</Label>
+                        <Input name='last_name'  value={last_name} onChange={this.handleChange} />
+                        <Label>Password</Label>
+                        <Input name='new_password'  value={new_password} onChange={this.handleChange} />
+                        <Label>Email</Label>
+                        <Input name='new_email'  value={new_email} onChange={this.handleChange} />
+                        <Label>Profile Pic</Label>
+                        <Input name='image'  value={image} onChange={this.handleChange} />
+                        
                         {/* business dropdown */}
-                        <select name='business' onChange={this.handleChange}>
+                        <Select name='business' onChange={this.handleChange}>
                             <option>Select your Business</option>
                             {/* pulling businesses and mapping thru would allow options to be filled via the DB */}
                             {this.state.businesses.map((business, index)=>(
                                 <option key={index} value={business.businesses_name}>{business.businesses_name}</option>
                             ))}
-                        </select>
-                    </section>
-                    <Link to='/home'><button name='register_user' onClick={this.register}>Register User</button></Link>
-                </section>
-                <section className='register-business'>
-                    <h1>Register Business</h1>
-                    <input name='businesses_name' placeholder='Business Name' value={businesses_name} onChange={this.handleChange} />
-                    <input name='businesses_image' placeholder='Business Logo' value={businesses_image} onChange={this.handleChange} />
-                    <input name='businesses_notes' placeholder='Business Notes' value={businesses_notes} onChange={this.handleChange} />
-                    <input name='businesses_address_line1' placeholder='Business Address Line 1' value={businesses_address_line1} onChange={this.handleChange} />
-                    <input name='businesses_address_line2' placeholder='Business Address Line 2' value={businesses_address_line2} onChange={this.handleChange} />
-                    <input name='businesses_city' placeholder='Business City' value={businesses_city} onChange={this.handleChange} />
-                    <input name='businesses_state' placeholder='Business State' value={businesses_state} onChange={this.handleChange} />
-                    <input name='businesses_zip' placeholder='Business Zip' value={businesses_zip} onChange={this.handleChange} />
-                    <input name='businesses_country' placeholder='Business Country' value={businesses_country} onChange={this.handleChange} />
-                    <button name='register_business' onClick={this.register}>Register Business</button>
-                </section>
-            </main>
+                        </Select>
+                    <ATag to='/home' MarginLeft='42%' MarginTop="30px">
+                        <SubmitButton name='register_user' onClick={this.register}>SUBMIT
+                        </SubmitButton></ATag>
+                    </LoginWrapper>
+                </LoginBox>
+                <LoginBox className='register-business' marginTop='50px;'>
+                    <W1>Business</W1>
+                    <Input name='businesses_name' placeholder='Business Name' value={businesses_name} onChange={this.handleChange} />
+                    <Input name='businesses_image' placeholder='Business Logo' value={businesses_image} onChange={this.handleChange} />
+                    <Input name='businesses_notes' placeholder='Business Notes' value={businesses_notes} onChange={this.handleChange} />
+                    <Input name='businesses_address_line1' placeholder='Business Address Line 1' value={businesses_address_line1} onChange={this.handleChange} />
+                    <Input name='businesses_address_line2' placeholder='Business Address Line 2' value={businesses_address_line2} onChange={this.handleChange} />
+                    <Input name='businesses_city' placeholder='Business City' value={businesses_city} onChange={this.handleChange} />
+                    <Input name='businesses_state' placeholder='Business State' value={businesses_state} onChange={this.handleChange} />
+                    <Input name='businesses_zip' placeholder='Business Zip' value={businesses_zip} onChange={this.handleChange} />
+                    <Input name='businesses_country' placeholder='Business Country' value={businesses_country} onChange={this.handleChange} />
+                    <SubmitButton name='register_business' onClick={this.register}>Register Business</SubmitButton>
+                </LoginBox>
+            </LandingPage>
         )
     }
 }
