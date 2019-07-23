@@ -116,12 +116,10 @@ class WOS extends Component {
   }
 }
 
-module.exports = {
-  handleChange: this.handleChange,
-  searchBusinessClick: this.searchBusinessClick,
-
-
-}
+// module.exports = {
+//   handleChange: this.handleChange,
+//   searchBusinessClick: this.searchBusinessClick,
+// }
 
 
 const mapStateToProps = state => state;

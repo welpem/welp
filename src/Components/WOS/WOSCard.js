@@ -29,8 +29,8 @@ export default function WOSCard(props) {
     <div className='flip-card'>
       <div className='flip-card-inner'>
         <div className='flip-card-front'>
-            <p>{props.users_first_name}</p>
-            <p>{props.businesses_name}</p>
+            <p id="firstName">{props.users_first_name}</p>
+            <p id="busName">{props.businesses_name}</p>
             <WOSImg 
                 src={props.wos_img} alt="Offender's mugshot" />
             <W2 fontColor={red[500]} LetterSpacing='-2px;' fontStyle='black' fontWeight='800'>{props.wos_title}</W2>

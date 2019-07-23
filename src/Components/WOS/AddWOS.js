@@ -49,7 +49,7 @@ export default function EditFormModule(props) {
 
 {/* Regular ADD button */}
 
-          <IMG aria-label="Info" src={Add}
+          <IMG id="addWOSButton" aria-label="Info" src={Add}
           onClick={() => props.editWOSFunction(props.wos.wos_id)}
           onClick={handleClickOpen}
           />
