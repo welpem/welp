@@ -1,18 +1,18 @@
-// const { handleChange, searchBusinessClick, searchUserClick } = require('.\Components\WOS\WOS.js')
-
+// const { handleChange, searchBusinessClick, searchUserClick } = require('./Components/WOS/WOS.js')
+import WOS from './components/WOS/WOS.js'
 describe('handleChange', () => {
    test('Facebook should be Facebook', () => {
        expect(handleChange('Facebook')).toEqual({"[e.target.name]": "Facebook"})
    });
 })
 
-describe('handleJobTitle', () => {
+describe('searchBusinessClick', () => {
    test('Senior Frontend Dev should be Senior Frontend Dev', () => {
        expect(handleJobTitle('Senior Frontend Dev')).toEqual({"payload": "Senior Frontend Dev", "type": "HANDLE_JOBTITLE"})
    });
 })
 
-describe('handleAddress', () => {
+describe('searchUserClick', () => {
    test('123 Main St. should be 123 Main St.', () => {
        expect(handleAddress('123 Main St.')).toEqual({"payload": "123 Main St.", "type": "HANDLE_ADDRESS"})
    });
