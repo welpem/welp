@@ -88,6 +88,9 @@ class Comments extends Component{
             </div>
             }
             
+
+            { this.props.user.id 
+            ?
             <AddComment
               key={this.state.comments.comments_id}
               getComments={this.getComments} 
@@ -95,6 +98,10 @@ class Comments extends Component{
               comments={this.state.comments}
               user={this.props.user}
               />
+            :
+            null
+            }  
+
 
               </div>
             </main>

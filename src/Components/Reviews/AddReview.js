@@ -65,7 +65,9 @@ export default function EditFormModule(props) {
 
 {/* Regular EDIT button */}
 
-          <button aria-label="Info"
+          <button 
+          name = 'add-review'
+          aria-label="Info"
           onClick={() => props.editReviewFn(props.reviews.reviews_id)}
           onClick={handleClickOpen}
           >
@@ -163,26 +165,29 @@ export default function EditFormModule(props) {
       <form className = 'reviews-edit-form'>
 
         <label>Title: </label>
-        <textarea rows="3" cols="27"
+        <textarea   rows="3" cols="27"
+                    name= 'add-review-title'
                     onChange = {(e) => setTitle(e.target.value)}
                     defaultValue = 'Add Title here.'
         />
 
         <br/>
         <label>Image: </label>
-        <textarea rows="3" cols="27"
+        <textarea   rows="3" cols="27"
+                    name= 'add-review-image'
                     onChange = {(e) => setImage(e.target.value)}
                     defaultValue = 'Add image URL here'
         />
 
         <br/>
         <label>Description: </label>
-        <textarea rows="10" cols="27"
+        <textarea   rows="10" cols="27"
+                    name= 'add-review-description'
                     onChange = {(e) => setDescription(e.target.value)}
                     defaultValue = 'Add description here'
         />
         <label>Stars: (1-5) </label>
-        <select id = 'stars'
+        <select     id = 'stars'
                     onChange = {(e) => setScore(e.target.value)}
                   
         >
@@ -201,12 +206,14 @@ export default function EditFormModule(props) {
 {/* Cancel button */}
           <button
             onClick={handleCancel} color="primary"
-          >
+            name='add-review-cancel'
+          > 
             Cancel
           </button>
 
 {/* Submit button */}
           <button 
+            name='add-review-submit'
             onClick={handleAddSubmit} color="primary"
           >
             Save

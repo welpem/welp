@@ -79,6 +79,7 @@ const [userEdit, setUserEdit] = React.useState()
                   <div className = 'comment-button-container'>
 {/* edit button */}
                <button 
+               className = 'edit-comment-button'
                onClick={handleEditOpen} 
                 >
                 Edit 
@@ -86,7 +87,7 @@ const [userEdit, setUserEdit] = React.useState()
 
 {/* delete button */}
                 <button 
-                   className = 'delete-button'
+                   className = 'comment-delete-button'
                    onClick={() => props.deleteCommentFn(props.welp_comments.comments_id)}
                  > 
                    Delete
@@ -113,6 +114,7 @@ const [userEdit, setUserEdit] = React.useState()
                 <div className = 'comments-user-info'></div> 
                     <textarea 
                     rows='2' cols='28'
+                    className = 'edit-comment-description'
                     onChange = {(e) => setUserEdit(e.target.value)}
                     defaultValue = {props.welp_comments.comment_description}
 
@@ -126,12 +128,14 @@ const [userEdit, setUserEdit] = React.useState()
 
 
                     <button
+                     className = 'edit-comment-cancel'
                      onClick={handleEditClose}
                       >
                           Cancel
                     </button>
 {/* save edit button */}
                     <button
+                     className = 'edit-comment-save'
                      onClick={handleEditSave}
                     >
                         Save
