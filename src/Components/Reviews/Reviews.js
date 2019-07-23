@@ -69,11 +69,17 @@ class Reviews extends Component{
             <main>
               <Wrapper >
 
+
+        { this.props.user.id 
+        ?
               <AddReview
               getReviews={this.getReviews} 
               user={this.props.user}
-        
               />
+        :
+        null
+        }      
+
 
 
             {reviews ? displayReviews : 'No Reviews yet'}

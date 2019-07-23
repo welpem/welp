@@ -64,9 +64,13 @@ export default function EditFormModule(props) {
 
 {/* Regular EDIT button */}
 
-          <button aria-label="Info"
-          onClick={() => props.editReviewFn(props.reviews.reviews_id)}
-          onClick={handleClickOpen}
+
+
+          <button 
+            className = 'edit-review-button'
+            aria-label="Info"
+            onClick={() => props.editReviewFn(props.reviews.reviews_id)}
+            onClick={handleClickOpen}
       
           >
             Edit
@@ -163,26 +167,29 @@ export default function EditFormModule(props) {
       <form className = 'reviews-edit-form'>
 
         <label>Title: </label>
-        <textarea rows="3" cols="27"
+        <textarea   rows="3" cols="27"
+                    className = 'edit-review-title'
                     onChange = {(e) => setTitle(e.target.value)}
                     defaultValue = {props.welp_reviews.reviews_title}
         />
 
         <br/>
         <label>Image: </label>
-        <textarea rows="3" cols="27"
+        <textarea   rows="3" cols="27"
+                    className = 'edit=review-image'
                     onChange = {(e) => setImage(e.target.value)}
                     defaultValue = {props.welp_reviews.reviews_img}
         />
 
         <br/>
         <label>Description: </label>
-        <textarea rows="10" cols="27"
+        <textarea   rows="10" cols="27"
+                    className = 'edit-review-description'
                     onChange = {(e) => setDescription(e.target.value)}
                     defaultValue = {props.welp_reviews.reviews_description}
         />
         <label>Stars: (1-5) </label>
-        <select id = 'stars'
+        <select     id = 'stars'
                     onChange = {(e) => setScore(e.target.value)}
                     defaultValue = {props.welp_reviews.reviews_score}
         >
@@ -200,6 +207,7 @@ export default function EditFormModule(props) {
 
 {/* Cancel button */}
           <button
+            className = 'edit-review-title'
             onClick={handleCancel} color="primary"
           >
             Cancel
@@ -207,6 +215,7 @@ export default function EditFormModule(props) {
 
 {/* Submit button */}
           <button 
+            className = 'edit-review-title'
             onClick={handleEditSave} color="primary"
           >
             Save
