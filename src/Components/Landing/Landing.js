@@ -3,7 +3,7 @@ import PreviewWOS from "../WOS/PreviewWOS";
 import anime from 'animejs'
 // import PreviewReviews from "../Reviews/PreviewReviews";
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {getUser, logout, login} from '../../Redux/reducer';
 
 //Styled-Components//
@@ -107,6 +107,10 @@ submitFocus(e) {
 }
 
   render() {
+    console.log(this.props)
+    {if(this.props.state.redirect !== false){
+      return <Redirect to='/home' />
+    }}
 
     let {email, password} = this.state;
     return (
@@ -138,9 +142,7 @@ submitFocus(e) {
               <Input data-cy="passwordInput" name='password' type='password'value={password} onChange={this.handleChange} onFocus={this.passwordFocus}InputMarginTop='5px' id='password'/>
 
               <ATag className='ATag'to='/home' A="flex-end" MarginRight="0px" MarginLeft='51%' MarginTop="20px">
-                
                 <SubmitButton data-cy="submit" onClick={this.login} onFocus={this.submitFocus}Padding=''>SUBMIT</SubmitButton>
-              
               </ATag>
               </LoginWrapper>
               <br></br>
