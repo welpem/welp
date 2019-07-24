@@ -47,10 +47,11 @@ export const Background = styled.div`
     }
 `
 export const WOSWrapper = styled.div`
-    display: flex;
+    display: ${props => props.display};
     justify-content: center;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
+    flex-wrap: wrap;
     margin-top: ${props => props.marginTop};
     position: ${props => props.position};
     z-index: ${props => props.zindex};
@@ -58,10 +59,14 @@ export const WOSWrapper = styled.div`
     bottom: ${props => props.bottom};
     right: ${props => props.right};
     left: ${props => props.left};
-    grid-template-columns: ${props => props.gridColumns};
+    grid-template-columns: repeat(auto-fit, 250px);
     grid-template-rows: ${props => props.gridRows};
     grid-column-gap: ${props => props.columnGap};
     grid-row-gap: ${props => props.rowGap};
+    .preview-card {
+        object-fit: cover;
+        width: 100%;
+    }
 
     `
 export const RWrapper = styled.div`
@@ -77,6 +82,7 @@ export const RWrapper = styled.div`
 `
 export const Wrap = styled.div`
     margin-top: ${props => props.marginTop};
-    grid-template-rows: ${props => props.gridRows};
-    grid-template-columns: ${props => props.gridColumns};
+    width: 350px; 
+    display: flex;
+    flex: wrap;
 `

@@ -47,8 +47,8 @@ class PreviewWOS extends Component {
       let { wos } = this.state;
       let displayWOS = wos.slice(0,4).map(welp_wos => {
         return (
-          <WOSWrapper marginTop='30px'>
-            <WOSCard  
+          <WOSWrapper marginTop='20px' display='grid'>
+            <WOSCard  className='preview-card'
               key={welp_wos.wos_id}
               wos_id={welp_wos.wos_id}
               wos_img={welp_wos.wos_img}

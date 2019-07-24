@@ -19,12 +19,13 @@ function Home() {
           <W3 fontColor={purple[500]}>{"let it out, we don't judge...".toUpperCase()}</W3>
           <W3 fontColor={grey[50]}>{"well".toUpperCase()}</W3>
           <W3 fontColor={purple[500]}>{"maybe just a little".toUpperCase()}</W3>
+          <br></br>
           <LearnButton>learn more about welp</LearnButton>
         </section>
         <section className='home-reviews'>
         <W3 fontColor={grey[50]} LetterSpacing='-1px' fontStyle='black' fontWeight='900' marginTop='90px;' textAlign='left' marginLeft='20px'>welps.</W3>
           {/* <PreviewReviews /> */}
-          <ATag position='absolute' right='20px'to='/reviews'><IMG src={next}/></ATag>
+          <ATag to='/reviews'><IMG src={next}/></ATag>
         </section>
         <section className='home-wos'>
           <PreviewWOS />
