@@ -11,12 +11,18 @@ export const textSize = {
     h6: '10px'    
 }
 
+<<<<<<< Updated upstream
 export const W1 = styled.h1`
     font-size: ${textSize.h1};
+=======
+export const Title = styled.h1`
+    font-size: ${props => props.fontSize};
+>>>>>>> Stashed changes
     color: ${props => props.fontColor};
     margin: 0;
     font-weight: bold;
     margin-bottom: ${props => props.marginBottom};
+<<<<<<< Updated upstream
     margin-top: ${props => props.marginTop};
     padding: ${props => props.Padding};
     letter-spacing: ${props => props.LetterSpacing};
@@ -85,3 +91,9 @@ export const W6 = styled.h6`
     letter-spacing: ${props => props.LetterSpacing};
     text-decoration: ${props => props.textDecor};
 `;
+=======
+    padding: 20px;
+    letter-spacing: ${props => props.LetterSpacing};
+`;
+
+>>>>>>> Stashed changes

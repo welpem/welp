@@ -5,10 +5,12 @@ export const WCard = styled.div`
     background-color: transparent;
     color: ${props => props.color};
     font-size: ${props => props.size};
-    width: 227px;
-    height: 330px;
+    width: ${props => props.width};
+    height: ${props => props.height};
     margin-top: 20px;
     margin: 0;
+    justify-self: center; align-self: center; min-width: 100%; min-height: 100%; box-sizing: border-box 
+
     
 
 `

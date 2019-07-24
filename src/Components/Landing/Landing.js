@@ -8,12 +8,20 @@ import {getUser, logout, login} from '../../Redux/reducer';
 
 //Styled-Components//
 import {grey, black, white, aqua, purple} from '../../styles/Theme/Colors'
+<<<<<<< Updated upstream
 import {LandingPage, LoginBox} from '../../styles/Styled-Components/Layout/Box'
 import {Wrapper, wrap, LoginWrapper} from '../../styles/Styled-Components/Layout/Container'
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 import {Input, Label} from '../../styles/Styled-Components/Inputs/Text-Fields'
 import { SubmitButton, ATag } from "../../styles/Styled-Components/Inputs/Buttons";
 import {Path} from '../../styles/Animations/Animations'
+=======
+import {Page, LoginBox} from '../../styles/Styled-Components/Layout/Box'
+import {Wrapper, LoginWrapper} from '../../styles/Styled-Components/Layout/Container'
+import {Title} from '../../styles/Theme/Typography'
+import {Input} from '../../styles/Styled-Components/Inputs/Text-Fields'
+import { SubmitButton } from "../../styles/Styled-Components/Inputs/Buttons";
+>>>>>>> Stashed changes
 
 
 
@@ -114,11 +122,20 @@ submitFocus(e) {
 
     let {email, password} = this.state;
     return (
+<<<<<<< Updated upstream
     <Wrapper marginTop='80px' className='Wrapper'>
 
       <LandingPage className='LandingPage'>
-        
+        <W1>W</W1>
+        <br></br>
         <W5 className="intro" fontColor={grey[50]} width='306px' marginBottom='20px'>
+=======
+    <Wrapper>
+      <div className="landing">
+        Landing Component
+        <h1 className="title"> Welp </h1>
+        <p className="intro" >
+>>>>>>> Stashed changes
           Welp is a platform for hard-working people to review the customers
           that they love and hate. The worst of the worst can be placed on the
           Wall of Shame to warn others.
@@ -128,6 +145,7 @@ submitFocus(e) {
               <Link id='userLink' to='/home'></Link> 
             </section>
           ) : (
+<<<<<<< Updated upstream
             <LoginBox className='LoginBox' height='350px'>
               <svg width="286.05" height="125.177" viewBox="0 0 286.05 125.177">
   <path id="Path_293" data-name="Path 293" d="M0-66.05H250S266.5-69,266.5-34,250,0,250,0H0S-16.55,3.495-16.55,27.5,0,56,0,56H250s16.5-1.092,16.5-17.55-16.5-17-16.5-17H166s-17.5,1.05-17,17S163.45,56,163.45,56H254" transform="translate(18.05 67.677)" fill="none" stroke={aqua[500]} stroke-linecap="round" stroke-width="4"/>
@@ -144,6 +162,19 @@ submitFocus(e) {
               <ATag className='ATag'to='/home' A="flex-end" MarginRight="0px" MarginLeft='51%' MarginTop="20px">
                 <SubmitButton data-cy="submit" onClick={this.login} onFocus={this.submitFocus}Padding=''>SUBMIT</SubmitButton>
               </ATag>
+=======
+            <LoginBox>
+              <Title fontSize ='36px' fontColor={white[500]} marginBottom='20px' LetterSpacing='-2px'>Login</Title>
+            <section className='logged-out'>
+              <LoginWrapper PaddingLeft = '20px'>
+              <Input name='email' placeholder='email' value={email} onChange={this.handleChange} />
+              <Input name='password' placeholder='password' value={password} onChange={this.handleChange} InputMarginTop='40px'/>
+              <Link to='/home'>
+                
+                <SubmitButton onClick={this.login} marginLeft=''>SUBMIT</SubmitButton>
+              
+              </Link>
+>>>>>>> Stashed changes
               </LoginWrapper>
               <br></br>
               
@@ -166,6 +197,10 @@ submitFocus(e) {
       </LandingPage>
       
         <PreviewWOS />
+<<<<<<< Updated upstream
+=======
+      </div>
+>>>>>>> Stashed changes
       </Wrapper>
     
     );

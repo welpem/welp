@@ -35,9 +35,13 @@ export const LoginBox = styled.div`
     border-radius: 10px;
     height: ${props => props.height};
     width: 306px;
+<<<<<<< Updated upstream
     margin-top: ${props => props.marginTop}
     
     
+=======
+    /* margin-left: 25px; */
+>>>>>>> Stashed changes
 `    
 
 

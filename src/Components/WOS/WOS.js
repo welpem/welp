@@ -79,7 +79,7 @@ class WOS extends Component {
     let displayWOS = wos.map(welp_wos => {
       return (
 
-        <WOSWrapper>
+        <WOSWrapper display='flex'>
           <WOSCard
             key={welp_wos.wos_id}
             wos_id={welp_wos.wos_id}
