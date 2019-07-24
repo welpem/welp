@@ -4,6 +4,7 @@ import AddWOS from "./AddWOS";
 import axios from "axios";
 import "./WOS.css";
 import { connect } from "react-redux";
+import Nav from '../Nav/Nav'
 
 //styled-components//
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
@@ -77,6 +78,7 @@ class WOS extends Component {
     //Map function
     let displayWOS = wos.map(welp_wos => {
       return (
+
         <WOSWrapper>
           <WOSCard
             key={welp_wos.wos_id}

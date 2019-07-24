@@ -1,3 +1,9 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
 svg {
     position: absolute;
     left: 40px;
@@ -8,10 +14,18 @@ path {
 }
 
 body {
+    position: relative;
     background: black;
     height: 100%;
+    cursor: pointer;
+    
 }
 
+
+
+.App {
+    position: relative;
+}
 
 a#RegisterLink{
     display: flex;

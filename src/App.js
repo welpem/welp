@@ -7,6 +7,7 @@ import Footer from './Components/Footer/Footer'
 //styled components//
 import {white, black, grey, aqua, purple} from './styles/Theme/Colors'
 import {Page} from './styles/Styled-Components/Layout/Box'
+import {Background} from './styles/Styled-Components/Layout/Container'
 import styled, {ThemeProvider, createGlobalStyle} from 'styled-components'
 
 
@@ -33,14 +34,16 @@ function App() {
 
 
   return (
+    
+
    
     <main className="App">
     {/* <GlobalStyle/> */}
     {/* <ThemeProvider theme={theme}> */}
-      
+      <Background className='page-bg'></Background>
       <Page>
         
-        {/* <Nav/> */}
+        <Nav/>
           {routes}
         
         {/* <Footer/> */}

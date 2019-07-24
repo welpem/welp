@@ -6,7 +6,7 @@ export const textSize = {
     h1: '36px',
     h2: '24px',
     h3: '18px',
-    h4: '16px',
+    h4: '15px',
     h5: '13px',
     h6: '10px'    
 }
@@ -30,15 +30,25 @@ export const W2 = styled.h2`
     margin-bottom: ${props => props.marginBottom};
     margin-top: ${props => props.marginTop};
     letter-spacing: ${props => props.LetterSpacing};
+    padding-bottom: ${props => props.paddingBottom};
 `;
 export const W3 = styled.h3`
     font-size: ${textSize.h3};
     color: ${props => props.fontColor};
     margin: 0;
-    font-weight: normal;
+    font-weight: ${props => props.fontWeight};
     margin-top: ${props => props.marginTop};
     margin-bottom: ${props => props.marginBottom};
+    margin-left: ${props => props.marginLeft};
     letter-spacing: ${props => props.LetterSpacing};
+    position: ${props => props.position};
+    z-index: ${props => props.zindex};
+    top: ${props => props.top};
+    bottom: ${props => props.bottom};
+    right: ${props => props.right};
+    left: ${props => props.left};
+    width: ${props => props.width};
+    text-align: ${props => props.textAlign};
 `;
 
 export const W4 = styled.h4`
@@ -47,7 +57,13 @@ export const W4 = styled.h4`
     font-style: ${props => props.fontStyle};
     font-weight:normal;
     margin: 0;
+    width: ${props => props.width};
     letter-spacing: ${props => props.LetterSpacing};
+    position: ${props => props.position};
+    top: ${props => props.top};
+    bottom: ${props => props.bottom};
+    right: ${props => props.right};
+    left: ${props => props.left};
 `
 export const W5 = styled.h5`
     font-size: ${textSize.h5};
@@ -58,5 +74,14 @@ export const W5 = styled.h5`
     font-weight: normal;
     letter-spacing: ${props => props.LetterSpacing};
     text-decoration: ${props => props.textDecor};
-
+`;
+export const W6 = styled.h6`
+    font-size: ${textSize.h6};
+    color: ${props => props.fontColor};
+    margin: 0;
+    width: ${props => props.width};
+    margin-bottom: ${props => props.marginBottom};
+    font-weight: normal;
+    letter-spacing: ${props => props.LetterSpacing};
+    text-decoration: ${props => props.textDecor};
 `;

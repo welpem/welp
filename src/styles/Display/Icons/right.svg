@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.142" height="14.142" viewBox="0 0 14.142 14.142">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="14.142" height="14.142" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Right_Detail" data-name="Right Detail" clip-path="url(#clip-path)">
+    <path id="chevron" d="M8,10V2H0V0H10V10Z" transform="translate(7.071 0) rotate(45)" fill="#d1d1d6"/>
+  </g>
+</svg>

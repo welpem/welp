@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import background from '../../Display/Images/Untitled_Artwork.png'
+import {device} from '../../Theme/Breakpoints'
+
 
 export const LoginWrapper = styled.section`
     display: flex;
@@ -23,12 +26,57 @@ export const Wrapper = styled.div`
     
 `
 export const Background = styled.div`
-    
+    background: url(${background});
+    filter: opacity(25%) blur(8px);
+    -webkit-filter: opacity(25%) blur(8px);
+    -moz-filter: opacity(25%) blur(8px);
+    -o-filter: opacity(25%) blur(8px);
+    -ms-filter: opacity(25%) blur(8px);
+    position: absolute;
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    @media ${device.mobileM} {
+        background-size: 375px 100vh;
+    }
 `
 export const WOSWrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: ${props => props.marginTop}
+    margin-top: ${props => props.marginTop};
+    position: ${props => props.position};
+    z-index: ${props => props.zindex};
+    top: ${props => props.top};
+    bottom: ${props => props.bottom};
+    right: ${props => props.right};
+    left: ${props => props.left};
+    grid-template-columns: ${props => props.gridColumns};
+    grid-template-rows: ${props => props.gridRows};
+    grid-column-gap: ${props => props.columnGap};
+    grid-row-gap: ${props => props.rowGap};
+
+    `
+export const RWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-top: ${props => props.marginTop};
+    position: ${props => props.position};
+    z-index: ${props => props.zindex};
+    top: ${props => props.top};
+    bottom: ${props => props.bottom};
+    right: ${props => props.right};
+    left: ${props => props.left};
+`
+export const Wrap = styled.div`
+    margin-top: ${props => props.marginTop};
+    grid-template-rows: ${props => props.gridRows};
+    grid-template-columns: ${props => props.gridColumns};
 `

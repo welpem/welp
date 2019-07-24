@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {grey, white} from '../../Theme/Colors'
-
+import {grey, white, aqua} from '../../Theme/Colors'
+import {textSize} from '../../Theme/Typography'
 
 
 export const SubmitButton = styled.button`
@@ -34,4 +34,14 @@ export const IMG = styled.img`
     left: ${props => props.left};
     right: ${props => props.right};
     margin-top: ${props => props.marginTop};
+    align-self: ${props => props.alignSelf};
+    margin-right: ${props => props.marginRight};
+`
+
+export const LearnButton = styled.button`
+    font-size: ${textSize.h5};
+    color: ${aqua[500]};
+    border: ${grey[300]} solid 1px;
+    background: none;
+    filter: opacity(53%);
 `

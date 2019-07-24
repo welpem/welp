@@ -9,7 +9,7 @@ import {getUser, logout, login} from '../../Redux/reducer';
 //Styled-Components//
 import {grey, black, white, aqua, purple} from '../../styles/Theme/Colors'
 import {LandingPage, LoginBox} from '../../styles/Styled-Components/Layout/Box'
-import {Wrapper, LoginWrapper} from '../../styles/Styled-Components/Layout/Container'
+import {Wrapper, wrap, LoginWrapper} from '../../styles/Styled-Components/Layout/Container'
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 import {Input, Label} from '../../styles/Styled-Components/Inputs/Text-Fields'
 import { SubmitButton, ATag } from "../../styles/Styled-Components/Inputs/Buttons";
@@ -110,11 +110,10 @@ submitFocus(e) {
 
     let {email, password} = this.state;
     return (
-    <Wrapper className='Wrapper'>
+    <Wrapper marginTop='80px' className='Wrapper'>
 
       <LandingPage className='LandingPage'>
         
-        <h1 className="title"> Welp </h1>
         <W5 className="intro" fontColor={grey[50]} width='306px' marginBottom='20px'>
           Welp is a platform for hard-working people to review the customers
           that they love and hate. The worst of the worst can be placed on the
@@ -122,7 +121,7 @@ submitFocus(e) {
         </W5>
         {this.props.state.user.email ? (
             <section className='logged-in'>
-              <Link to='/'><button data-cy="logout" onClick={this.logout}>Log Out</button></Link>
+              <Link id='userLink' to='/home'></Link> 
             </section>
           ) : (
             <LoginBox className='LoginBox' height='350px'>
@@ -136,7 +135,7 @@ submitFocus(e) {
               <Label for='email'>Email</Label>
               <Input data-cy="emailInput" id='email' name='email' value={email} onChange={this.handleChange} onFocus={this.emailFocus} InputMarginTop='5px' marginBottom='10px'/>
               <Label for='password' >Password</Label>
-              <Input data-cy="passwordInput" name='password' value={password} onChange={this.handleChange} onFocus={this.passwordFocus}InputMarginTop='5px' id='password'/>
+              <Input data-cy="passwordInput" name='password' type='password'value={password} onChange={this.handleChange} onFocus={this.passwordFocus}InputMarginTop='5px' id='password'/>
 
               <ATag className='ATag'to='/home' A="flex-end" MarginRight="0px" MarginLeft='51%' MarginTop="20px">
                 
@@ -163,6 +162,7 @@ submitFocus(e) {
           )}
         {/* <PreviewReviews /> */}
       </LandingPage>
+      
         <PreviewWOS />
       </Wrapper>
     
