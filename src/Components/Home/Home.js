@@ -5,21 +5,30 @@ import './Home.css';
 // import PreviewReviews from '../Reviews/PreviewReviews';
 import PreviewWOS from '../WOS/PreviewWOS';
 
+import next from '../../styles/Display/Icons/right.svg'
+import {Grid} from '../../styles/Styled-Components/Layout/Grid'
+import {LearnButton} from '../../styles/Styled-Components/Inputs/Buttons'
+import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
+import {grey, black, white, aqua, purple} from '../../styles/Theme/Colors'
+import {IMG, ATag} from '../../styles/Styled-Components/Inputs/Buttons'
+
 function Home() {
   return (
     <main className="Home">
         <section className='home-about'>
-          <h3>{"let it out, we don't judge... well, maybe just a little".toUpperCase()}</h3>
-          <button>learn more about welp</button>
+          <W3 fontColor={purple[500]}>{"let it out, we don't judge...".toUpperCase()}</W3>
+          <W3 fontColor={grey[50]}>{"well".toUpperCase()}</W3>
+          <W3 fontColor={purple[500]}>{"maybe just a little".toUpperCase()}</W3>
+          <LearnButton>learn more about welp</LearnButton>
         </section>
         <section className='home-reviews'>
-          <h2>Welp Em</h2>
+        <W3 fontColor={grey[50]} LetterSpacing='-1px' fontStyle='black' fontWeight='900' marginTop='90px;' textAlign='left' marginLeft='20px'>welps.</W3>
           {/* <PreviewReviews /> */}
-          <Link to='/reviews'><button> > </button></Link>
+          <ATag position='absolute' right='20px'to='/reviews'><IMG src={next}/></ATag>
         </section>
         <section className='home-wos'>
           <PreviewWOS />
-          <Link to='/wos'><button> > </button></Link>
+          <ATag to='/wos'><IMG src={next}/></ATag>
         </section>
     </main>
   );

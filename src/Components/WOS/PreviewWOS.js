@@ -10,6 +10,7 @@ import {Wrapper, WOSWrapper} from '../../styles/Styled-Components/Layout/Contain
 // import {WOSCard} from '../../styles/Styled-Components/Surfaces/Cards'
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
+import { Wrap } from '../../styles/Styled-Components/Layout/Container';
 
 class PreviewWOS extends Component {
     constructor(props) {
@@ -65,8 +66,8 @@ class PreviewWOS extends Component {
   
       return (
         
-          <div >
-            <W2 fontColor={grey[50]} LetterSpacing='-2px' fontStyle='black' fontWeight='900' marginTop='90px;'>WALL OF SHAME</W2>
+          <div>
+            <W3 fontColor={grey[50]} LetterSpacing='-1px' fontStyle='black' fontWeight='900' marginTop='90px;' textAlign='left' marginLeft='20px'>wall of shame.</W3>
             {this.props.user.email ? (<AddWOS getWOS={this.getWOS} user={this.props.user} />)  : null }
             
             {wos ? displayWOS : "No offenders yet"}

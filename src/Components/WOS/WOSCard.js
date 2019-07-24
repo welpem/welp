@@ -10,7 +10,7 @@ import Delete from '../../styles/Display/Images/Delete.svg'
 
 export default function WOSCard(props) {
     return (
-        <WCard backgroundColor={grey[300]}>
+        <WCard backgroundColor={grey[300]} width='227px' height='330px'>
   
 
 {/* delete button */}
@@ -29,8 +29,10 @@ export default function WOSCard(props) {
     <div className='flip-card'>
       <div className='flip-card-inner'>
         <div className='flip-card-front'>
-            <p id="firstName">{props.users_first_name}</p>
-            <p id="busName">{props.businesses_name}</p>
+          <div id='usertag'>
+            <W6 id="firstName" fontColor={purple[500]} >{props.users_first_name}</W6>
+            <W6 id="busName">{props.businesses_name}</W6>
+            </div>
             <WOSImg 
                 src={props.wos_img} alt="Offender's mugshot" />
             <W2 fontColor={red[500]} LetterSpacing='-2px;' fontStyle='black' fontWeight='800'>{props.wos_title}</W2>

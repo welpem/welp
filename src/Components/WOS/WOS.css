@@ -54,3 +54,11 @@
     
     
 }
+.home-was {
+    display: grid;
+    grid-template-columns: repeat(2, 350px);
+}
+#usertag {
+    text-align: left;
+    padding: 10px;
+}

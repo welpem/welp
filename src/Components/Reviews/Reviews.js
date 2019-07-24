@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReviewCard from './ReviewCard'
 import AddReview from './AddReview'
 // import AddCardButton from './AddCardButton'
-
+import Comments from './Comments'
 import axios from 'axios'
 import './Reviews.css';
 import {connect} from 'react-redux';
@@ -52,7 +52,7 @@ class Reviews extends Component{
         console.log(reviews)
         let displayReviews = reviews.map(welp_reviews => {
           return(
-          <Wrapper>
+          <Wrapper alignItems='center'>
             <ReviewCard 
             key = {welp_reviews.reviews_id}
             welp_reviews={welp_reviews}
@@ -61,6 +61,12 @@ class Reviews extends Component{
             getReviews={this.getReviews} 
             user={this.props.user}
             />
+            <Comments
+            key={welp_reviews.reviews_id}
+            welp_reviews={welp_reviews}
+            user={this.props.user}
+            />
+        
           </Wrapper>
           )
         })
