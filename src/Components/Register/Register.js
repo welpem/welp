@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Axios from 'axios';
 import {connect} from 'react-redux';
 
@@ -72,7 +72,7 @@ class Register extends Component{
                     // console.log('David: ', this.state)
                 }
                 if(user.data !== businesses_name){
-                    // console.log('David: user hit')
+                    console.log('David: user hit', new_email, new_password)
                     this.props.login(new_email, new_password)
                 }
                 this.setState({
@@ -119,6 +119,11 @@ class Register extends Component{
     render(){
         let {first_name, last_name, new_password, new_email, image, businesses_name, businesses_image, businesses_notes, businesses_address_line1, businesses_address_line2, businesses_city, businesses_state, businesses_zip, businesses_country} = this.state;
         // console.log(this.state.businesses)
+        console.log(this.props)
+
+        {if(this.props.state.redirect !== false){
+            return <Redirect to='/home' />
+        }}
 
         return(
             <LandingPage className='Register'>
@@ -144,9 +149,12 @@ class Register extends Component{
                                 <option key={index} value={business.businesses_name}>{business.businesses_name}</option>
                             ))}
                         </Select>
-                    <ATag to='/home' MarginLeft='42%' MarginTop="30px">
+                    {/* <ATag to='/home' MarginLeft='42%' MarginTop="30px"> */}
+                    <Link to='/home' MarginLeft='42%' MarginTop="30px">
                         <SubmitButton name='register_user' onClick={this.register}>SUBMIT
-                        </SubmitButton></ATag>
+                        </SubmitButton>
+                    </Link>
+                    {/* </ATag> */}
                     </LoginWrapper>
                 </LoginBox>
                 <LoginBox className='register-business' marginTop='50px;'>

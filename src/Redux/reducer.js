@@ -3,7 +3,8 @@ import axios from 'axios';
 const initialState = {
     loading: false,
     user: [],
-    name: ''
+    name: '',
+    redirect: false
 }
 
 const GET_USER = 'GET_USER';
@@ -63,11 +64,12 @@ export default function reducer(state = initialState, action) {
         case `${LOGIN}_PENDING`:
             return {...state, loading: true};
         case `${LOGIN}_FULFILLED`:
-            return {...state, user: action.payload.data, loading: false};
+            return {...state, user: action.payload.data, loading: false, redirect: true};
         case `${LOGOUT}_FULFILLED`:
             return {...state, user: action.payload.data,
                 loading: false,
-                name: ''
+                name: '',
+                redirect: false
             }
         case `${UPDATE}_FULFILLED`:
             return {...state, user: action.payload.data, loading: false}
