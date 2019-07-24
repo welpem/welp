@@ -3,11 +3,15 @@ import styled from 'styled-components'
 import background from '../../Display/Images/Untitled_Artwork.png'
 import {device} from '../../Theme/Breakpoints'
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 export const LoginWrapper = styled.section`
     display: flex;
     padding-left: ${props => props.PaddingLeft};
     flex-direction: column;
+<<<<<<< Updated upstream
     align-content: ${props => props.AlignContent};
     justify-content: ${props => props.JustifyContent};
     position: absolute;
@@ -85,4 +89,15 @@ export const Wrap = styled.div`
     width: 350px; 
     display: flex;
     flex: wrap;
+=======
+    align-content: flex-start;
+`
+export const Wrapper = styled.div`
+    display: flex;
+    align-content: space-around;
+    border: solid red;
+    width: 100%;
+    height: 100vh;
+    
+>>>>>>> Stashed changes
 `

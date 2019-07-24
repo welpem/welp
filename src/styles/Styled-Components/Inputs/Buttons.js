@@ -1,11 +1,17 @@
 import styled from 'styled-components'
+<<<<<<< Updated upstream
 import {grey, white, aqua} from '../../Theme/Colors'
 import {textSize} from '../../Theme/Typography'
+=======
+import {grey} from '../../Theme/Colors'
+
+>>>>>>> Stashed changes
 
 
 export const SubmitButton = styled.button`
     background: none;
     border: none;
+<<<<<<< Updated upstream
     color: ${grey[100]};
     font-family: 'Inter';
     letter-spacing: .2em;
@@ -45,3 +51,10 @@ export const LearnButton = styled.button`
     background: none;
     filter: opacity(53%);
 `
+=======
+    color: ${grey[50]};
+    font-family: 'Inter';
+    letter-spacing: .2em;
+    margin-left: ${props => props.marginLeft}
+`
+>>>>>>> Stashed changes

@@ -8,6 +8,7 @@ export const Input = styled.input`
     height: 30px;
     width: 250px;
     color: ${grey[50]};
+<<<<<<< Updated upstream
     margin-top: 5px;
     margin-bottom:10px;
     letter-spacing: 0.05em;
@@ -33,4 +34,8 @@ export const Select = styled.select`
     margin-top: ${props => props.marginTop};
     margin-bottom: ${props => props.marginTop};
     letter-spacing: 0.05em;
+=======
+    margin-top: ${props => props.InputMarginTop};
+    letter-spacing: 0.2em;
+>>>>>>> Stashed changes
 `
