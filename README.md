@@ -29,4 +29,4 @@ Users can post positive reviews about customers who stood out and deserve reconi
 * sass
 
 ## Domain
-www.welpem.com
+The website is hosted at www.welpem.com
