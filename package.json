@@ -26,6 +26,7 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
+    "react-star-rating": "^1.4.2",
     "redux": "^4.0.4",
     "redux-promise-middleware": "^6.1.1",
     "sass": "^1.22.4",

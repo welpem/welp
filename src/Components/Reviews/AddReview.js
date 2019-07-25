@@ -12,6 +12,7 @@ import axios from 'axios'
 
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
+import { Modal } from '../../styles/Utils/Modal';
 
 
 export default function EditFormModule(props) {
@@ -155,7 +156,7 @@ export default function EditFormModule(props) {
 
 
 {/* ---------- Regular Pop Up Modal ---------- */}
-    <dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
+    <Modal open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
 
 
         <h2>
@@ -221,7 +222,7 @@ export default function EditFormModule(props) {
 
 
 
-    </dialog>
+    </Modal>
 {/* ---------- Regular Pop Up Modal ---------- */}
 
 
