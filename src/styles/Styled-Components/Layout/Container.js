@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import background from '../../Display/Images/Untitled_Artwork.png'
 import {device} from '../../Theme/Breakpoints'
 
-
 export const LoginWrapper = styled.section`
     display: flex;
     padding-left: ${props => props.PaddingLeft};

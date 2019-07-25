@@ -115,7 +115,6 @@ submitFocus(e) {
     let {email, password} = this.state;
     return (
     <Wrapper marginTop='70px' className='Wrapper'>
-
       <LandingPage className='LandingPage'>
         <W1>W</W1>
         <br></br>
