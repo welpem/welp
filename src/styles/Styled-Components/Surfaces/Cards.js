@@ -9,7 +9,6 @@ export const WCard = styled.div`
     height: ${props => props.height};
     margin-top: 20px;
     margin: 0;
-    justify-self: center; align-self: center; min-width: 100%; min-height: 100%; box-sizing: border-box 
 
     
 
@@ -25,12 +24,14 @@ border: .1em solid grey;
 
 export const RCard = styled.div`
     position: relative;
+    display: flex;
+    justify-content: center;
     background: ${props => props.backgroundColor};
     color: ${props => props.color};
     font-size: ${props => props.fontSize};
-    margin-top: 100px;
+    margin-top: 50px;
     width: 331px;
-    height: 298px;
+    height: 300px;
     
 `
 export const ReviewIMG = styled.img`

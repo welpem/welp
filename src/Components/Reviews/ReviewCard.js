@@ -3,7 +3,7 @@ import React from 'react';
 import './Reviews.css';
 import EditReviewModule from './EditReviewModule'
 import Comments from './Comments'
-
+import StarRating from 'react-star-rating'
 import {RCard, ReviewIMG} from '../../styles/Styled-Components/Surfaces/Cards'
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
@@ -21,6 +21,7 @@ export default function ReviewCard(props) {
     // console.log(props)
     // console.log(props.welp_reviews.users_id)
     // console.log(props.user.id)
+
     return (
         <RCard backgroundColor={grey[500]} className = 'reviews-big-container'>
     
@@ -85,11 +86,12 @@ export default function ReviewCard(props) {
                 src={props.welp_reviews.reviews_img} />
 
 {/* review description */}
-            <W4 fontColor={grey[50]} width='300px'position='absolute' bottom='40px' left='15px'>{props.welp_reviews.reviews_description}</W4>
+            <W4 fontColor={grey[50]} width='300px'position='absolute' bottom='50px' left='15px' height='100px'>{props.welp_reviews.reviews_description}</W4>
 
 {/* review score */}
-            <p className = 'review-stars'>{props.welp_reviews.reviews_score} stars</p>
-        
+            {/* <p className = 'review-stars'>rate: {props.welp_reviews.reviews_score} 
+            stars</p> */}
+            
 
             
 

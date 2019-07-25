@@ -14,10 +14,28 @@
 
 /* ---------------------------------------------------- */
 
+p.review-description {
+    max-width: 280px; 
+    font-size: 13px;
+    width: 280px;
 
+    
+}
+.comments-user-info {
+    color: #12E6C8;
+    font-weight: bold;
+}
 
+.reviews-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
 
-
+.reviews-user-info {
+    color: grey 
+}
 
 
 
@@ -25,3 +43,14 @@
 .textarea{
     overflow-y: scroll; 
 }
+p.review-stars {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    bottom: 1px;
+    width: 250px;
+    height: 40px;
+    margin: 0;
+}
+

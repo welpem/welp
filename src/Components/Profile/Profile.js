@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Axios from 'axios';
 import {connect} from 'react-redux';
+import './Profile.css'
 
 import {getUser, updateUser} from '../../Redux/reducer'
 

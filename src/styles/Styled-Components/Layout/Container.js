@@ -71,6 +71,8 @@ export const WOSWrapper = styled.div`
 export const RWrapper = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     margin-top: ${props => props.marginTop};
     position: ${props => props.position};
     z-index: ${props => props.zindex};
@@ -78,6 +80,10 @@ export const RWrapper = styled.div`
     bottom: ${props => props.bottom};
     right: ${props => props.right};
     left: ${props => props.left};
+    text-align: left;
+    color: ${props => props.color};
+    width: 340px;
+
 `
 export const Wrap = styled.div`
     margin-top: ${props => props.marginTop};

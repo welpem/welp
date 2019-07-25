@@ -49,6 +49,7 @@ export const W3 = styled.h3`
     left: ${props => props.left};
     width: ${props => props.width};
     text-align: ${props => props.textAlign};
+    height: ${props => props.height};
 `;
 
 export const W4 = styled.h4`
@@ -64,6 +65,8 @@ export const W4 = styled.h4`
     bottom: ${props => props.bottom};
     right: ${props => props.right};
     left: ${props => props.left};
+    height: ${props => props.height};
+    overflow: auto;
 `
 export const W5 = styled.h5`
     font-size: ${textSize.h5};
