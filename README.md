@@ -13,7 +13,7 @@ The site is made up of the following main pages:
 ## Reviews
 Users can post positive reviews about customers who stood out and deserve reconition. This page also allows them to post negative reviews to warn other businesses of customers they should monitor.
 
-## This project uses the following technologies:
+## Technologies
 * react-router-dom
 * express
 * express-session
