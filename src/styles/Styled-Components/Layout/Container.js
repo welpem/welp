@@ -3,15 +3,11 @@ import styled from 'styled-components'
 import background from '../../Display/Images/Untitled_Artwork.png'
 import {device} from '../../Theme/Breakpoints'
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 export const LoginWrapper = styled.section`
     display: flex;
     padding-left: ${props => props.PaddingLeft};
     flex-direction: column;
-<<<<<<< Updated upstream
     align-content: ${props => props.AlignContent};
     justify-content: ${props => props.JustifyContent};
     position: absolute;
@@ -76,6 +72,8 @@ export const WOSWrapper = styled.div`
 export const RWrapper = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     margin-top: ${props => props.marginTop};
     position: ${props => props.position};
     z-index: ${props => props.zindex};
@@ -83,21 +81,14 @@ export const RWrapper = styled.div`
     bottom: ${props => props.bottom};
     right: ${props => props.right};
     left: ${props => props.left};
+    text-align: left;
+    color: ${props => props.color};
+    width: 340px;
+
 `
 export const Wrap = styled.div`
     margin-top: ${props => props.marginTop};
     width: 350px; 
     display: flex;
     flex: wrap;
-=======
-    align-content: flex-start;
-`
-export const Wrapper = styled.div`
-    display: flex;
-    align-content: space-around;
-    border: solid red;
-    width: 100%;
-    height: 100vh;
-    
->>>>>>> Stashed changes
 `

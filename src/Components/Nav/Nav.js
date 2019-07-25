@@ -43,6 +43,8 @@ class Nav extends Component {
   handleChange(e){
     this.setState({[e.target.name]: e.target.value})
   }
+
+  
   
   render(){
     console.log(this.props.state.user)
@@ -51,7 +53,7 @@ class Nav extends Component {
     return (
 
       <nav role='navigation'>
-        <MenuToggle id='menuToggle'>
+        <MenuToggle id='menuToggle' >
           <input type='checkbox' />
 
           <span></span>
