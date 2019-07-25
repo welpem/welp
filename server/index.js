@@ -31,10 +31,10 @@ app.use(
 massive(CONNECTION_STRING).then(db => {
     app.set("db", db);
     console.log("Database connected");
-});
+}).catch(console.log);
 
-
-
+app.use(express.static(`${__dirname}/../build`));
+console.log(__dirname);
 
 //Endpoints//
 
