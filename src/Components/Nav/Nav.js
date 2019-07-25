@@ -76,7 +76,7 @@ class Nav extends Component {
             </Dropdown>
             <li><A href='#home'>home.</A></li>
             <li><A href='#reviews'>welps.</A><img src={review}/></li>
-            <li><A href='#WOS'>w.o.s</A><img src={prisoner} /></li>
+            <li><A href='#WOS'>wall of shame.</A><img src={prisoner} /></li>
             <li><A href='#about'>about.</A><img src={about}/></li>
           </ul>
         </MenuToggle>
