@@ -9,7 +9,7 @@ import React from 'react';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 // import IconButton from '@material-ui/core/IconButton';
 import axios from 'axios'
-import StarRating from 'react-star-rating'
+// import StarRating from 'react-star-rating'
 import {Modal } from '../../styles/Utils/Modal'
 import { IMG } from '../../styles/Styled-Components/Inputs/Buttons';
 

@@ -6,6 +6,7 @@ import Reviews from './Components/Reviews/Reviews'
 import {Route, Switch} from 'react-router-dom';
 import Landing from './Components/Landing/Landing'
 import Profile from './Components/Profile/Profile';
+import About from './Components/About/About';
 
 export default (
     <Switch>
@@ -15,5 +16,6 @@ export default (
         <Route path='/WOS' component={WOS}/>
         <Route path='/reviews' component={Reviews}/>
         <Route path='/profile' component={Profile}/>
+        <Route path='/about' component={About}/>
     </Switch>
 )
