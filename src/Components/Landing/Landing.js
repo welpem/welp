@@ -37,12 +37,12 @@ class Landing extends Component {
   }
 
   componentDidMount(){
-    console.log('mounted')
+    // console.log('mounted')
     this.props.getUser()
   }
   login(){
     let {email, password} = this.state;
-    console.log(this.state.user)
+    // console.log(this.state.user)
     this.props.login(email, password)
   }
   logout(){
@@ -107,7 +107,7 @@ submitFocus(e) {
 }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     {if(this.props.state.redirect !== false){
       return <Redirect to='/home' />
     }}

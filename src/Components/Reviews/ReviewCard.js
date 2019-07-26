@@ -3,7 +3,7 @@ import React from 'react';
 import './Reviews.css';
 import EditReviewModule from './EditReviewModule'
 import Comments from './Comments'
-import StarRating from 'react-star-rating'
+// import StarRating from 'react-star-rating'
 import {RCard, ReviewIMG} from '../../styles/Styled-Components/Surfaces/Cards'
 import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'

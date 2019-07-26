@@ -28,7 +28,7 @@ class Nav extends Component {
   }
 
   componentDidMount(){
-    console.log('mounted')
+    // console.log('mounted')
     this.props.getUser()
   }
   login(){
@@ -47,7 +47,7 @@ class Nav extends Component {
   
   
   render(){
-    console.log(this.props.state.user)
+    // console.log(this.props.state.user)
     let {email, password} = this.state;
 
     return (

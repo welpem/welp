@@ -44,12 +44,12 @@ class Reviews extends Component{
     }
 
     render(){
-        console.log(this.props);
+        // console.log(this.props);
 
   
         let {reviews } = this.state
       
-        console.log(reviews)
+        // console.log(reviews)
         let displayReviews = reviews.map(welp_reviews => {
           return(
           <Wrapper alignItems='center'>
