@@ -81,6 +81,7 @@ class Reviews extends Component{
               <AddReview
               getReviews={this.getReviews} 
               user={this.props.user}
+              Modal={this.props.Modal}
               />
         :
         null

@@ -22,7 +22,9 @@ export default function WOSCard(props) {
                   user={props.user}
               />
               ) : null}
-  
+
+
+
 {/* edit button */}
 
 {/* wos username*/}

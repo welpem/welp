@@ -114,10 +114,9 @@ submitFocus(e) {
 
     let {email, password} = this.state;
     return (
-    <Wrapper marginTop='80px' className='Wrapper'>
-
+    <Wrapper marginTop='70px' className='Wrapper'>
       <LandingPage className='LandingPage'>
-        <W1>W</W1>
+        <W1>Welp</W1>
         <br></br>
         <W5 className="intro" fontColor={grey[50]} width='306px' marginBottom='20px'>
           Welp is a platform for hard-working people to review the customers

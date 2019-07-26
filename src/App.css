@@ -7,7 +7,7 @@ html { font-family: 'Inter', sans-serif; }
 svg {
     position: absolute;
     left: 40px;
-    margin-top: 159px;
+    margin-top: 149px;
 }
 path {
     stroke-dasharray: 250 1053;

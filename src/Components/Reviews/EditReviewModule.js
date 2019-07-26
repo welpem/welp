@@ -9,6 +9,9 @@ import React from 'react';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 // import IconButton from '@material-ui/core/IconButton';
 import axios from 'axios'
+import StarRating from 'react-star-rating'
+import {Modal } from '../../styles/Utils/Modal'
+import { IMG } from '../../styles/Styled-Components/Inputs/Buttons';
 
 
 export default function EditFormModule(props) {
@@ -18,6 +21,12 @@ export default function EditFormModule(props) {
   const [img, setImage] = React.useState();
   const [description, setDescription] = React.useState();
   const [score, setScore] = React.useState();
+  const [alert, e, data] =React.useState();
+
+  function handleRatingClick(e, data) {
+    alert('You left a ' + data.rating + ' star rating for ' + data.caption);
+  }
+
 
 
   function handleClickOpen() {
@@ -66,15 +75,16 @@ export default function EditFormModule(props) {
 
 
 
-          <button 
+          <IMG
             className = 'edit-review-button'
             aria-label="Info"
             onClick={() => props.editReviewFn(props.reviews.reviews_id)}
             onClick={handleClickOpen}
+            
       
           >
             Edit
-          </button>
+          </IMG>
 
 
 
@@ -157,7 +167,7 @@ export default function EditFormModule(props) {
 
 
 {/* ---------- Regular Pop Up Modal ---------- */}
-    <dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
+    <Modal open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
 
 
         <h2>
@@ -188,6 +198,10 @@ export default function EditFormModule(props) {
                     onChange = {(e) => setDescription(e.target.value)}
                     defaultValue = {props.welp_reviews.reviews_description}
         />
+        {/* <StarRating name='react-star-rating'
+                    caption='rate:'
+                    onRatingClick={(e, data) =>handleRatingClick(e.target.data)}
+        /> */}
         <label>Stars: (1-5) </label>
         <select     id = 'stars'
                     onChange = {(e) => setScore(e.target.value)}
@@ -223,7 +237,7 @@ export default function EditFormModule(props) {
 
 
 
-    </dialog>
+    </Modal>
 {/* ---------- Regular Pop Up Modal ---------- */}
 
 

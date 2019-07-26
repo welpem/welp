@@ -4,7 +4,9 @@ import './Reviews.css';
 import axios from 'axios'
 // import EditCommentModule from './EditCommentModule'
 
+import {white, black, grey, aqua, purple, red} from '../../styles/Theme/Colors'
 import {RWrapper} from '../../styles/Styled-Components/Layout/Container'
+import {W1, W2, W3, W4, W5, W6} from '../../styles/Theme/Typography'
 
 
 export default function CommentCard(props) {
@@ -55,7 +57,7 @@ const [userEdit, setUserEdit] = React.useState()
                 ?
 
                 <div className = 'comments-card-container'>
-                <RWrapper className = 'comments-see-and-edit-container'>
+                <RWrapper className = 'comments-see-and-edit-container' color={grey[50]}>
                 <div className = 'reviews-user'>
 {/* see user who made the comment    */}
                     <div className = 'comments-user-info'> 
