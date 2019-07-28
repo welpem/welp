@@ -11,7 +11,7 @@ The site is made up of the following main pages:
 * a register page (where people can register either themself as a user or their company if they are the first user to connect to our site)
 
 ## Reviews
-Users can post positive reviews about customers who stood out and deserve reconition. This page also allows them to post negative reviews to warn other businesses of customers they should monitor.
+Users can post positive reviews about customers who stood out and deserve recognition. This page also allows them to post negative reviews to warn other businesses of customers they should monitor.
 
 ## Technologies
 * react-router-dom
