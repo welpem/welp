@@ -19,7 +19,7 @@
     "material-ui-icons": "^1.0.0-beta.36",
     "mui-datatables": "^2.6.3",
     "node": "^12.6.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "npm": "^6.10.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
